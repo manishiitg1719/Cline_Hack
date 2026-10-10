@@ -23,6 +23,14 @@ describe('message templates', () => {
     }
   })
 
+  it('renders disease labels and model crop keys as readable names', () => {
+    const p = { disease: 'Potato___Late_blight', farms: 6, radius: 4, risk: 'high', crop: 'potato' }
+    expect(renderMessage('radar_outbreak', p, 'en')).toContain('Potato late blight found on 6 farms')
+    expect(renderMessage('radar_outbreak', p, 'hi')).toContain('आलू का पछेती झुलसा')
+    // crop only in the disease KB (not in the message crop list) still gets a name
+    expect(renderMessage('radar_outbreak', { ...p, crop: 'pepper' }, 'hi')).toContain('शिमला मिर्च')
+  })
+
   it('builds WhatsApp links with India country code', () => {
     expect(whatsappLink('hello world', '98765 43210')).toBe('https://wa.me/919876543210?text=hello%20world')
   })

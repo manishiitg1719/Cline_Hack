@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import kbEn from '@shared/disease/kb_en.json'
 import kbHi from '@shared/disease/kb_hi.json'
@@ -51,6 +52,10 @@ export default function DiseaseResult({ result }) {
         </div>
         <div className="mt-1 text-sm text-gray-600">{t('scan.confidence')}: {pct}%</div>
       </div>
+
+      {!healthy && (
+        <Link to="/radar" className="block rounded-xl bg-blue-50 p-2 text-xs text-blue-900">📡 {t('radar.sharedNote')} →</Link>
+      )}
 
       {!healthy && (
         <div className="card space-y-2 text-sm">

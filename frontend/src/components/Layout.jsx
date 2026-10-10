@@ -13,7 +13,7 @@ export const NAV = [
   { to: '/weather', key: 'weather', icon: '🌦️', ready: true },
   { to: '/irrigation', key: 'irrigation', icon: '💧', ready: true },
   { to: '/scan', key: 'scan', icon: '🦠', ready: true },
-  { to: '/radar', key: 'radar', icon: '📡' },
+  { to: '/radar', key: 'radar', icon: '📡', ready: true },
   { to: '/crop', key: 'crop', icon: '🌱' },
   { to: '/satellite', key: 'satellite', icon: '🛰️' },
   { to: '/status', key: 'status', icon: '🔀', ready: true },

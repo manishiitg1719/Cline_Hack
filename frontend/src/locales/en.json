@@ -86,6 +86,23 @@
     "tryExamples": "Try with example photos", "history": "Recent scans",
     "attribution": "Model: plant-disease-dinov2-small by Rodayna Emad (CC BY-SA 4.0), trained on PlantVillage (Hughes & Salathé). Supports 14 crops: apple, blueberry, cherry, maize, grape, orange, peach, capsicum, potato, raspberry, soybean, squash, strawberry, tomato."
   },
+  "radar": {
+    "intro": "Every leaf scan in your area helps everyone. When several nearby farms report the same disease and the weather favours its spread, farmers growing that crop are warned early.",
+    "runNow": "Check now", "analyzed": "Analysis done: {{outbreaks}} cluster(s) found, {{alerts}} new alert(s) sent.",
+    "myFarm": "My farm", "farms": "{{count}} farms", "demoData": "DEMO DATA",
+    "demoBanner": "This map contains DEMO DATA (fake nearby farms) for demonstration. Real reports are shown the same way.",
+    "legendCase": "Reported case (≈1 km)", "lastRun": "Last check", "nearYou": "Near you", "noneNear": "No disease outbreaks reported near your farm.",
+    "summary": "{{farms}} farms · {{dist}} km away · crop: {{crop}}", "weatherRisk": "Weather risk of spread", "yourCrop": "This is your crop — check your leaves today.",
+    "level": { "watch": "Watch", "warning": "Warning", "outbreak": "Outbreak" },
+    "risk": { "low": "Low", "medium": "Medium", "high": "High", "unknown": "Unknown" },
+    "weatherOnly": "Weather risk for your crop (next 3 days)", "weatherOnlyHint": "Based only on the forecast — works even when no one nearby has reported anything.",
+    "cropNotSupported": "Set a supported crop (e.g. potato, tomato, maize, grape, apple) on My Farm to see disease weather risk.",
+    "demoTitle": "Demo mode (for judges)", "demoHint": "Adds fake scans from nearby farms, clearly marked as DEMO DATA, then runs the analysis. Remove them anytime.",
+    "demoAdd": "Add demo cases", "demoClear": "Remove all demo data", "demoCleared": "Removed {{count}} demo scans.",
+    "privacy": "Privacy: only the disease result and a location rounded to about 1 km are shared — never your photo, name or exact field. You can delete any scan.",
+    "sharedNote": "Shared anonymously with the Village Disease Radar to warn nearby farmers.",
+    "banner": "Disease alert near your farm", "bannerText": "{{farms}} farms, {{dist}} km away"
+  },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
   "status": {
     "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",

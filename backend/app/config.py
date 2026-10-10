@@ -28,6 +28,8 @@ class Settings:
             if o.strip()
         ]
         self.force_fallback = _bool("FORCE_FALLBACK", False)
+        # Village Disease Radar background analysis interval (0 = disabled; use the "Run now" button)
+        self.radar_interval_minutes = int(os.getenv("RADAR_INTERVAL_MINUTES", "60"))
 
         # LLM
         self.llm_enabled = _bool("LLM_ENABLED", False)

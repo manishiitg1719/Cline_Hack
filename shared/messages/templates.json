@@ -18,7 +18,7 @@
     { "id": "irrigation_now", "icon": "💧", "params": { "crop": "crop", "moisture": "number", "rain": "number" } },
     { "id": "irrigation_delay", "icon": "⏳", "params": { "rain": "number" } },
     { "id": "disease_result", "icon": "🦠", "params": { "crop": "crop", "disease": "raw", "confidence": "number", "treatment": "raw" } },
-    { "id": "radar_outbreak", "icon": "🔴", "params": { "disease": "raw", "farms": "number", "radius": "number", "risk": "risk", "crop": "crop" } },
+    { "id": "radar_outbreak", "icon": "🔴", "params": { "disease": "disease", "farms": "number", "radius": "number", "risk": "risk", "crop": "crop" } },
     { "id": "crop_plan", "icon": "🌱", "params": { "crop": "crop", "match": "number", "yield": "raw", "window": "raw" } },
     { "id": "help_request", "icon": "🙋", "params": { "name": "raw", "issue": "issue", "note": "text" } }
   ]

@@ -12,8 +12,8 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 | 3 | 👨‍👩‍👦 Family Helper — link by 6-digit code, helper's farmer list + "acting for", view/edit permission, "Help me" button | ✅ Done |
 | 4 | 🌦️ Weather (Open-Meteo + cache fallback) + 💧 Irrigation decision, auto alert messages | ✅ Done |
 | 5 | 🦠 Offline disease scanner (ONNX Runtime Web, DINOv2-small, 38 classes) + EN/HI treatment knowledge base + offline scan queue/sync | ✅ Done |
-| 6 | 📡 Village Disease Radar — DBSCAN clusters over `scans`, weather risk, alerts, Leaflet heatmap, demo seed | ⏳ Next (scan sync endpoint + `scans` table filled by Phase 5; `outbreaks` table exists) |
-| 7 | 🌱 Smart Crop Advisor — soil photo, Soil Health Card OCR, Top-3 crops, rotation plan | ⬜ Todo |
+| 6 | 📡 Village Disease Radar — DBSCAN clusters over `scans`, weather risk (Hutton criteria etc.), alerts, Leaflet map, demo seed | ✅ Done |
+| 7 | 🌱 Smart Crop Advisor — soil photo, Soil Health Card OCR, Top-3 crops, rotation plan | ⏳ Next |
 | 8 | 🛰️ Satellite field health (Earth Engine / estimate fallback) | ⬜ Todo |
 | 9 | Assistant chat, schemes/rental/waste pages, PWA offline, updated judges PDF, demo script | ⬜ Todo |
 
@@ -43,6 +43,15 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 - Pages: `pages/Scan.jsx` (lazy-loaded chunk), `components/DiseaseResult.jsx`, `components/ScanExtras.jsx`.
 - QA: `frontend/selftest.html` + `node scripts/browser-selftest.mjs` (headless Edge; runs model online, then with model files BLOCKED → must pass from cache). Use with `npm run build && npx vite preview --port 4173` and `SELFTEST_URL=http://localhost:4173`. Backend twin: `python scripts/verify_disease_model.py` (needs `pip install onnxruntime`).
 
+## Phase 6 additions
+- `services/disease_risk.py` — per-disease weather rules for the next 3 days: late blight = **Hutton criteria** (t_min ≥ 10 °C and ≥ 6 h RH ≥ 90 %; 2 consecutive days = high); fungal_wet / scab / rust / mildew / bacterial / mites / whitefly rules; viruses/esca/HLB = not weather-driven.
+- `services/radar.py` — `analyze(db)`: shared disease scans of last 7 days → **one point per farm** per disease → DBSCAN (haversine, eps 5 km, min 2 farms) → level `watch|warning|outbreak` via `level_for(farms, risk)` → alerts (template `radar_outbreak`) to farmers whose **current_crop** matches within radius + 5 km, plus their helpers; de-duplicated per outbreak level per ISO week via `alert_log`. Previous outbreaks are deactivated each run.
+- Background job in `main.py` (`RADAR_INTERVAL_MINUTES`, default 60; 0 = off; first run 60 s after start).
+- Endpoints: `GET /api/radar/map` (anonymous points + outbreaks within radius), `GET /api/radar/near-me`, `GET /api/radar/weather-risk` (weather-only risk for the farmer's crop — works with zero reports), `POST /api/radar/analyze`, demo: `POST /api/radar/demo/seed`, `DELETE /api/radar/demo` (demo farmers use phone `+00demo…`, scans/outbreaks `is_demo=True`).
+- Message renderer: new param type `disease` (model label → readable EN/HI name from `shared/disease/kb_*.json`); crop names fall back to the disease KB (e.g. `pepper`).
+- Frontend: `pages/Radar.jsx` (lazy), `components/RadarMap.jsx`, `OutbreakCard.jsx`, `RadarDemoPanel.jsx`, `RadarBanner.jsx` (dashboard), "shared with village" note in `DiseaseResult.jsx`.
+- Demo script: `python scripts/radar_demo.py` (running server, real weather) — prints the alerts each person receives.
+
 ## What exists after Phase 1
 
 **Backend (`backend/app`)**
@@ -63,8 +72,9 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 3. Update this checklist at the end of each phase.
 
 ## Verified at this checkpoint
-- Backend: **42 pytest tests pass** (`python -m pytest -q`)
-- Frontend: **13 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes), `npm run build` succeeds
+- Backend: **55 pytest tests pass** (`python -m pytest -q`; takes ~30 s — run in background if your shell has a 30 s limit)
+- Frontend: **14 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes), `npm run build` succeeds
+- Radar live demo (real Open-Meteo weather, Ludhiana): 7 demo farms → OUTBREAK, alerts to farmer (Hindi), neighbour (English) and helper (English); hourly job ran without errors
 - Offline model in real browser (headless Edge, production build): **7/7 online and 7/7 with model files blocked** (served from device cache); ~0.2–0.7 s per scan
 - Live smoke test passed (register → farm → link helper → Hindi message → Help me → notification)
 - Live Open-Meteo check passed (Nashik, black soil, potato → "Irrigate now", 7 % usable water, 0 mm rain forecast)

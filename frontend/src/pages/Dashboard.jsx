@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 import { NAV } from '../components/Layout.jsx'
 import { api } from '../api'
 import TodayCards from '../components/TodayCards.jsx'
+import RadarBanner from '../components/RadarBanner.jsx'
 
 export default function Dashboard() {
   const { t } = useTranslation()
@@ -33,6 +34,7 @@ export default function Dashboard() {
         </div>
       )}
 
+      {farm && !profileIncomplete && <RadarBanner />}
       {farm && !profileIncomplete && <TodayCards />}
 
       {user.role === 'farmer' && user.link_code && (

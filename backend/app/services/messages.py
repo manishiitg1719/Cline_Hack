@@ -23,6 +23,11 @@ def _load(name: str) -> dict:
     return json.loads((SHARED_DIR / f"{name}.json").read_text(encoding="utf-8"))
 
 
+@lru_cache
+def _disease_kb(lang: str) -> dict:
+    return json.loads((SHARED_DIR.parent / "disease" / f"kb_{lang}.json").read_text(encoding="utf-8"))
+
+
 def catalog() -> dict:
     return _load("templates")
 
@@ -46,12 +51,17 @@ def render(template_id: str, params: dict | None, lang: str) -> str:
     text = strings["templates"][template_id]["text"]
     params = params or {}
 
+    kb = _disease_kb(lang)
+
     def sub(match: re.Match) -> str:
         key = match.group(1)
         value = params.get(key, "")
-        section = _DICT_SECTION.get(meta["params"].get(key, ""))
-        if section and isinstance(value, str):
-            value = strings[section].get(value, value)
+        ptype = meta["params"].get(key, "")
+        section = _DICT_SECTION.get(ptype)
+        if ptype == "disease" and isinstance(value, str):
+            value = kb["classes"].get(value, {}).get("name", value)  # "Potato___Late_blight" → readable name
+        elif section and isinstance(value, str):
+            value = strings[section].get(value) or (kb["crop_names"].get(value, value) if ptype == "crop" else value)
         return str(value)
 
     rendered = _PLACEHOLDER.sub(sub, text)
