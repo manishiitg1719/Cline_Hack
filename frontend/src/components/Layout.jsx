@@ -12,7 +12,7 @@ export const NAV = [
   { to: '/family', key: 'family', icon: '👨‍👩‍👦', ready: true },
   { to: '/weather', key: 'weather', icon: '🌦️', ready: true },
   { to: '/irrigation', key: 'irrigation', icon: '💧', ready: true },
-  { to: '/scan', key: 'scan', icon: '🦠' },
+  { to: '/scan', key: 'scan', icon: '🦠', ready: true },
   { to: '/radar', key: 'radar', icon: '📡' },
   { to: '/crop', key: 'crop', icon: '🌱' },
   { to: '/satellite', key: 'satellite', icon: '🛰️' },
@@ -23,7 +23,7 @@ export default function Layout() {
   const { t } = useTranslation()
   const { user, logout, actingFor } = useAuth()
   const items = NAV.filter((n) => n.ready)
-  const MOBILE = ['/', '/weather', '/irrigation', '/messages', '/family']
+  const MOBILE = ['/', '/scan', '/irrigation', '/messages', '/family']
   const mobileItems = items.filter((n) => MOBILE.includes(n.to))
 
   return (

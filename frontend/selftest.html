@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Dev-only page: runs the offline disease model in the browser on the bundled example photos.
+     Open http://localhost:5173/selftest.html (with `npm run dev`). Result is written into #result. -->
+<html>
+  <head><meta charset="utf-8" /><title>FarmGuard model self-test</title></head>
+  <body>
+    <pre id="result">running…</pre>
+    <script>
+      window.addEventListener('error', (e) => { document.getElementById('result').textContent = 'ERROR ' + e.message })
+      window.addEventListener('unhandledrejection', (e) => { document.getElementById('result').textContent = 'ERROR ' + (e.reason?.message || e.reason) })
+      caches.open('farmguard-model-v1').then((c) => c.keys()).then((k) => {
+        document.getElementById('cache').textContent = 'cached: ' + k.map((r) => new URL(r.url).pathname).join(', ')
+      })
+    </script>
+    <pre id="cache"></pre>
+    <script type="module">
+      import { scanImage } from '/src/lib/diseaseModel.js'
+      const cases = {
+        tomato_late_blight: 'Tomato___Late_blight', apple_apple_scab: 'Apple___Apple_scab',
+        corn_common_rust: 'Corn_(maize)___Common_rust_', grape_black_rot: 'Grape___Black_rot',
+        potato_early_blight: 'Potato___Early_blight', pepper_bell_healthy: 'Pepper,_bell___healthy',
+      }
+      const load = (src) => new Promise((ok, err) => { const i = new Image(); i.onload = () => ok(i); i.onerror = err; i.src = src })
+      const lines = []
+      let pass = 0, total = 0
+      ;(async () => {
+      try {
+        for (const [file, expect] of Object.entries(cases)) {
+          const t0 = performance.now()
+          const r = await scanImage(await load(`/models/disease/examples/${file}.jpg`))
+          const ok = r.label === expect && r.status !== 'rejected' && r.status !== 'unsure'
+          total++; pass += ok
+          lines.push(`${ok ? 'PASS' : 'FAIL'} ${file} -> ${r.label} ${(r.confidence * 100).toFixed(1)}% sim=${r.similarity.toFixed(3)} ${r.status} ${Math.round(performance.now() - t0)}ms`)
+        }
+        const c = document.createElement('canvas'); c.width = c.height = 256
+        const g = c.getContext('2d'); g.fillStyle = '#1e5ac8'; g.fillRect(0, 0, 256, 256)
+        const r = await scanImage(await load(c.toDataURL()))
+        total++; pass += r.status === 'rejected'
+        lines.push(`${r.status === 'rejected' ? 'PASS' : 'FAIL'} blue_square -> ${r.status} sim=${r.similarity.toFixed(3)}`)
+        lines.push(`RESULT ${pass}/${total}`)
+      } catch (e) {
+        lines.push('ERROR ' + e.message)
+      }
+      document.getElementById('result').textContent = lines.join('\n')
+      })()
+    </script>
+  </body>
+</html>

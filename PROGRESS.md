@@ -11,8 +11,8 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 | 2 | 📨 Quick Message Center — template picker UI, WhatsApp/SMS/Copy/Share, contacts, in-app notification bell | ✅ Done |
 | 3 | 👨‍👩‍👦 Family Helper — link by 6-digit code, helper's farmer list + "acting for", view/edit permission, "Help me" button | ✅ Done |
 | 4 | 🌦️ Weather (Open-Meteo + cache fallback) + 💧 Irrigation decision, auto alert messages | ✅ Done |
-| 5 | 🦠 Offline disease scanner (TF.js MobileNetV2) + EN/HI treatment knowledge base | ⏳ Next |
-| 6 | 📡 Village Disease Radar — scan sync, DBSCAN clusters, weather risk, alerts, Leaflet heatmap, demo seed | ⬜ Todo (DB tables `scans`, `outbreaks` already exist) |
+| 5 | 🦠 Offline disease scanner (ONNX Runtime Web, DINOv2-small, 38 classes) + EN/HI treatment knowledge base + offline scan queue/sync | ✅ Done |
+| 6 | 📡 Village Disease Radar — DBSCAN clusters over `scans`, weather risk, alerts, Leaflet heatmap, demo seed | ⏳ Next (scan sync endpoint + `scans` table filled by Phase 5; `outbreaks` table exists) |
 | 7 | 🌱 Smart Crop Advisor — soil photo, Soil Health Card OCR, Top-3 crops, rotation plan | ⬜ Todo |
 | 8 | 🛰️ Satellite field health (Earth Engine / estimate fallback) | ⬜ Todo |
 | 9 | Assistant chat, schemes/rental/waste pages, PWA offline, updated judges PDF, demo script | ⬜ Todo |
@@ -31,6 +31,17 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 - Endpoints: `GET /api/weather`, `GET /api/irrigation` (409 if farm location missing; helpers pass `farmer_id`)
 - Frontend: `pages/Weather.jsx`, `pages/Irrigation.jsx`, `components/TodayCards.jsx` (dashboard), `hooks/useFarmData.js` + `components/FarmDataGate.jsx` (**reuse for every farm-scoped page**), `lib/weather.js`
 - Test helpers: `backend/tests/weather_fixtures.py` (`make_raw`, `patch_weather`)
+
+## Phase 5 additions
+- **Model**: `frontend/public/models/disease/` — `model.onnx` (24 MB int8, CC BY-SA 4.0, see `LICENSE.md` there), `meta.json` (38 labels + OOD threshold 0.699), `centroids.f32`, 6 example photos.
+  Chosen instead of TF.js because TensorFlow can't be installed on Python 3.14 here and ONNX needs no conversion.
+- `frontend/src/lib/diseaseMath.js` (preprocess, softmax, centroid cosine OOD check, `interpret()` → `rejected|unsure|healthy|disease`; MIN_CONFIDENCE 0.5) — unit-tested.
+- `frontend/src/lib/diseaseModel.js` — `onnxruntime-web/wasm`, all files (model + wasm runtime) fetched **cache-first** from Cache Storage `farmguard-model-v1` → **works offline after first load** (bump cache name when the model changes).
+- `frontend/src/lib/scanQueue.js` — results saved on phone (localStorage), confident ones queued and synced via `POST /api/scans/sync` when online (`online` event + on page open).
+- `shared/disease/kb_en.json`, `kb_hi.json` — symptoms/cause/treatment/prevention for all 26 diseases + crop names (EN/HI).
+- Backend `routers/scans.py`: `POST /api/scans/sync` (batch, idempotent by `client_id`, drops confidence < 0.5, location rounded to 0.01° ≈ 1 km), `GET /api/scans`, `DELETE /api/scans/{id}`. **Radar reads `scans` where `shared=True`.**
+- Pages: `pages/Scan.jsx` (lazy-loaded chunk), `components/DiseaseResult.jsx`, `components/ScanExtras.jsx`.
+- QA: `frontend/selftest.html` + `node scripts/browser-selftest.mjs` (headless Edge; runs model online, then with model files BLOCKED → must pass from cache). Use with `npm run build && npx vite preview --port 4173` and `SELFTEST_URL=http://localhost:4173`. Backend twin: `python scripts/verify_disease_model.py` (needs `pip install onnxruntime`).
 
 ## What exists after Phase 1
 
@@ -52,8 +63,9 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 3. Update this checklist at the end of each phase.
 
 ## Verified at this checkpoint
-- Backend: **36 pytest tests pass** (`python -m pytest -q`)
-- Frontend: **5 vitest tests pass** (incl. EN/HI key parity), `npm run build` succeeds
+- Backend: **42 pytest tests pass** (`python -m pytest -q`)
+- Frontend: **13 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes), `npm run build` succeeds
+- Offline model in real browser (headless Edge, production build): **7/7 online and 7/7 with model files blocked** (served from device cache); ~0.2–0.7 s per scan
 - Live smoke test passed (register → farm → link helper → Hindi message → Help me → notification)
 - Live Open-Meteo check passed (Nashik, black soil, potato → "Irrigate now", 7 % usable water, 0 mm rain forecast)
 

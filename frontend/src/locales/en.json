@@ -73,6 +73,19 @@
     "method": "Method: FAO-56 crop water need (Kc {{kc}} × evaporation) + modelled soil moisture + rain forecast.",
     "share": "Send this advice"
   },
+  "scan": {
+    "onDevice": "On-device AI (works offline)", "modelLoading": "Loading the disease model… (first time ~25 MB, then saved on this phone)",
+    "modelReady": "Model ready.", "modelOffline": "Model saved on this phone — scanning works without internet.", "modelError": "Could not load the model.",
+    "pending": "{{count}} scan(s) saved on phone, will sync when online", "allSynced": "All scans synced",
+    "takePhoto": "Take photo", "gallery": "From gallery", "scanning": "Checking the leaf…", "badImage": "Could not open this image.",
+    "photoTips": "Tip: photograph ONE leaf, close-up, in daylight, on a plain background, without shadow.",
+    "rejected": "This does not look like a single crop leaf the model knows. Please take a clearer photo of one leaf.",
+    "unsure": "Not sure ({{pct}}%). The crop or disease may not be one the model knows.", "bestGuess": "Best guess",
+    "confidence": "Confidence", "otherPossibilities": "Other possibilities", "share": "Send this result",
+    "field": { "symptoms": "Symptoms", "cause": "Cause", "treatment": "Treatment", "prevention": "Prevention" },
+    "tryExamples": "Try with example photos", "history": "Recent scans",
+    "attribution": "Model: plant-disease-dinov2-small by Rodayna Emad (CC BY-SA 4.0), trained on PlantVillage (Hughes & Salathé). Supports 14 crops: apple, blueberry, cherry, maize, grape, orange, peach, capsicum, potato, raspberry, soybean, squash, strawberry, tomato."
+  },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
   "status": {
     "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",

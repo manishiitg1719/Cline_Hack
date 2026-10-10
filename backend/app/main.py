@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_settings
 from .database import init_db
-from .routers import auth, family, farm, messages, status, weather
+from .routers import auth, family, farm, messages, scans, status, weather
 
 settings = get_settings()
 
@@ -32,5 +32,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-for r in (status.router, auth.router, farm.router, messages.router, family.router, weather.router):
+for r in (status.router, auth.router, farm.router, messages.router, family.router, weather.router, scans.router):
     app.include_router(r)

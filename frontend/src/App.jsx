@@ -11,6 +11,15 @@ import Messages from './pages/Messages.jsx'
 import Family from './pages/Family.jsx'
 import Weather from './pages/Weather.jsx'
 import Irrigation from './pages/Irrigation.jsx'
+import { lazy, Suspense } from 'react'
+
+// Heavy page (ONNX runtime) → separate chunk, loaded only when opened
+const Scan = lazy(() => import('./pages/Scan.jsx'))
+
+function Loading() {
+  const { t } = useTranslation()
+  return <div className="p-8 text-center text-gray-500">{t('common.loading')}</div>
+}
 
 function Protected({ children }) {
   const { user, loading } = useAuth()
@@ -38,6 +47,7 @@ export default function App() {
         <Route path="family" element={<Family />} />
         <Route path="weather" element={<Weather />} />
         <Route path="irrigation" element={<Irrigation />} />
+        <Route path="scan" element={<Suspense fallback={<Loading />}><Scan /></Suspense>} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
