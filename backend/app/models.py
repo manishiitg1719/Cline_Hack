@@ -138,6 +138,29 @@ class Outbreak(Base):
     detected_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
 
+class WeatherCache(Base):
+    """Last successful forecast per ~1 km grid cell (FALLBACK source when offline)."""
+
+    __tablename__ = "weather_cache"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    grid_key: Mapped[str] = mapped_column(String(32), unique=True, index=True)
+    payload: Mapped[dict] = mapped_column(JSON)
+    fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class AlertLog(Base):
+    """Prevents sending the same alert twice (one per farmer/alert/day)."""
+
+    __tablename__ = "alert_log"
+    __table_args__ = (UniqueConstraint("farmer_id", "alert_key"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    farmer_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    alert_key: Mapped[str] = mapped_column(String(80))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
 class ProviderUsage(Base):
     """Daily counter of paid/live API calls (credit guard)."""
 

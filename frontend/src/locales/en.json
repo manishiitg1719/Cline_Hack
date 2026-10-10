@@ -50,6 +50,29 @@
     "helpThisFarmer": "Help this farmer", "helping": "Helping", "unlink": "Remove", "confirmUnlink": "Remove link with {{name}}?",
     "helpMe": "Help me", "sendHelp": "Ask family for help", "helpSent": "Your family was notified ({{count}}). Also send on WhatsApp:"
   },
+  "weather": {
+    "needLocation": "Mark your farm location to get weather and irrigation advice.", "noData": "Weather is not available right now and nothing is saved yet. Try again when online.",
+    "humidity": "Humidity", "wind": "Wind", "rain24": "Rain chance (24 h)", "soilMoisture": "Soil moisture", "alerts": "Alerts",
+    "next7": "Next 7 days", "updated": "Forecast updated", "today": "Today",
+    "code": { "clear": "Clear sky", "partly": "Partly cloudy", "cloudy": "Cloudy", "fog": "Fog", "drizzle": "Drizzle", "rain": "Rain", "snow": "Snow", "storm": "Thunderstorm", "unknown": "—" }
+  },
+  "irrigation": {
+    "decision": { "irrigate": "Irrigate now", "delay": "Delay irrigation", "monitor": "No need today" },
+    "why": "Why?",
+    "reason": {
+      "rain_expected": "Rain is likely soon ({{rain}}% chance) — let the rain water your field.",
+      "soil_dry": "Soil is dry: only {{available}}% of usable water is left.",
+      "high_evaporation": "Hot, dry weather: your crop uses about {{et}} mm of water today.",
+      "soil_ok": "Soil has enough water ({{available}}% available).",
+      "soil_moderate": "Soil water is moderate ({{available}}%). Check again tomorrow.",
+      "no_soil_data": "Soil moisture data is not available; advice is based on weather only.",
+      "rainfed_tip": "Your farm is rain-fed — if you have any stored water, use it in the evening."
+    },
+    "availableWater": "Usable soil water", "needToday": "Crop need today", "needWeek": "Water needed this week", "setCrop": "Set your current crop for better advice:",
+    "litres": "For your land: about {{today}} litres today, {{week}} litres this week.",
+    "method": "Method: FAO-56 crop water need (Kc {{kc}} × evaporation) + modelled soil moisture + rain forecast.",
+    "share": "Send this advice"
+  },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
   "status": {
     "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",

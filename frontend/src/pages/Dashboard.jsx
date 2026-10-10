@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useAuth } from '../context/AuthContext.jsx'
 import { NAV } from '../components/Layout.jsx'
 import { api } from '../api'
+import TodayCards from '../components/TodayCards.jsx'
 
 export default function Dashboard() {
   const { t } = useTranslation()
@@ -31,6 +32,8 @@ export default function Dashboard() {
           <Link to="/farm" className="btn-primary">{t('dashboard.goToFarm')}</Link>
         </div>
       )}
+
+      {farm && !profileIncomplete && <TodayCards />}
 
       {user.role === 'farmer' && user.link_code && (
         <div className="card">

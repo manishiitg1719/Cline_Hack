@@ -10,8 +10,8 @@ export const NAV = [
   { to: '/farm', key: 'farm', icon: '🌾', ready: true },
   { to: '/messages', key: 'messages', icon: '📨', ready: true },
   { to: '/family', key: 'family', icon: '👨‍👩‍👦', ready: true },
-  { to: '/weather', key: 'weather', icon: '🌦️' },
-  { to: '/irrigation', key: 'irrigation', icon: '💧' },
+  { to: '/weather', key: 'weather', icon: '🌦️', ready: true },
+  { to: '/irrigation', key: 'irrigation', icon: '💧', ready: true },
   { to: '/scan', key: 'scan', icon: '🦠' },
   { to: '/radar', key: 'radar', icon: '📡' },
   { to: '/crop', key: 'crop', icon: '🌱' },
@@ -23,6 +23,8 @@ export default function Layout() {
   const { t } = useTranslation()
   const { user, logout, actingFor } = useAuth()
   const items = NAV.filter((n) => n.ready)
+  const MOBILE = ['/', '/weather', '/irrigation', '/messages', '/family']
+  const mobileItems = items.filter((n) => MOBILE.includes(n.to))
 
   return (
     <div className="min-h-screen pb-20 md:pb-0 md:pl-60">
@@ -72,7 +74,7 @@ export default function Layout() {
 
       {/* Bottom nav (mobile) */}
       <nav className="fixed inset-x-0 bottom-0 z-[1000] flex justify-around border-t bg-white py-2 md:hidden">
-        {items.map((n) => (
+        {mobileItems.map((n) => (
           <NavLink
             key={n.to}
             to={n.to}

@@ -9,6 +9,8 @@ import FarmProfile from './pages/FarmProfile.jsx'
 import SystemStatus from './pages/SystemStatus.jsx'
 import Messages from './pages/Messages.jsx'
 import Family from './pages/Family.jsx'
+import Weather from './pages/Weather.jsx'
+import Irrigation from './pages/Irrigation.jsx'
 
 function Protected({ children }) {
   const { user, loading } = useAuth()
@@ -34,6 +36,8 @@ export default function App() {
         <Route path="status" element={<SystemStatus />} />
         <Route path="messages" element={<Messages />} />
         <Route path="family" element={<Family />} />
+        <Route path="weather" element={<Weather />} />
+        <Route path="irrigation" element={<Irrigation />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
