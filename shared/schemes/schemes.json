@@ -3,45 +3,660 @@
   "last_checked": "2026-10",
   "schemes": [
     {
-      "id": "pm_kisan", "icon": "💰", "url": "https://pmkisan.gov.in",
-      "en": { "name": "PM-KISAN", "benefit": "₹6,000 per year in 3 instalments of ₹2,000, paid directly to the bank account.", "who": "Land-holding farmer families (exclusions: income-tax payers, government employees, professionals).", "how": "Register at pmkisan.gov.in or a Common Service Centre (CSC). Complete e-KYC; bank account must be Aadhaar-linked." },
-      "hi": { "name": "पीएम-किसान", "benefit": "साल में ₹6,000, ₹2,000 की 3 किस्तों में सीधे बैंक खाते में।", "who": "ज़मीन वाले किसान परिवार (अपवाद: आयकर दाता, सरकारी कर्मचारी, पेशेवर)।", "how": "pmkisan.gov.in या जन सेवा केंद्र (CSC) पर पंजीकरण करें। e-KYC पूरा करें; बैंक खाता आधार से जुड़ा हो।" }
+      "id": "pm_kisan",
+      "icon": "💰",
+      "url": "https://pmkisan.gov.in",
+      "en": {
+        "name": "PM-KISAN",
+        "benefit": "₹6,000 per year in 3 instalments of ₹2,000, paid directly to the bank account.",
+        "who": "Land-holding farmer families (exclusions: income-tax payers, government employees, professionals).",
+        "how": "Register at pmkisan.gov.in or a Common Service Centre (CSC). Complete e-KYC; bank account must be Aadhaar-linked.",
+        "about": "PM-KISAN is a central government scheme that gives every eligible land-holding farmer family direct income support. The money goes straight into the farmer's Aadhaar-linked bank account, with no middleman.",
+        "benefits": [
+          "₹6,000 per year per farmer family.",
+          "Paid in 3 instalments of ₹2,000 (roughly April–July, August–November, December–March).",
+          "Money is sent directly to the bank account (DBT).",
+          "You can check your instalment status anytime on pmkisan.gov.in using your Aadhaar or mobile number."
+        ],
+        "eligible": [
+          "Farmer families (husband, wife and minor children) who own cultivable land in their name as per state land records.",
+          "Small, marginal and large land-holding farmers are all covered."
+        ],
+        "not_eligible": [
+          "Institutional land holders (trusts, companies, etc.).",
+          "Families where any member is or was a minister, MP, MLA, mayor or district panchayat chairperson.",
+          "Serving or retired central/state government employees (except Group D / Multi-Tasking Staff).",
+          "Retired pensioners getting ₹10,000 or more per month (except Group D).",
+          "Anyone who paid income tax in the last assessment year.",
+          "Registered professionals: doctors, engineers, lawyers, chartered accountants, architects."
+        ],
+        "documents": [
+          "Aadhaar card",
+          "Land ownership record (khatauni / khasra / 7-12 / patta)",
+          "Bank account linked with Aadhaar",
+          "Mobile number"
+        ],
+        "steps": [
+          "Go to pmkisan.gov.in → 'New Farmer Registration', or visit a Common Service Centre (CSC) or your village Patwari / agriculture office.",
+          "Enter Aadhaar, mobile number and state, then fill land and bank details.",
+          "Your land record is verified by the state government.",
+          "Complete e-KYC — OTP on pmkisan.gov.in, biometric at a CSC, or face authentication in the PM-KISAN app. Without e-KYC, instalments stop.",
+          "Check 'Beneficiary Status' on the website to track payments."
+        ],
+        "timing": "Registration is open all year. Instalments come about every 4 months.",
+        "helpline": "PM-KISAN helpline: 155261 or 011-24300606"
+      },
+      "hi": {
+        "name": "पीएम-किसान",
+        "benefit": "साल में ₹6,000, ₹2,000 की 3 किस्तों में सीधे बैंक खाते में।",
+        "who": "ज़मीन वाले किसान परिवार (अपवाद: आयकर दाता, सरकारी कर्मचारी, पेशेवर)।",
+        "how": "pmkisan.gov.in या जन सेवा केंद्र (CSC) पर पंजीकरण करें। e-KYC पूरा करें; बैंक खाता आधार से जुड़ा हो।",
+        "about": "पीएम-किसान केंद्र सरकार की योजना है जिसमें हर पात्र ज़मीन वाले किसान परिवार को सीधी आर्थिक मदद मिलती है। पैसा बिना किसी बिचौलिए के सीधे किसान के आधार से जुड़े बैंक खाते में आता है।",
+        "benefits": [
+          "हर किसान परिवार को साल में ₹6,000।",
+          "₹2,000 की 3 किस्तों में (लगभग अप्रैल–जुलाई, अगस्त–नवंबर, दिसंबर–मार्च)।",
+          "पैसा सीधे बैंक खाते में (DBT) आता है।",
+          "pmkisan.gov.in पर आधार या मोबाइल नंबर से कभी भी किस्त की स्थिति देख सकते हैं।"
+        ],
+        "eligible": [
+          "वे किसान परिवार (पति, पत्नी और नाबालिग बच्चे) जिनके नाम राज्य के भूमि रिकॉर्ड में खेती की ज़मीन है।",
+          "छोटे, सीमांत और बड़े — सभी ज़मीन वाले किसान शामिल हैं।"
+        ],
+        "not_eligible": [
+          "संस्थागत भूमिधारक (ट्रस्ट, कंपनी आदि)।",
+          "जिस परिवार का कोई सदस्य मंत्री, सांसद, विधायक, मेयर या ज़िला पंचायत अध्यक्ष है या रहा है।",
+          "वर्तमान या सेवानिवृत्त केंद्र/राज्य सरकारी कर्मचारी (ग्रुप D / मल्टी-टास्किंग स्टाफ को छोड़कर)।",
+          "₹10,000 या उससे ज़्यादा मासिक पेंशन पाने वाले (ग्रुप D को छोड़कर)।",
+          "पिछले वर्ष आयकर भरने वाले।",
+          "पंजीकृत पेशेवर: डॉक्टर, इंजीनियर, वकील, चार्टर्ड अकाउंटेंट, आर्किटेक्ट।"
+        ],
+        "documents": [
+          "आधार कार्ड",
+          "ज़मीन का रिकॉर्ड (खतौनी / खसरा / 7-12 / पट्टा)",
+          "आधार से जुड़ा बैंक खाता",
+          "मोबाइल नंबर"
+        ],
+        "steps": [
+          "pmkisan.gov.in पर 'New Farmer Registration' खोलें, या जन सेवा केंद्र (CSC), पटवारी या कृषि कार्यालय जाएँ।",
+          "आधार, मोबाइल नंबर और राज्य भरें, फिर ज़मीन और बैंक की जानकारी भरें।",
+          "राज्य सरकार आपके भूमि रिकॉर्ड की जाँच करती है।",
+          "e-KYC पूरा करें — वेबसाइट पर OTP से, CSC पर अंगूठे से, या PM-KISAN ऐप में चेहरे से। e-KYC न होने पर किस्त रुक जाती है।",
+          "वेबसाइट पर 'Beneficiary Status' में भुगतान देखें।"
+        ],
+        "timing": "पंजीकरण पूरे साल खुला रहता है। किस्त लगभग हर 4 महीने में आती है।",
+        "helpline": "पीएम-किसान हेल्पलाइन: 155261 या 011-24300606"
+      }
     },
     {
-      "id": "pmfby", "icon": "🛡️", "url": "https://pmfby.gov.in",
-      "en": { "name": "PM Fasal Bima Yojana (crop insurance)", "benefit": "Insurance against crop loss from natural disasters, pests and disease. Farmer pays only 2% (Kharif), 1.5% (Rabi), 5% (commercial/horticulture).", "who": "All farmers including tenants/sharecroppers, for notified crops and areas.", "how": "Enrol via bank, CSC or pmfby.gov.in before each season's cut-off. Report crop loss within 72 hours." },
-      "hi": { "name": "पीएम फसल बीमा योजना", "benefit": "प्राकृतिक आपदा, कीट और बीमारी से फसल नुकसान का बीमा। किसान सिर्फ़ 2% (खरीफ़), 1.5% (रबी), 5% (व्यावसायिक/बागवानी) प्रीमियम देता है।", "who": "सभी किसान, बटाईदार सहित, अधिसूचित फसलों और क्षेत्रों के लिए।", "how": "हर मौसम की आख़िरी तारीख़ से पहले बैंक, CSC या pmfby.gov.in से जुड़ें। नुकसान की सूचना 72 घंटे में दें।" }
+      "id": "pmfby",
+      "icon": "🛡️",
+      "url": "https://pmfby.gov.in",
+      "en": {
+        "name": "PM Fasal Bima Yojana (crop insurance)",
+        "benefit": "Insurance against crop loss from natural disasters, pests and disease. Farmer pays only 2% (Kharif), 1.5% (Rabi), 5% (commercial/horticulture).",
+        "who": "All farmers including tenants/sharecroppers, for notified crops and areas.",
+        "how": "Enrol via bank, CSC or pmfby.gov.in before each season's cut-off. Report crop loss within 72 hours.",
+        "about": "PM Fasal Bima Yojana is the government crop insurance scheme. If your crop is damaged by drought, flood, hailstorm, pests or disease, you get compensation. The farmer pays a very small premium and the government pays the rest.",
+        "benefits": [
+          "Very low premium: 2% of sum insured for Kharif crops, 1.5% for Rabi crops, 5% for commercial and horticulture crops.",
+          "Covers losses when sowing is prevented by bad weather.",
+          "Covers standing crop loss from drought, flood, dry spells, pests, disease, storms, landslides.",
+          "Covers post-harvest loss for up to 14 days if crop kept in the field is hit by cyclone, unseasonal rain or hailstorm.",
+          "Local damage (hailstorm, flooding, cloudburst, natural fire) is assessed for your field individually.",
+          "Claim money goes directly to your bank account."
+        ],
+        "eligible": [
+          "All farmers growing notified crops in notified areas — owners, tenant farmers and sharecroppers.",
+          "Loanee farmers (with KCC/crop loan) and non-loanee farmers. Joining is voluntary for everyone."
+        ],
+        "not_eligible": [
+          "Crops or areas not notified by your state for that season.",
+          "Losses caused by war, nuclear risk or deliberate damage.",
+          "Applications after the season's cut-off date."
+        ],
+        "documents": [
+          "Aadhaar card",
+          "Bank passbook",
+          "Land record, or tenancy / sharecropping agreement for tenants",
+          "Sowing certificate (from Patwari / Sarpanch, if your state asks)"
+        ],
+        "steps": [
+          "Check which crops are notified in your district for this season.",
+          "Enrol through your bank, a CSC, an insurance company agent, pmfby.gov.in, or the 'Crop Insurance' app before the cut-off date.",
+          "Pay your small premium share and keep the receipt / policy number.",
+          "If your crop is damaged, report it within 72 hours on the Crop Insurance app, helpline 14447, the insurance company or agriculture office.",
+          "Officials survey the damage and the claim is paid to your bank account."
+        ],
+        "timing": "Enrol before each season's cut-off — usually around 31 July for Kharif and 31 December for Rabi (dates vary by state).",
+        "helpline": "Crop insurance helpline: 14447"
+      },
+      "hi": {
+        "name": "पीएम फसल बीमा योजना",
+        "benefit": "प्राकृतिक आपदा, कीट और बीमारी से फसल नुकसान का बीमा। किसान सिर्फ़ 2% (खरीफ़), 1.5% (रबी), 5% (व्यावसायिक/बागवानी) प्रीमियम देता है।",
+        "who": "सभी किसान, बटाईदार सहित, अधिसूचित फसलों और क्षेत्रों के लिए।",
+        "how": "हर मौसम की आख़िरी तारीख़ से पहले बैंक, CSC या pmfby.gov.in से जुड़ें। नुकसान की सूचना 72 घंटे में दें।",
+        "about": "प्रधानमंत्री फसल बीमा योजना सरकार की फसल बीमा योजना है। सूखा, बाढ़, ओले, कीट या रोग से फसल खराब होने पर किसान को मुआवज़ा मिलता है। किसान बहुत कम प्रीमियम देता है, बाकी सरकार भरती है।",
+        "benefits": [
+          "बहुत कम प्रीमियम: खरीफ फसल के लिए बीमा राशि का 2%, रबी के लिए 1.5%, व्यावसायिक व बागवानी फसलों के लिए 5%।",
+          "खराब मौसम से बुवाई न हो पाने पर नुकसान का कवर।",
+          "सूखा, बाढ़, सूखा दौर, कीट, रोग, आँधी, भूस्खलन से खड़ी फसल के नुकसान का कवर।",
+          "कटाई के बाद खेत में रखी फसल को 14 दिन तक चक्रवात, बेमौसम बारिश या ओले से नुकसान का कवर।",
+          "स्थानीय नुकसान (ओले, जलभराव, बादल फटना, प्राकृतिक आग) का आकलन आपके खेत के लिए अलग से।",
+          "दावे का पैसा सीधे बैंक खाते में।"
+        ],
+        "eligible": [
+          "अधिसूचित क्षेत्र में अधिसूचित फसल उगाने वाले सभी किसान — ज़मीन मालिक, बटाईदार और किरायेदार किसान।",
+          "कर्ज़ वाले (KCC/फसल ऋण) और बिना कर्ज़ वाले किसान। सभी के लिए जुड़ना स्वैच्छिक है।"
+        ],
+        "not_eligible": [
+          "जो फसल या क्षेत्र उस मौसम के लिए राज्य ने अधिसूचित नहीं किया।",
+          "युद्ध, परमाणु खतरे या जानबूझकर किए गए नुकसान।",
+          "मौसम की अंतिम तारीख के बाद किए गए आवेदन।"
+        ],
+        "documents": [
+          "आधार कार्ड",
+          "बैंक पासबुक",
+          "ज़मीन का रिकॉर्ड, या किरायेदार/बटाईदार के लिए समझौता पत्र",
+          "बुवाई प्रमाण पत्र (पटवारी/सरपंच से, अगर राज्य माँगे)"
+        ],
+        "steps": [
+          "देखें कि इस मौसम में आपके ज़िले में कौन-सी फसल अधिसूचित है।",
+          "अंतिम तारीख से पहले बैंक, CSC, बीमा कंपनी एजेंट, pmfby.gov.in या 'Crop Insurance' ऐप से पंजीकरण करें।",
+          "अपना छोटा प्रीमियम भरें और रसीद / पॉलिसी नंबर संभालकर रखें।",
+          "फसल खराब होने पर 72 घंटे के अंदर Crop Insurance ऐप, हेल्पलाइन 14447, बीमा कंपनी या कृषि कार्यालय को सूचना दें।",
+          "अधिकारी नुकसान का सर्वे करते हैं और दावा बैंक खाते में आता है।"
+        ],
+        "timing": "हर मौसम की अंतिम तारीख से पहले जुड़ें — आमतौर पर खरीफ के लिए 31 जुलाई और रबी के लिए 31 दिसंबर के आसपास (राज्य के अनुसार बदलती है)।",
+        "helpline": "फसल बीमा हेल्पलाइन: 14447"
+      }
     },
     {
-      "id": "kcc", "icon": "💳", "url": "https://www.myscheme.gov.in/schemes/kcc",
-      "en": { "name": "Kisan Credit Card (KCC)", "benefit": "Low-interest crop loans; with interest subvention about 4% per year if repaid on time. Limit ₹3 lakh (Budget 2025-26 announced ₹5 lakh).", "who": "Farmers, tenants, sharecroppers, SHGs; also animal husbandry and fisheries.", "how": "Apply at any bank branch with land records, ID and photo." },
-      "hi": { "name": "किसान क्रेडिट कार्ड (KCC)", "benefit": "कम ब्याज पर फसल ऋण; समय पर चुकाने पर लगभग 4% सालाना। सीमा ₹3 लाख (बजट 2025-26 में ₹5 लाख की घोषणा)।", "who": "किसान, बटाईदार, स्वयं सहायता समूह; पशुपालन और मत्स्य पालन भी।", "how": "किसी भी बैंक शाखा में ज़मीन के कागज़, पहचान पत्र और फ़ोटो के साथ आवेदन करें।" }
+      "id": "kcc",
+      "icon": "💳",
+      "url": "https://www.myscheme.gov.in/schemes/kcc",
+      "en": {
+        "name": "Kisan Credit Card (KCC)",
+        "benefit": "Low-interest crop loans; with interest subvention about 4% per year if repaid on time. Limit ₹3 lakh (Budget 2025-26 announced ₹5 lakh).",
+        "who": "Farmers, tenants, sharecroppers, SHGs; also animal husbandry and fisheries.",
+        "how": "Apply at any bank branch with land records, ID and photo.",
+        "about": "Kisan Credit Card gives farmers a ready loan limit from the bank for farming costs — seeds, fertilizer, pesticide, labour, and also small household needs. You take money when you need it and pay interest only on what you use.",
+        "benefits": [
+          "Loan at 7% interest up to ₹3 lakh; if you repay on time you get 3% back, so the real rate is about 4% per year.",
+          "Budget 2025-26 announced raising the subsidised limit to ₹5 lakh — ask your bank whether it applies now.",
+          "No collateral (no land mortgage) for loans up to ₹2 lakh.",
+          "Card is valid for 5 years; limit grows each year with costs.",
+          "Also available for animal husbandry and fisheries (dairy, poultry, fish farming).",
+          "RuPay debit card for withdrawing money at ATMs."
+        ],
+        "eligible": [
+          "Farmers who own and cultivate land.",
+          "Tenant farmers, oral lessees and sharecroppers.",
+          "Self-Help Groups (SHGs) and Joint Liability Groups of farmers.",
+          "Fish farmers, fishermen, and livestock / poultry farmers."
+        ],
+        "not_eligible": [
+          "People not involved in farming, animal husbandry or fisheries.",
+          "Applicants with a bad loan record (defaults) may be refused by the bank."
+        ],
+        "documents": [
+          "Filled KCC application form",
+          "Aadhaar / voter ID / PAN (identity proof)",
+          "Address proof",
+          "Land record or proof of cultivation (tenancy paper for tenants)",
+          "Passport-size photo",
+          "Crop details you plan to grow"
+        ],
+        "steps": [
+          "Visit any bank branch (public, private, cooperative or regional rural bank) — or download the KCC form from pmkisan.gov.in.",
+          "Fill in the form with land and crop details and attach documents.",
+          "Bank checks your land and crops and fixes your credit limit.",
+          "Bank should decide within about 14 days of a complete application.",
+          "Get your KCC passbook and RuPay card; repay on time to keep the 4% rate."
+        ],
+        "timing": "Apply any time of the year. Repay each loan within 12 months to keep the interest benefit.",
+        "helpline": "Ask your bank branch, or the PM-KISAN helpline 155261"
+      },
+      "hi": {
+        "name": "किसान क्रेडिट कार्ड (KCC)",
+        "benefit": "कम ब्याज पर फसल ऋण; समय पर चुकाने पर लगभग 4% सालाना। सीमा ₹3 लाख (बजट 2025-26 में ₹5 लाख की घोषणा)।",
+        "who": "किसान, बटाईदार, स्वयं सहायता समूह; पशुपालन और मत्स्य पालन भी।",
+        "how": "किसी भी बैंक शाखा में ज़मीन के कागज़, पहचान पत्र और फ़ोटो के साथ आवेदन करें।",
+        "about": "किसान क्रेडिट कार्ड से किसान को बैंक से खेती के खर्च — बीज, खाद, दवा, मज़दूरी और घर की छोटी ज़रूरतों — के लिए तैयार कर्ज़ सीमा मिलती है। ज़रूरत पड़ने पर पैसा निकालें और सिर्फ़ इस्तेमाल की गई रकम पर ब्याज दें।",
+        "benefits": [
+          "₹3 लाख तक 7% ब्याज पर कर्ज़; समय पर चुकाने पर 3% वापस, यानी असली ब्याज लगभग 4% सालाना।",
+          "बजट 2025-26 में यह सीमा ₹5 लाख करने की घोषणा हुई — बैंक से पूछें कि अभी लागू है या नहीं।",
+          "₹2 लाख तक के कर्ज़ पर कोई गिरवी (ज़मीन बंधक) नहीं।",
+          "कार्ड 5 साल के लिए वैध; खर्च के हिसाब से हर साल सीमा बढ़ती है।",
+          "पशुपालन और मछली पालन (डेयरी, मुर्गी पालन, मछली) के लिए भी उपलब्ध।",
+          "ATM से पैसा निकालने के लिए RuPay डेबिट कार्ड।"
+        ],
+        "eligible": [
+          "अपनी ज़मीन पर खेती करने वाले किसान।",
+          "किरायेदार किसान, मौखिक पट्टेदार और बटाईदार।",
+          "किसानों के स्वयं सहायता समूह (SHG) और संयुक्त देयता समूह।",
+          "मछली पालक, मछुआरे, पशुपालक और मुर्गी पालक।"
+        ],
+        "not_eligible": [
+          "जो खेती, पशुपालन या मछली पालन से नहीं जुड़े हैं।",
+          "जिनका पुराना कर्ज़ बकाया (डिफ़ॉल्ट) है, बैंक मना कर सकता है।"
+        ],
+        "documents": [
+          "भरा हुआ KCC आवेदन फ़ॉर्म",
+          "आधार / वोटर ID / PAN (पहचान पत्र)",
+          "पते का प्रमाण",
+          "ज़मीन का रिकॉर्ड या खेती का प्रमाण (किरायेदार के लिए पट्टा पत्र)",
+          "पासपोर्ट साइज़ फ़ोटो",
+          "जो फसल उगानी है उसकी जानकारी"
+        ],
+        "steps": [
+          "किसी भी बैंक शाखा (सरकारी, निजी, सहकारी या ग्रामीण बैंक) में जाएँ — या pmkisan.gov.in से KCC फ़ॉर्म डाउनलोड करें।",
+          "ज़मीन और फसल की जानकारी भरकर दस्तावेज़ लगाएँ।",
+          "बैंक ज़मीन व फसल की जाँच कर कर्ज़ सीमा तय करता है।",
+          "पूरा आवेदन देने के लगभग 14 दिन में बैंक को फ़ैसला करना होता है।",
+          "KCC पासबुक और RuPay कार्ड लें; 4% दर के लिए समय पर चुकाएँ।"
+        ],
+        "timing": "साल में कभी भी आवेदन करें। ब्याज छूट के लिए हर कर्ज़ 12 महीने के अंदर चुकाएँ।",
+        "helpline": "अपनी बैंक शाखा से पूछें, या पीएम-किसान हेल्पलाइन 155261"
+      }
     },
     {
-      "id": "shc", "icon": "🧪", "url": "https://soilhealth.dac.gov.in",
-      "en": { "name": "Soil Health Card", "benefit": "Free soil test with crop-wise fertilizer advice (N, P, K, pH, organic carbon, micronutrients).", "who": "All farmers.", "how": "Contact your Krishi Vigyan Kendra / agriculture office, or soilhealth.dac.gov.in. Enter the values in FarmGuard Crop Advisor." },
-      "hi": { "name": "मृदा स्वास्थ्य कार्ड", "benefit": "मुफ़्त मिट्टी जाँच और फसल अनुसार खाद की सलाह (N, P, K, pH, जैविक कार्बन, सूक्ष्म पोषक)।", "who": "सभी किसान।", "how": "कृषि विज्ञान केंद्र / कृषि कार्यालय से संपर्क करें या soilhealth.dac.gov.in देखें। मान फार्मगार्ड फसल सलाहकार में डालें।" }
+      "id": "shc",
+      "icon": "🧪",
+      "url": "https://soilhealth.dac.gov.in",
+      "en": {
+        "name": "Soil Health Card",
+        "benefit": "Free soil test with crop-wise fertilizer advice (N, P, K, pH, organic carbon, micronutrients).",
+        "who": "All farmers.",
+        "how": "Contact your Krishi Vigyan Kendra / agriculture office, or soilhealth.dac.gov.in. Enter the values in FarmGuard Crop Advisor.",
+        "about": "Under the Soil Health Card scheme, the government tests your field's soil for free and gives you a card that says which nutrients are low or high, and how much fertilizer to use for each crop. This saves money on fertilizer and improves yield.",
+        "benefits": [
+          "Free soil testing by the agriculture department.",
+          "Card shows 12 soil values: Nitrogen, Phosphorus, Potassium, Sulphur, Zinc, Iron, Copper, Manganese, Boron, pH, EC (salinity) and Organic Carbon.",
+          "Crop-wise fertilizer and manure recommendations for your field.",
+          "Helps avoid using too much urea/DAP — lower cost, healthier soil.",
+          "Card can be downloaded from soilhealth.dac.gov.in."
+        ],
+        "eligible": [
+          "All farmers in India — owners and tenants."
+        ],
+        "not_eligible": [
+          "No exclusions — any farmer can get the soil tested."
+        ],
+        "documents": [
+          "Aadhaar or any ID",
+          "Mobile number",
+          "Field / survey number and village name"
+        ],
+        "steps": [
+          "Contact your village agriculture officer, Krishi Vigyan Kendra (KVK) or block agriculture office.",
+          "A soil sample is taken from your field (after harvest, before sowing is best), or you take it as they guide you.",
+          "The sample is tested in a soil testing lab.",
+          "Get your card from the office or download it from soilhealth.dac.gov.in using your mobile number.",
+          "Enter the card values in FarmGuard Crop Advisor for crop and fertilizer advice."
+        ],
+        "timing": "Sampling usually happens after harvest, before the next sowing. Retest every 2–3 years.",
+        "helpline": "Kisan Call Centre: 1800-180-1551"
+      },
+      "hi": {
+        "name": "मृदा स्वास्थ्य कार्ड",
+        "benefit": "मुफ़्त मिट्टी जाँच और फसल अनुसार खाद की सलाह (N, P, K, pH, जैविक कार्बन, सूक्ष्म पोषक)।",
+        "who": "सभी किसान।",
+        "how": "कृषि विज्ञान केंद्र / कृषि कार्यालय से संपर्क करें या soilhealth.dac.gov.in देखें। मान फार्मगार्ड फसल सलाहकार में डालें।",
+        "about": "मृदा स्वास्थ्य कार्ड योजना में सरकार आपके खेत की मिट्टी की मुफ़्त जाँच करती है और कार्ड देती है जिसमें लिखा होता है कि कौन-से पोषक तत्व कम या ज़्यादा हैं और हर फसल में कितनी खाद डालें। इससे खाद का खर्च बचता है और पैदावार बढ़ती है।",
+        "benefits": [
+          "कृषि विभाग द्वारा मुफ़्त मिट्टी जाँच।",
+          "कार्ड में मिट्टी के 12 मान: नाइट्रोजन, फ़ॉस्फ़ोरस, पोटाश, सल्फ़र, ज़िंक, आयरन, कॉपर, मैंगनीज़, बोरॉन, pH, EC (खारापन) और जैविक कार्बन।",
+          "आपके खेत के लिए फसल के हिसाब से खाद और गोबर खाद की सलाह।",
+          "ज़रूरत से ज़्यादा यूरिया/DAP से बचाव — कम खर्च, स्वस्थ मिट्टी।",
+          "कार्ड soilhealth.dac.gov.in से डाउनलोड कर सकते हैं।"
+        ],
+        "eligible": [
+          "भारत के सभी किसान — ज़मीन मालिक और किरायेदार।"
+        ],
+        "not_eligible": [
+          "कोई अपवाद नहीं — कोई भी किसान मिट्टी जाँच करा सकता है।"
+        ],
+        "documents": [
+          "आधार या कोई पहचान पत्र",
+          "मोबाइल नंबर",
+          "खेत / खसरा नंबर और गाँव का नाम"
+        ],
+        "steps": [
+          "गाँव के कृषि अधिकारी, कृषि विज्ञान केंद्र (KVK) या ब्लॉक कृषि कार्यालय से संपर्क करें।",
+          "आपके खेत से मिट्टी का नमूना लिया जाता है (कटाई के बाद, बुवाई से पहले सबसे अच्छा), या उनके बताए तरीके से आप खुद लें।",
+          "नमूने की जाँच मिट्टी परीक्षण प्रयोगशाला में होती है।",
+          "कार्यालय से कार्ड लें या मोबाइल नंबर से soilhealth.dac.gov.in से डाउनलोड करें।",
+          "फसल और खाद की सलाह के लिए कार्ड के मान FarmGuard फसल सलाहकार में भरें।"
+        ],
+        "timing": "नमूना आमतौर पर कटाई के बाद, अगली बुवाई से पहले लिया जाता है। हर 2–3 साल में दोबारा जाँच कराएँ।",
+        "helpline": "किसान कॉल सेंटर: 1800-180-1551"
+      }
     },
     {
-      "id": "pmksy", "icon": "💧", "url": "https://pmksy.gov.in",
-      "en": { "name": "PM Krishi Sinchayee Yojana — Per Drop More Crop", "benefit": "Subsidy on drip and sprinkler irrigation (commonly 55% for small/marginal farmers, 45% for others; states may add more).", "who": "Farmers with land and a water source.", "how": "Apply through your state horticulture/agriculture department portal or office." },
-      "hi": { "name": "पीएम कृषि सिंचाई योजना — प्रति बूंद अधिक फसल", "benefit": "ड्रिप और स्प्रिंकलर पर सब्सिडी (आमतौर पर छोटे/सीमांत किसानों को 55%, अन्य को 45%; राज्य और जोड़ सकते हैं)।", "who": "ज़मीन और पानी के स्रोत वाले किसान।", "how": "राज्य बागवानी/कृषि विभाग के पोर्टल या कार्यालय से आवेदन करें।" }
+      "id": "pmksy",
+      "icon": "💧",
+      "url": "https://pmksy.gov.in",
+      "en": {
+        "name": "PM Krishi Sinchayee Yojana — Per Drop More Crop",
+        "benefit": "Subsidy on drip and sprinkler irrigation (commonly 55% for small/marginal farmers, 45% for others; states may add more).",
+        "who": "Farmers with land and a water source.",
+        "how": "Apply through your state horticulture/agriculture department portal or office.",
+        "about": "PM Krishi Sinchayee Yojana – 'Per Drop More Crop' helps farmers install drip and sprinkler irrigation with a big subsidy. Drip and sprinkler save 30–50% water, reduce labour and electricity, and often increase yield.",
+        "benefits": [
+          "Subsidy on drip and sprinkler systems — commonly 55% of the cost for small and marginal farmers and 45% for other farmers.",
+          "Many states add their own top-up, so the farmer may pay much less.",
+          "Saves water, fertilizer (via fertigation), labour and power.",
+          "Works well in dry areas and for vegetables, fruits, sugarcane, cotton."
+        ],
+        "eligible": [
+          "Farmers with their own land (or long-term lease) and a water source (well, borewell, canal, pond).",
+          "Farmer groups, cooperatives and FPOs.",
+          "Small and marginal farmers get the higher subsidy rate."
+        ],
+        "not_eligible": [
+          "Fields that already got a drip/sprinkler subsidy recently (usually within the last 7 years) for the same area.",
+          "Farmers without a water source."
+        ],
+        "documents": [
+          "Aadhaar card",
+          "Land record (khatauni / 7-12)",
+          "Bank passbook",
+          "Proof of water source",
+          "Caste certificate (if SC/ST, for extra benefit)",
+          "Quotation from a company registered with the state"
+        ],
+        "steps": [
+          "Apply on your state's horticulture / agriculture department portal or at the block office.",
+          "Choose a registered drip/sprinkler company; they survey the field and give a design and quotation.",
+          "After approval, the system is installed in your field.",
+          "Officials inspect the installation.",
+          "Subsidy is paid to your bank account (or adjusted with the company, depending on the state)."
+        ],
+        "timing": "Applications usually open every year on the state portal; funds are given first-come first-served.",
+        "helpline": "Your district horticulture / agriculture office, or Kisan Call Centre 1800-180-1551"
+      },
+      "hi": {
+        "name": "पीएम कृषि सिंचाई योजना — प्रति बूंद अधिक फसल",
+        "benefit": "ड्रिप और स्प्रिंकलर पर सब्सिडी (आमतौर पर छोटे/सीमांत किसानों को 55%, अन्य को 45%; राज्य और जोड़ सकते हैं)।",
+        "who": "ज़मीन और पानी के स्रोत वाले किसान।",
+        "how": "राज्य बागवानी/कृषि विभाग के पोर्टल या कार्यालय से आवेदन करें।",
+        "about": "प्रधानमंत्री कृषि सिंचाई योजना – 'पर ड्रॉप मोर क्रॉप' में ड्रिप और स्प्रिंकलर सिंचाई लगाने पर बड़ी सब्सिडी मिलती है। ड्रिप और स्प्रिंकलर से 30–50% पानी बचता है, मज़दूरी और बिजली कम लगती है, और पैदावार अक्सर बढ़ती है।",
+        "benefits": [
+          "ड्रिप और स्प्रिंकलर पर सब्सिडी — आमतौर पर छोटे और सीमांत किसानों को लागत का 55% और बाकी किसानों को 45%।",
+          "कई राज्य अपनी ओर से अतिरिक्त मदद देते हैं, जिससे किसान का खर्च और कम हो जाता है।",
+          "पानी, खाद (फ़र्टिगेशन से), मज़दूरी और बिजली की बचत।",
+          "सूखे इलाकों और सब्ज़ी, फल, गन्ना, कपास के लिए बहुत अच्छा।"
+        ],
+        "eligible": [
+          "जिन किसानों के पास अपनी ज़मीन (या लंबा पट्टा) और पानी का स्रोत (कुआँ, बोरवेल, नहर, तालाब) है।",
+          "किसान समूह, सहकारी समितियाँ और FPO।",
+          "छोटे और सीमांत किसानों को ज़्यादा सब्सिडी।"
+        ],
+        "not_eligible": [
+          "जिस खेत के उसी हिस्से पर हाल में (आमतौर पर पिछले 7 साल में) ड्रिप/स्प्रिंकलर सब्सिडी मिल चुकी है।",
+          "जिनके पास पानी का स्रोत नहीं है।"
+        ],
+        "documents": [
+          "आधार कार्ड",
+          "ज़मीन का रिकॉर्ड (खतौनी / 7-12)",
+          "बैंक पासबुक",
+          "पानी के स्रोत का प्रमाण",
+          "जाति प्रमाण पत्र (SC/ST हों तो अतिरिक्त लाभ के लिए)",
+          "राज्य में पंजीकृत कंपनी का कोटेशन"
+        ],
+        "steps": [
+          "अपने राज्य के उद्यान / कृषि विभाग पोर्टल पर या ब्लॉक कार्यालय में आवेदन करें।",
+          "पंजीकृत ड्रिप/स्प्रिंकलर कंपनी चुनें; वह खेत का सर्वे कर डिज़ाइन और कोटेशन देती है।",
+          "मंज़ूरी के बाद खेत में सिस्टम लगाया जाता है।",
+          "अधिकारी लगाए गए सिस्टम की जाँच करते हैं।",
+          "सब्सिडी बैंक खाते में आती है (या राज्य के नियम के अनुसार कंपनी से समायोजित होती है)।"
+        ],
+        "timing": "राज्य पोर्टल पर आवेदन आमतौर पर हर साल खुलते हैं; पैसा पहले आओ पहले पाओ आधार पर मिलता है।",
+        "helpline": "ज़िला उद्यान / कृषि कार्यालय, या किसान कॉल सेंटर 1800-180-1551"
+      }
     },
     {
-      "id": "pm_kusum", "icon": "☀️", "url": "https://pmkusum.mnre.gov.in",
-      "en": { "name": "PM-KUSUM (solar pumps)", "benefit": "Subsidy for solar irrigation pumps and solarising grid pumps (central + state support; farmer share often about 10–40%).", "who": "Individual farmers, groups, FPOs, panchayats.", "how": "Apply on your state's PM-KUSUM portal (via pmkusum.mnre.gov.in)." },
-      "hi": { "name": "पीएम-कुसुम (सोलर पंप)", "benefit": "सोलर सिंचाई पंप और ग्रिड पंप को सोलर करने पर सब्सिडी (केंद्र + राज्य; किसान का हिस्सा अक्सर लगभग 10–40%)।", "who": "किसान, समूह, FPO, पंचायत।", "how": "अपने राज्य के पीएम-कुसुम पोर्टल पर आवेदन करें (pmkusum.mnre.gov.in से)।" }
+      "id": "pm_kusum",
+      "icon": "☀️",
+      "url": "https://pmkusum.mnre.gov.in",
+      "en": {
+        "name": "PM-KUSUM (solar pumps)",
+        "benefit": "Subsidy for solar irrigation pumps and solarising grid pumps (central + state support; farmer share often about 10–40%).",
+        "who": "Individual farmers, groups, FPOs, panchayats.",
+        "how": "Apply on your state's PM-KUSUM portal (via pmkusum.mnre.gov.in).",
+        "about": "PM-KUSUM helps farmers move from diesel and grid electricity to solar power for irrigation. You can get a new solar pump, convert your existing grid pump to solar, or set up a small solar plant on barren land and sell the power.",
+        "benefits": [
+          "Component B: standalone solar pump up to 7.5 HP — usually 30% central subsidy + 30% state subsidy; the farmer pays about 40%, of which up to 30% can be a bank loan (so about 10% upfront).",
+          "Higher central support (50%) in North-East and hill states.",
+          "Component C: solarise your existing grid-connected pump and sell extra electricity to the power company.",
+          "Component A: set up a 0.5–2 MW solar plant on barren / fallow land and earn from selling power.",
+          "No diesel cost and free daytime power for irrigation."
+        ],
+        "eligible": [
+          "Individual farmers with a water source.",
+          "Groups of farmers, FPOs, cooperatives, water user associations and panchayats.",
+          "For Component A: farmers or groups with suitable land near an electricity sub-station."
+        ],
+        "not_eligible": [
+          "Pump capacity above the limit allowed by your state.",
+          "Farmers who already got a solar pump subsidy for the same land."
+        ],
+        "documents": [
+          "Aadhaar card",
+          "Land record",
+          "Bank passbook",
+          "Passport-size photo",
+          "Water source details (borewell / well)",
+          "Existing electricity connection details (for Component C)"
+        ],
+        "steps": [
+          "Go to your state's official PM-KUSUM portal (find the link on pmkusum.mnre.gov.in) or the state energy / agriculture department.",
+          "Register with Aadhaar and mobile, choose the component and pump size.",
+          "Pay your farmer share only through the official portal or bank — never to an unknown website or caller.",
+          "A registered vendor installs the pump after approval.",
+          "Officials inspect and the pump is handed over with a 5-year maintenance warranty."
+        ],
+        "timing": "States open applications in batches — watch the state portal. Check on pmkusum.mnre.gov.in whether the scheme period has been extended.",
+        "helpline": "MNRE helpline: 1800-180-3333. Beware of fake PM-KUSUM websites asking for money."
+      },
+      "hi": {
+        "name": "पीएम-कुसुम (सोलर पंप)",
+        "benefit": "सोलर सिंचाई पंप और ग्रिड पंप को सोलर करने पर सब्सिडी (केंद्र + राज्य; किसान का हिस्सा अक्सर लगभग 10–40%)।",
+        "who": "किसान, समूह, FPO, पंचायत।",
+        "how": "अपने राज्य के पीएम-कुसुम पोर्टल पर आवेदन करें (pmkusum.mnre.gov.in से)।",
+        "about": "पीएम-कुसुम किसानों को सिंचाई के लिए डीज़ल और बिजली से सौर ऊर्जा पर ले जाने में मदद करता है। आप नया सोलर पंप ले सकते हैं, पुराने बिजली पंप को सोलर बना सकते हैं, या बंजर ज़मीन पर छोटा सोलर प्लांट लगाकर बिजली बेच सकते हैं।",
+        "benefits": [
+          "घटक B: 7.5 HP तक अलग सोलर पंप — आमतौर पर 30% केंद्र + 30% राज्य सब्सिडी; किसान लगभग 40% देता है, जिसमें से 30% तक बैंक कर्ज़ हो सकता है (यानी लगभग 10% पहले देना)।",
+          "पूर्वोत्तर और पहाड़ी राज्यों में केंद्र की मदद ज़्यादा (50%)।",
+          "घटक C: पुराने बिजली पंप को सोलर करें और बची बिजली बिजली कंपनी को बेचें।",
+          "घटक A: बंजर / परती ज़मीन पर 0.5–2 MW का सोलर प्लांट लगाकर बिजली बेचकर कमाई।",
+          "डीज़ल का खर्च नहीं और सिंचाई के लिए दिन में मुफ़्त बिजली।"
+        ],
+        "eligible": [
+          "पानी के स्रोत वाले व्यक्तिगत किसान।",
+          "किसान समूह, FPO, सहकारी समितियाँ, जल उपयोगकर्ता संघ और पंचायत।",
+          "घटक A के लिए: बिजली सब-स्टेशन के पास उपयुक्त ज़मीन वाले किसान या समूह।"
+        ],
+        "not_eligible": [
+          "राज्य की तय सीमा से बड़ी क्षमता का पंप।",
+          "जिन्हें उसी ज़मीन के लिए पहले सोलर पंप सब्सिडी मिल चुकी है।"
+        ],
+        "documents": [
+          "आधार कार्ड",
+          "ज़मीन का रिकॉर्ड",
+          "बैंक पासबुक",
+          "पासपोर्ट साइज़ फ़ोटो",
+          "पानी के स्रोत की जानकारी (बोरवेल / कुआँ)",
+          "मौजूदा बिजली कनेक्शन की जानकारी (घटक C के लिए)"
+        ],
+        "steps": [
+          "अपने राज्य के आधिकारिक पीएम-कुसुम पोर्टल पर जाएँ (लिंक pmkusum.mnre.gov.in पर मिलेगा) या राज्य ऊर्जा / कृषि विभाग से संपर्क करें।",
+          "आधार और मोबाइल से पंजीकरण करें, घटक और पंप का साइज़ चुनें।",
+          "अपना हिस्सा सिर्फ़ आधिकारिक पोर्टल या बैंक से भरें — किसी अनजान वेबसाइट या कॉल करने वाले को कभी पैसा न दें।",
+          "मंज़ूरी के बाद पंजीकृत कंपनी पंप लगाती है।",
+          "अधिकारी जाँच करते हैं और 5 साल की मेंटेनेंस गारंटी के साथ पंप सौंपा जाता है।"
+        ],
+        "timing": "राज्य बैच में आवेदन खोलते हैं — राज्य पोर्टल देखते रहें। योजना की अवधि बढ़ी है या नहीं, pmkusum.mnre.gov.in पर देखें।",
+        "helpline": "MNRE हेल्पलाइन: 1800-180-3333। पैसे माँगने वाली नकली पीएम-कुसुम वेबसाइटों से सावधान रहें।"
+      }
     },
     {
-      "id": "enam", "icon": "🏪", "url": "https://enam.gov.in",
-      "en": { "name": "e-NAM (online mandi)", "benefit": "See prices across mandis and sell online to more buyers with transparent bidding.", "who": "Farmers selling at e-NAM-linked mandis.", "how": "Register at enam.gov.in, the e-NAM app, or at your mandi with bank details." },
-      "hi": { "name": "e-NAM (ऑनलाइन मंडी)", "benefit": "कई मंडियों के भाव देखें और पारदर्शी बोली से ज़्यादा ख़रीदारों को ऑनलाइन बेचें।", "who": "e-NAM से जुड़ी मंडियों में बेचने वाले किसान।", "how": "enam.gov.in, e-NAM ऐप या अपनी मंडी में बैंक विवरण के साथ पंजीकरण करें।" }
+      "id": "enam",
+      "icon": "🏪",
+      "url": "https://enam.gov.in",
+      "en": {
+        "name": "e-NAM (online mandi)",
+        "benefit": "See prices across mandis and sell online to more buyers with transparent bidding.",
+        "who": "Farmers selling at e-NAM-linked mandis.",
+        "how": "Register at enam.gov.in, the e-NAM app, or at your mandi with bank details.",
+        "about": "e-NAM (National Agriculture Market) is an online trading platform that connects mandis across India. Farmers can see prices in many mandis and sell their produce to more buyers through open online bidding, with payment directly to the bank.",
+        "benefits": [
+          "See live prices from 1,400+ connected mandis before deciding where to sell.",
+          "More buyers, including traders from other mandis and states, bid on your produce.",
+          "Transparent online bidding — no hidden deals.",
+          "Quality is tested (assaying) so good produce gets a better price.",
+          "Payment directly into your bank account.",
+          "Works through the e-NAM mobile app in many Indian languages."
+        ],
+        "eligible": [
+          "Any farmer selling produce at an e-NAM-linked mandi.",
+          "Farmer Producer Organisations (FPOs) — they can also sell from their own collection centre."
+        ],
+        "not_eligible": [
+          "Produce sold at mandis not linked to e-NAM (check the mandi list on enam.gov.in)."
+        ],
+        "documents": [
+          "Aadhaar or other ID",
+          "Bank account details (passbook / cancelled cheque)",
+          "Mobile number"
+        ],
+        "steps": [
+          "Register on enam.gov.in or the e-NAM app, or at the gate of your e-NAM mandi.",
+          "Get your farmer ID after the mandi approves your registration.",
+          "Bring your produce to the mandi; it is weighed and its quality is tested.",
+          "Traders bid online; you see the highest bid and can accept it.",
+          "Payment is sent to your bank account."
+        ],
+        "timing": "Register any time; trading happens on mandi working days.",
+        "helpline": "e-NAM helpline: 1800-270-0224"
+      },
+      "hi": {
+        "name": "e-NAM (ऑनलाइन मंडी)",
+        "benefit": "कई मंडियों के भाव देखें और पारदर्शी बोली से ज़्यादा ख़रीदारों को ऑनलाइन बेचें।",
+        "who": "e-NAM से जुड़ी मंडियों में बेचने वाले किसान।",
+        "how": "enam.gov.in, e-NAM ऐप या अपनी मंडी में बैंक विवरण के साथ पंजीकरण करें।",
+        "about": "ई-नाम (राष्ट्रीय कृषि बाज़ार) एक ऑनलाइन व्यापार मंच है जो पूरे भारत की मंडियों को जोड़ता है। किसान कई मंडियों के भाव देख सकते हैं और खुली ऑनलाइन बोली से ज़्यादा खरीदारों को उपज बेच सकते हैं, पैसा सीधे बैंक में आता है।",
+        "benefits": [
+          "बेचने से पहले 1,400+ जुड़ी मंडियों के ताज़ा भाव देखें।",
+          "दूसरी मंडियों और राज्यों के व्यापारियों समेत ज़्यादा खरीदार आपकी उपज पर बोली लगाते हैं।",
+          "पारदर्शी ऑनलाइन बोली — कोई छिपा सौदा नहीं।",
+          "गुणवत्ता जाँच (एसेइंग) होती है, अच्छी उपज को बेहतर दाम।",
+          "पैसा सीधे बैंक खाते में।",
+          "ई-नाम मोबाइल ऐप कई भारतीय भाषाओं में।"
+        ],
+        "eligible": [
+          "ई-नाम से जुड़ी मंडी में उपज बेचने वाला कोई भी किसान।",
+          "किसान उत्पादक संगठन (FPO) — वे अपने संग्रह केंद्र से भी बेच सकते हैं।"
+        ],
+        "not_eligible": [
+          "जो मंडी ई-नाम से नहीं जुड़ी, वहाँ की बिक्री (मंडी सूची enam.gov.in पर देखें)।"
+        ],
+        "documents": [
+          "आधार या अन्य पहचान पत्र",
+          "बैंक खाते की जानकारी (पासबुक / कैंसल चेक)",
+          "मोबाइल नंबर"
+        ],
+        "steps": [
+          "enam.gov.in, ई-नाम ऐप, या अपनी ई-नाम मंडी के गेट पर पंजीकरण करें।",
+          "मंडी की मंज़ूरी के बाद अपना किसान ID पाएँ।",
+          "उपज मंडी लाएँ; उसका तौल और गुणवत्ता जाँच होती है।",
+          "व्यापारी ऑनलाइन बोली लगाते हैं; आप सबसे ऊँची बोली देखकर स्वीकार कर सकते हैं।",
+          "पैसा आपके बैंक खाते में भेजा जाता है।"
+        ],
+        "timing": "पंजीकरण कभी भी करें; व्यापार मंडी के कामकाजी दिनों में होता है।",
+        "helpline": "ई-नाम हेल्पलाइन: 1800-270-0224"
+      }
     },
     {
-      "id": "smam", "icon": "🚜", "url": "https://agrimachinery.nic.in",
-      "en": { "name": "Farm machinery subsidy (SMAM) & Custom Hiring Centres", "benefit": "Subsidy (typically 40–50%) on farm machines, and machines on rent from Custom Hiring Centres.", "who": "Farmers (priority to small/marginal, women, SC/ST), FPOs.", "how": "Apply on agrimachinery.nic.in or your state DBT portal. Find machines nearby on the FarmGuard Rent page." },
-      "hi": { "name": "कृषि यंत्र सब्सिडी (SMAM) और कस्टम हायरिंग केंद्र", "benefit": "कृषि यंत्रों पर सब्सिडी (आमतौर पर 40–50%), और कस्टम हायरिंग केंद्रों से किराए पर मशीनें।", "who": "किसान (छोटे/सीमांत, महिलाएं, SC/ST को प्राथमिकता), FPO।", "how": "agrimachinery.nic.in या राज्य DBT पोर्टल पर आवेदन करें। पास की मशीनें फार्मगार्ड 'किराया' पेज पर देखें।" }
+      "id": "smam",
+      "icon": "🚜",
+      "url": "https://agrimachinery.nic.in",
+      "en": {
+        "name": "Farm machinery subsidy (SMAM) & Custom Hiring Centres",
+        "benefit": "Subsidy (typically 40–50%) on farm machines, and machines on rent from Custom Hiring Centres.",
+        "who": "Farmers (priority to small/marginal, women, SC/ST), FPOs.",
+        "how": "Apply on agrimachinery.nic.in or your state DBT portal. Find machines nearby on the FarmGuard Rent page.",
+        "about": "The Sub-Mission on Agricultural Mechanization (SMAM) gives subsidy to farmers for buying farm machines like tractors, power tillers, rotavators, seed drills and sprayers. It also supports Custom Hiring Centres where small farmers can rent machines at low cost.",
+        "benefits": [
+          "Subsidy on farm machinery — usually 50% for small/marginal, women, SC/ST and North-East farmers, and 40% for other farmers (with a maximum amount per machine).",
+          "Custom Hiring Centres and Farm Machinery Banks get subsidy (often 40%, higher for village-level banks) so machines can be rented nearby.",
+          "Saves time and labour, sowing and harvesting happen on time.",
+          "Machines for crop residue management help avoid stubble burning."
+        ],
+        "eligible": [
+          "All farmers — priority to small and marginal farmers, women, and SC/ST farmers.",
+          "Farmer Producer Organisations (FPOs), cooperatives and Self-Help Groups (for Custom Hiring Centres)."
+        ],
+        "not_eligible": [
+          "Buying a machine from a dealer or model not approved / registered on the portal.",
+          "Getting subsidy for the same type of machine again within the waiting period set by your state."
+        ],
+        "documents": [
+          "Aadhaar card",
+          "Bank passbook",
+          "Land record",
+          "Caste certificate (if SC/ST)",
+          "Passport-size photo",
+          "Tractor RC (when applying for tractor-driven implements)"
+        ],
+        "steps": [
+          "Register on agrimachinery.nic.in or your state's agriculture DBT portal.",
+          "Select the machine you want and apply when the state opens applications.",
+          "Selected farmers (often by lottery / first-come) get a permit / approval.",
+          "Buy the machine from an approved dealer and upload the bill.",
+          "After physical verification, subsidy is paid to your bank account."
+        ],
+        "timing": "States open applications at different times each year — check the state DBT portal regularly.",
+        "helpline": "Farm machinery portal: agrimachinery.nic.in, or Kisan Call Centre 1800-180-1551"
+      },
+      "hi": {
+        "name": "कृषि यंत्र सब्सिडी (SMAM) और कस्टम हायरिंग केंद्र",
+        "benefit": "कृषि यंत्रों पर सब्सिडी (आमतौर पर 40–50%), और कस्टम हायरिंग केंद्रों से किराए पर मशीनें।",
+        "who": "किसान (छोटे/सीमांत, महिलाएं, SC/ST को प्राथमिकता), FPO।",
+        "how": "agrimachinery.nic.in या राज्य DBT पोर्टल पर आवेदन करें। पास की मशीनें फार्मगार्ड 'किराया' पेज पर देखें।",
+        "about": "कृषि यंत्रीकरण उप-मिशन (SMAM) में ट्रैक्टर, पावर टिलर, रोटावेटर, सीड ड्रिल और स्प्रेयर जैसी खेती की मशीनें खरीदने पर सब्सिडी मिलती है। यह कस्टम हायरिंग केंद्रों की भी मदद करता है जहाँ छोटे किसान कम किराए पर मशीन ले सकते हैं।",
+        "benefits": [
+          "खेती की मशीनों पर सब्सिडी — आमतौर पर छोटे/सीमांत, महिला, SC/ST और पूर्वोत्तर के किसानों को 50% और बाकी किसानों को 40% (हर मशीन की अधिकतम सीमा के साथ)।",
+          "कस्टम हायरिंग केंद्र और फ़ार्म मशीनरी बैंक को सब्सिडी (अक्सर 40%, गाँव स्तर के बैंक को ज़्यादा) ताकि पास में मशीन किराए पर मिले।",
+          "समय और मज़दूरी की बचत, बुवाई और कटाई समय पर।",
+          "फसल अवशेष प्रबंधन की मशीनों से पराली जलाने से बचाव।"
+        ],
+        "eligible": [
+          "सभी किसान — छोटे और सीमांत किसानों, महिलाओं और SC/ST किसानों को प्राथमिकता।",
+          "किसान उत्पादक संगठन (FPO), सहकारी समितियाँ और स्वयं सहायता समूह (कस्टम हायरिंग केंद्र के लिए)।"
+        ],
+        "not_eligible": [
+          "पोर्टल पर अस्वीकृत / अपंजीकृत डीलर या मॉडल से खरीदी गई मशीन।",
+          "राज्य की तय अवधि के अंदर उसी तरह की मशीन पर दोबारा सब्सिडी।"
+        ],
+        "documents": [
+          "आधार कार्ड",
+          "बैंक पासबुक",
+          "ज़मीन का रिकॉर्ड",
+          "जाति प्रमाण पत्र (SC/ST हों तो)",
+          "पासपोर्ट साइज़ फ़ोटो",
+          "ट्रैक्टर RC (ट्रैक्टर से चलने वाले यंत्रों के लिए)"
+        ],
+        "steps": [
+          "agrimachinery.nic.in या अपने राज्य के कृषि DBT पोर्टल पर पंजीकरण करें।",
+          "राज्य के आवेदन खोलने पर अपनी पसंद की मशीन चुनकर आवेदन करें।",
+          "चुने गए किसानों (अक्सर लॉटरी / पहले आओ पहले पाओ) को परमिट / मंज़ूरी मिलती है।",
+          "मंज़ूर डीलर से मशीन खरीदें और बिल अपलोड करें।",
+          "भौतिक सत्यापन के बाद सब्सिडी बैंक खाते में आती है।"
+        ],
+        "timing": "राज्य हर साल अलग-अलग समय पर आवेदन खोलते हैं — राज्य DBT पोर्टल नियमित देखें।",
+        "helpline": "कृषि मशीनरी पोर्टल: agrimachinery.nic.in, या किसान कॉल सेंटर 1800-180-1551"
+      }
     }
   ]
 }
-
