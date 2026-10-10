@@ -9,6 +9,12 @@ export const CROP_KEYS = Object.keys(enMessages.crops)
 
 export const MESSAGE_STRINGS = { en: enMessages, hi: hiMessages }
 
+// Marketplace categories (must match backend/app/routers/market.py)
+export const LISTING_CATEGORIES = {
+  equipment: ['tractor', 'harvester', 'rotavator', 'seeder', 'sprayer', 'thresher', 'pump', 'other'],
+  waste: ['straw', 'husk', 'stalks', 'dung', 'bagasse', 'other'],
+}
+
 /** Shared message dictionary (crops, items, templates…) in the current UI language. */
 export function useMessageStrings() {
   const { i18n } = useTranslation()

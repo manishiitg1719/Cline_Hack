@@ -13,7 +13,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_settings
 from .database import SessionLocal, init_db
-from .routers import auth, crop, family, farm, messages, radar, radar_demo, satellite, scans, status, weather
+from .routers import (assistant, auth, crop, family, farm, market, messages, radar, radar_demo, satellite, scans,
+                      status, weather)
 from .services import radar as radar_service
 
 settings = get_settings()
@@ -58,5 +59,5 @@ app.add_middleware(
 )
 
 for r in (status.router, auth.router, farm.router, messages.router, family.router, weather.router, scans.router,
-          radar.router, radar_demo.router, crop.router, satellite.router):
+          radar.router, radar_demo.router, crop.router, satellite.router, assistant.router, market.router):
     app.include_router(r)

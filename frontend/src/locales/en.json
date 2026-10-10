@@ -15,7 +15,8 @@
   "nav": {
     "dashboard": "Home", "farm": "My Farm", "status": "System Status", "messages": "Messages",
     "family": "Family", "weather": "Weather", "irrigation": "Irrigation", "scan": "Disease Scan",
-    "radar": "Disease Radar", "crop": "Crop Advisor", "satellite": "Field Health"
+    "radar": "Disease Radar", "crop": "Crop Advisor", "satellite": "Field Health",
+    "assistant": "Ask FarmGuard", "schemes": "Govt Schemes", "market": "Rent & Waste", "more": "More"
   },
   "dashboard": {
     "hello": "Namaste, {{name}} 👋", "actingFor": "Helping: {{name}}", "completeProfile": "Complete your farm profile to get personalised advice.",
@@ -150,6 +151,26 @@
     "estimateNote": "This is an estimate, not a satellite measurement.",
     "attribution": "Contains modified Copernicus Sentinel data, processed via Microsoft Planetary Computer. Base map imagery © Esri."
   },
+  "assistant": {
+    "placeholder": "Ask about irrigation, weather, crops, disease, schemes…", "send": "Send", "thinking": "thinking", "open": "Open",
+    "disclaimer": "Answers use your farm data and built-in guidance (or AI when enabled). For pesticides and loans, confirm with your KVK / bank."
+  },
+  "schemes": {
+    "intro": "Main government schemes for farmers. Tap a scheme for eligibility and how to apply.", "who": "Who can apply", "how": "How to apply",
+    "official": "Official website", "note": "Information last checked {{date}}. Amounts and rules change — always confirm on the official website."
+  },
+  "market": {
+    "kind": { "equipment": "🚜 Rent equipment", "waste": "♻️ Crop waste exchange" },
+    "intro": { "equipment": "Rent tractors and machines from farmers near you — or earn by renting out yours.", "waste": "Sell or give straw, husk and stalks for fodder, biogas or mushrooms — instead of burning them." },
+    "category": "Category", "all": "All", "mine": "My listings", "add": "Add listing", "empty": "Nothing listed near you yet. Be the first!",
+    "noLocation": "Set your farm location on My Farm to see distances and nearby listings.",
+    "free": "Free", "askPrice": "Ask price", "call": "Call", "remove": "Remove",
+    "titlePh": "Title (e.g. Mahindra tractor with driver)", "descPh": "Details (condition, availability, pickup…)", "pricePh": "Price ₹", "unitLabel": "Unit",
+    "privacy": "Your name, village and phone number will be shown to nearby farmers so they can contact you.",
+    "unit": { "hour": "hour", "day": "day", "acre": "acre", "quintal": "quintal", "tonne": "tonne", "trolley": "trolley", "free": "free" },
+    "cat": { "tractor": "Tractor", "harvester": "Harvester", "rotavator": "Rotavator", "seeder": "Seeder / Happy Seeder", "sprayer": "Sprayer", "thresher": "Thresher", "pump": "Water pump", "other": "Other", "straw": "Straw / parali", "husk": "Husk", "stalks": "Stalks", "dung": "Dung / manure", "bagasse": "Bagasse" }
+  },
+  "pwa": { "offline": "You are offline — showing saved data. Disease Scan still works.", "installHint": "Install FarmGuard on your phone for quick, offline access.", "install": "Install" },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
   "status": {
     "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",

@@ -1,0 +1,27 @@
+{
+  "_note": "Keyword matching for the offline (FALLBACK) assistant. Answers in faq_en.json / faq_hi.json. 'link' = app page to open.",
+  "intents": {
+    "irrigation": ["irrigat", "water my", "watering", "सिंचाई", "पानी दू", "पानी दे", "पानी कब"],
+    "weather": ["weather", "rain", "forecast", "temperature", "मौसम", "बारिश", "तापमान"],
+    "disease_near": ["outbreak", "near me", "nearby disease", "radar", "पास में बीमारी", "आसपास", "फैल रही"]
+  },
+  "faq": [
+    { "id": "scan_help", "link": "/scan", "kw": ["scan", "leaf", "disease", "spots", "पत्ती", "बीमारी", "धब्बे", "रोग"] },
+    { "id": "crop_choice", "link": "/crop", "kw": ["which crop", "what to grow", "what should i grow", "next crop", "कौन सी फसल", "क्या बोऊं", "क्या उगाऊं", "अगली फसल"] },
+    { "id": "fertilizer", "link": "/crop", "kw": ["fertilizer", "fertiliser", "urea", "dap", "npk", "potash", "खाद", "यूरिया", "डीएपी", "पोटाश"] },
+    { "id": "soil_card", "link": "/schemes", "kw": ["soil health card", "soil test", "soil testing", "मृदा", "मिट्टी की जांच", "मिट्टी जाँच", "सॉयल हेल्थ"] },
+    { "id": "organic", "link": null, "kw": ["organic", "compost", "manure", "vermi", "जैविक", "कम्पोस्ट", "गोबर", "केंचुआ"] },
+    { "id": "pests", "link": "/scan", "kw": ["pest", "insect", "aphid", "whitefly", "caterpillar", "neem", "कीट", "कीड़", "इल्ली", "माहू", "सफ़ेद मक्खी", "नीम"] },
+    { "id": "stubble", "link": "/market", "kw": ["stubble", "parali", "straw", "burning", "residue", "पराली", "भूसा", "पुआल", "जलाना", "अवशेष"] },
+    { "id": "heat", "link": "/weather", "kw": ["heat", "heatwave", "hot", "लू", "गर्मी"] },
+    { "id": "frost", "link": "/weather", "kw": ["frost", "cold wave", "पाला", "शीतलहर", "ठंड"] },
+    { "id": "pm_kisan", "link": "/schemes", "kw": ["pm kisan", "pm-kisan", "6000", "किसान सम्मान", "पीएम किसान"] },
+    { "id": "insurance", "link": "/schemes", "kw": ["insurance", "pmfby", "fasal bima", "crop loss", "बीमा", "फसल बीमा"] },
+    { "id": "loan", "link": "/schemes", "kw": ["loan", "kcc", "kisan credit", "credit card", "ऋण", "लोन", "कर्ज", "क्रेडिट कार्ड"] },
+    { "id": "price", "link": "/schemes", "kw": ["price", "mandi", "msp", "sell", "भाव", "मंडी", "दाम", "बेच", "समर्थन मूल्य"] },
+    { "id": "storage", "link": null, "kw": ["storage", "store grain", "godown", "भंडारण", "अनाज रख", "गोदाम"] },
+    { "id": "rent_machine", "link": "/market", "kw": ["tractor", "rent", "harvester", "machine", "equipment", "ट्रैक्टर", "किराए", "किराये", "मशीन", "हार्वेस्टर"] },
+    { "id": "family_help", "link": "/family", "kw": ["family", "son", "daughter", "helper", "link code", "परिवार", "बेटा", "बेटी", "सहायक"] },
+    { "id": "app_offline", "link": null, "kw": ["offline", "no internet", "without internet", "इंटरनेट नहीं", "बिना इंटरनेट", "ऑफ़लाइन"] }
+  ]
+}

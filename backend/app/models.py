@@ -161,6 +161,28 @@ class AlertLog(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
 
+class Listing(Base):
+    """Equipment rental or crop-waste/residue offer posted by a farmer (marketplace)."""
+
+    __tablename__ = "listings"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    owner_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    kind: Mapped[str] = mapped_column(String(10))       # equipment | waste
+    category: Mapped[str] = mapped_column(String(30))   # tractor/harvester/... or straw/husk/...
+    title: Mapped[str] = mapped_column(String(120))
+    description: Mapped[str] = mapped_column(Text, default="")
+    price: Mapped[float | None] = mapped_column(Float, nullable=True)
+    unit: Mapped[str] = mapped_column(String(20), default="")  # hour/day/acre/quintal/tonne/free
+    village: Mapped[str] = mapped_column(String(120), default="")
+    lat: Mapped[float | None] = mapped_column(Float, nullable=True)
+    lon: Mapped[float | None] = mapped_column(Float, nullable=True)
+    active: Mapped[bool] = mapped_column(Boolean, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+    owner: Mapped[User] = relationship()
+
+
 class ProviderUsage(Base):
     """Daily counter of paid/live API calls (credit guard)."""
 

@@ -1,0 +1,47 @@
+{
+  "_note": "Key central schemes. Amounts change — the app shows 'last checked' and links to the official site. Verify before advising.",
+  "last_checked": "2026-10",
+  "schemes": [
+    {
+      "id": "pm_kisan", "icon": "💰", "url": "https://pmkisan.gov.in",
+      "en": { "name": "PM-KISAN", "benefit": "₹6,000 per year in 3 instalments of ₹2,000, paid directly to the bank account.", "who": "Land-holding farmer families (exclusions: income-tax payers, government employees, professionals).", "how": "Register at pmkisan.gov.in or a Common Service Centre (CSC). Complete e-KYC; bank account must be Aadhaar-linked." },
+      "hi": { "name": "पीएम-किसान", "benefit": "साल में ₹6,000, ₹2,000 की 3 किस्तों में सीधे बैंक खाते में।", "who": "ज़मीन वाले किसान परिवार (अपवाद: आयकर दाता, सरकारी कर्मचारी, पेशेवर)।", "how": "pmkisan.gov.in या जन सेवा केंद्र (CSC) पर पंजीकरण करें। e-KYC पूरा करें; बैंक खाता आधार से जुड़ा हो।" }
+    },
+    {
+      "id": "pmfby", "icon": "🛡️", "url": "https://pmfby.gov.in",
+      "en": { "name": "PM Fasal Bima Yojana (crop insurance)", "benefit": "Insurance against crop loss from natural disasters, pests and disease. Farmer pays only 2% (Kharif), 1.5% (Rabi), 5% (commercial/horticulture).", "who": "All farmers including tenants/sharecroppers, for notified crops and areas.", "how": "Enrol via bank, CSC or pmfby.gov.in before each season's cut-off. Report crop loss within 72 hours." },
+      "hi": { "name": "पीएम फसल बीमा योजना", "benefit": "प्राकृतिक आपदा, कीट और बीमारी से फसल नुकसान का बीमा। किसान सिर्फ़ 2% (खरीफ़), 1.5% (रबी), 5% (व्यावसायिक/बागवानी) प्रीमियम देता है।", "who": "सभी किसान, बटाईदार सहित, अधिसूचित फसलों और क्षेत्रों के लिए।", "how": "हर मौसम की आख़िरी तारीख़ से पहले बैंक, CSC या pmfby.gov.in से जुड़ें। नुकसान की सूचना 72 घंटे में दें।" }
+    },
+    {
+      "id": "kcc", "icon": "💳", "url": "https://www.myscheme.gov.in/schemes/kcc",
+      "en": { "name": "Kisan Credit Card (KCC)", "benefit": "Low-interest crop loans; with interest subvention about 4% per year if repaid on time. Limit ₹3 lakh (Budget 2025-26 announced ₹5 lakh).", "who": "Farmers, tenants, sharecroppers, SHGs; also animal husbandry and fisheries.", "how": "Apply at any bank branch with land records, ID and photo." },
+      "hi": { "name": "किसान क्रेडिट कार्ड (KCC)", "benefit": "कम ब्याज पर फसल ऋण; समय पर चुकाने पर लगभग 4% सालाना। सीमा ₹3 लाख (बजट 2025-26 में ₹5 लाख की घोषणा)।", "who": "किसान, बटाईदार, स्वयं सहायता समूह; पशुपालन और मत्स्य पालन भी।", "how": "किसी भी बैंक शाखा में ज़मीन के कागज़, पहचान पत्र और फ़ोटो के साथ आवेदन करें।" }
+    },
+    {
+      "id": "shc", "icon": "🧪", "url": "https://soilhealth.dac.gov.in",
+      "en": { "name": "Soil Health Card", "benefit": "Free soil test with crop-wise fertilizer advice (N, P, K, pH, organic carbon, micronutrients).", "who": "All farmers.", "how": "Contact your Krishi Vigyan Kendra / agriculture office, or soilhealth.dac.gov.in. Enter the values in FarmGuard Crop Advisor." },
+      "hi": { "name": "मृदा स्वास्थ्य कार्ड", "benefit": "मुफ़्त मिट्टी जाँच और फसल अनुसार खाद की सलाह (N, P, K, pH, जैविक कार्बन, सूक्ष्म पोषक)।", "who": "सभी किसान।", "how": "कृषि विज्ञान केंद्र / कृषि कार्यालय से संपर्क करें या soilhealth.dac.gov.in देखें। मान फार्मगार्ड फसल सलाहकार में डालें।" }
+    },
+    {
+      "id": "pmksy", "icon": "💧", "url": "https://pmksy.gov.in",
+      "en": { "name": "PM Krishi Sinchayee Yojana — Per Drop More Crop", "benefit": "Subsidy on drip and sprinkler irrigation (commonly 55% for small/marginal farmers, 45% for others; states may add more).", "who": "Farmers with land and a water source.", "how": "Apply through your state horticulture/agriculture department portal or office." },
+      "hi": { "name": "पीएम कृषि सिंचाई योजना — प्रति बूंद अधिक फसल", "benefit": "ड्रिप और स्प्रिंकलर पर सब्सिडी (आमतौर पर छोटे/सीमांत किसानों को 55%, अन्य को 45%; राज्य और जोड़ सकते हैं)।", "who": "ज़मीन और पानी के स्रोत वाले किसान।", "how": "राज्य बागवानी/कृषि विभाग के पोर्टल या कार्यालय से आवेदन करें।" }
+    },
+    {
+      "id": "pm_kusum", "icon": "☀️", "url": "https://pmkusum.mnre.gov.in",
+      "en": { "name": "PM-KUSUM (solar pumps)", "benefit": "Subsidy for solar irrigation pumps and solarising grid pumps (central + state support; farmer share often about 10–40%).", "who": "Individual farmers, groups, FPOs, panchayats.", "how": "Apply on your state's PM-KUSUM portal (via pmkusum.mnre.gov.in)." },
+      "hi": { "name": "पीएम-कुसुम (सोलर पंप)", "benefit": "सोलर सिंचाई पंप और ग्रिड पंप को सोलर करने पर सब्सिडी (केंद्र + राज्य; किसान का हिस्सा अक्सर लगभग 10–40%)।", "who": "किसान, समूह, FPO, पंचायत।", "how": "अपने राज्य के पीएम-कुसुम पोर्टल पर आवेदन करें (pmkusum.mnre.gov.in से)।" }
+    },
+    {
+      "id": "enam", "icon": "🏪", "url": "https://enam.gov.in",
+      "en": { "name": "e-NAM (online mandi)", "benefit": "See prices across mandis and sell online to more buyers with transparent bidding.", "who": "Farmers selling at e-NAM-linked mandis.", "how": "Register at enam.gov.in, the e-NAM app, or at your mandi with bank details." },
+      "hi": { "name": "e-NAM (ऑनलाइन मंडी)", "benefit": "कई मंडियों के भाव देखें और पारदर्शी बोली से ज़्यादा ख़रीदारों को ऑनलाइन बेचें।", "who": "e-NAM से जुड़ी मंडियों में बेचने वाले किसान।", "how": "enam.gov.in, e-NAM ऐप या अपनी मंडी में बैंक विवरण के साथ पंजीकरण करें।" }
+    },
+    {
+      "id": "smam", "icon": "🚜", "url": "https://agrimachinery.nic.in",
+      "en": { "name": "Farm machinery subsidy (SMAM) & Custom Hiring Centres", "benefit": "Subsidy (typically 40–50%) on farm machines, and machines on rent from Custom Hiring Centres.", "who": "Farmers (priority to small/marginal, women, SC/ST), FPOs.", "how": "Apply on agrimachinery.nic.in or your state DBT portal. Find machines nearby on the FarmGuard Rent page." },
+      "hi": { "name": "कृषि यंत्र सब्सिडी (SMAM) और कस्टम हायरिंग केंद्र", "benefit": "कृषि यंत्रों पर सब्सिडी (आमतौर पर 40–50%), और कस्टम हायरिंग केंद्रों से किराए पर मशीनें।", "who": "किसान (छोटे/सीमांत, महिलाएं, SC/ST को प्राथमिकता), FPO।", "how": "agrimachinery.nic.in या राज्य DBT पोर्टल पर आवेदन करें। पास की मशीनें फार्मगार्ड 'किराया' पेज पर देखें।" }
+    }
+  ]
+}
+

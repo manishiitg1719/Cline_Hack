@@ -3,28 +3,32 @@ import { useTranslation } from 'react-i18next'
 import { useAuth } from '../context/AuthContext.jsx'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 import NotificationBell from './NotificationBell.jsx'
+import InstallPrompt from './InstallPrompt.jsx'
 
-// Nav items; `phase` > current means it is shown as "coming soon"
+// All app sections (sidebar on desktop, dashboard grid; mobile shows MOBILE + "More" → dashboard grid)
 export const NAV = [
   { to: '/', key: 'dashboard', icon: '🏠', ready: true },
   { to: '/farm', key: 'farm', icon: '🌾', ready: true },
+  { to: '/scan', key: 'scan', icon: '🦠', ready: true },
+  { to: '/crop', key: 'crop', icon: '🌱', ready: true },
+  { to: '/irrigation', key: 'irrigation', icon: '💧', ready: true },
+  { to: '/weather', key: 'weather', icon: '🌦️', ready: true },
+  { to: '/radar', key: 'radar', icon: '📡', ready: true },
+  { to: '/satellite', key: 'satellite', icon: '🛰️', ready: true },
+  { to: '/assistant', key: 'assistant', icon: '💬', ready: true },
   { to: '/messages', key: 'messages', icon: '📨', ready: true },
   { to: '/family', key: 'family', icon: '👨‍👩‍👦', ready: true },
-  { to: '/weather', key: 'weather', icon: '🌦️', ready: true },
-  { to: '/irrigation', key: 'irrigation', icon: '💧', ready: true },
-  { to: '/scan', key: 'scan', icon: '🦠', ready: true },
-  { to: '/radar', key: 'radar', icon: '📡', ready: true },
-  { to: '/crop', key: 'crop', icon: '🌱', ready: true },
-  { to: '/satellite', key: 'satellite', icon: '🛰️', ready: true },
+  { to: '/market', key: 'market', icon: '🚜', ready: true },
+  { to: '/schemes', key: 'schemes', icon: '🏛️', ready: true },
   { to: '/status', key: 'status', icon: '🔀', ready: true },
 ]
+const MOBILE = ['/', '/scan', '/assistant', '/messages']
 
 export default function Layout() {
   const { t } = useTranslation()
   const { user, logout, actingFor } = useAuth()
   const items = NAV.filter((n) => n.ready)
-  const MOBILE = ['/', '/scan', '/irrigation', '/messages', '/family']
-  const mobileItems = items.filter((n) => MOBILE.includes(n.to))
+  const mobileItems = [...items.filter((n) => MOBILE.includes(n.to)), { to: '/more', key: 'more', icon: '☰' }]
 
   return (
     <div className="min-h-screen pb-20 md:pb-0 md:pl-60">
@@ -67,6 +71,7 @@ export default function Layout() {
           </button>
         </div>
       </header>
+      <InstallPrompt />
 
       <main className="mx-auto max-w-5xl p-4">
         <Outlet />

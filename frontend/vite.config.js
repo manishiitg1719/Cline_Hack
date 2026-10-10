@@ -1,9 +1,30 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import fs from 'node:fs'
 import path from 'node:path'
 
+/** Generates dist/sw.js from src/sw-template.js with the list of built files to pre-cache (app shell).
+ *  Large model/wasm files are excluded here — the disease scanner caches them on first use. */
+function serviceWorker() {
+  return {
+    name: 'farmguard-sw',
+    apply: 'build',
+    generateBundle(_, bundle) {
+      const files = Object.keys(bundle)
+        .filter((f) => !f.endsWith('.map') && !f.endsWith('.wasm') && !f.startsWith('selftest'))
+        .map((f) => `/${f}`)
+      const precache = ['/', '/index.html', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png', '/icons/icon-512.png', ...files]
+      const template = fs.readFileSync(path.resolve(__dirname, 'src/sw-template.js'), 'utf8')
+      const source = template
+        .replace('__VERSION__', Date.now().toString(36))
+        .replace('__PRECACHE__', JSON.stringify([...new Set(precache)], null, 1))
+      this.emitFile({ type: 'asset', fileName: 'sw.js', source })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), serviceWorker()],
   resolve: {
     alias: {
       '@shared': path.resolve(__dirname, '../shared'),

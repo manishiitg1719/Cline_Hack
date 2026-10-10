@@ -1,0 +1,34 @@
+{
+  "greeting": "Namaste! I am your FarmGuard assistant. Ask me about irrigation, weather, crop choice, diseases, fertilizer or government schemes.",
+  "no_match": "Sorry, I don't have a ready answer for that. Try one of the suggestions below, or ask your local KVK / Krishi officer.",
+  "need_location": "Please mark your farm location on My Farm first, so I can use your weather and soil.",
+  "suggestions": ["Should I irrigate today?", "What is the weather this week?", "Which crop should I grow?", "Any disease outbreak near me?", "How do I get a Soil Health Card?", "What is PM-KISAN?"],
+  "dynamic": {
+    "irrigation": "💧 Today's advice for your {crop} field: {decision}. Usable soil water {available}%, chance of rain in 24 h {rain}%. Crop needs about {need} mm today.",
+    "weather": "🌦️ Next 3 days: {days}. Rain chance in 24 h: {rain}%.",
+    "weather_day": "{date}: {tmax}°/{tmin}°C, rain {rainp}%",
+    "disease_near": "📡 {count} disease alert(s) near your farm. Most important: {disease} on {farms} farms, {dist} km away ({level}).",
+    "disease_none": "📡 No disease outbreaks reported near your farm right now. Keep scanning leaves weekly — every scan helps your village.",
+    "decision": { "irrigate": "irrigate now", "delay": "delay irrigation (rain expected)", "monitor": "no need today" },
+    "level": { "watch": "watch", "warning": "warning", "outbreak": "outbreak" }
+  },
+  "answers": {
+    "scan_help": "Open Disease Scan, take a close photo of ONE affected leaf in daylight. It works even without internet and shows treatment in Hindi or English.",
+    "crop_choice": "Open Crop Advisor: choose season and soil (or 'Not sure'), add your Soil Health Card if you have one, and you get the top 3 crops with expected yield, profit and a 3-season rotation plan.",
+    "fertilizer": "Use fertilizer based on a soil test. General rule: split urea into 2–3 doses, apply DAP/SSP at sowing, potash only if soil K is low. Never mix urea with seed. Your Soil Health Card gives exact doses — enter it in Crop Advisor to get tips.",
+    "soil_card": "Soil Health Card testing is free. Contact your Krishi Vigyan Kendra / agriculture office or visit soilhealth.dac.gov.in. Take a soil sample from 0–15 cm depth from several spots of the field, mix, and give about 500 g.",
+    "organic": "Make compost from crop residue, dung and kitchen waste in a shaded pit; turn it every 15–20 days, ready in 2–3 months. Apply 2–4 tonnes FYM/compost per acre before sowing. Vermicompost improves soil quickly.",
+    "pests": "Scout the field twice a week. Use yellow sticky traps for whitefly/aphids, neem oil (as per label) for early attack, and spray chemicals only when damage crosses the threshold. Scan a damaged leaf in Disease Scan for specific advice.",
+    "stubble": "Don't burn straw — it kills soil life and is punishable. Options: Happy Seeder / Super Seeder to sow wheat into residue, PUSA bio-decomposer spray, or sell/give straw for fodder, biogas or mushroom farming via the Crop Waste Exchange.",
+    "heat": "During heatwave: irrigate in evening or early morning, use mulch, avoid spraying in the afternoon, give shade/water to animals, and work in the field only in cool hours.",
+    "frost": "On frost nights (clear sky, calm, very cold): give light irrigation in the evening, cover nursery/young plants, and smoke the field edges at night. Protect vegetables with straw covers.",
+    "pm_kisan": "PM-KISAN gives ₹6,000 per year in three instalments of ₹2,000 to land-holding farmer families. Register at pmkisan.gov.in or a Common Service Centre; e-KYC and Aadhaar-linked bank account are required.",
+    "insurance": "PM Fasal Bima Yojana insures crops against natural disasters, pests and disease. Farmer premium: 2% (Kharif), 1.5% (Rabi), 5% (commercial/horticulture). Enrol through your bank, CSC or pmfby.gov.in before the season deadline.",
+    "loan": "Kisan Credit Card gives low-interest crop loans. With interest subvention the effective rate is about 4% per year if repaid on time (limit ₹3 lakh; Budget 2025-26 announced ₹5 lakh). Apply at your bank with land records and ID.",
+    "price": "Check MSP for your crop on the Schemes page and compare mandi prices on e-NAM (enam.gov.in). Grade and dry your produce well — it gets a better price. Government procurement at MSP is available for wheat, paddy and some pulses/oilseeds.",
+    "storage": "Dry grain well (below 12% moisture), clean the store, use hermetic bags or metal bins, keep bags on wooden pallets away from walls, and check monthly for insects.",
+    "rent_machine": "Open Rent & Waste → Equipment to find tractors, harvesters, sprayers and seeders offered by farmers near you, or list your own machine. Custom Hiring Centres also rent machines at fixed rates.",
+    "family_help": "Open Family. Share your 6-digit code with your son/daughter; they enter it in their FarmGuard app and can help you, receive your alerts and send you messages in your language.",
+    "app_offline": "Disease Scan, the treatment guide and your saved data work without internet. Weather, satellite and village alerts need internet — the app shows the last saved data with a FALLBACK badge."
+  }
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../context/AuthContext.jsx'
-import { NAV } from '../components/Layout.jsx'
+import FeatureGrid from '../components/FeatureGrid.jsx'
 import { api } from '../api'
 import TodayCards from '../components/TodayCards.jsx'
 import RadarBanner from '../components/RadarBanner.jsx'
@@ -46,22 +46,7 @@ export default function Dashboard() {
       )}
 
       <h2 className="pt-2 text-lg font-semibold">{t('dashboard.modules')}</h2>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-        {NAV.filter((n) => n.to !== '/').map((n) =>
-          n.ready ? (
-            <Link key={n.to} to={n.to} className="card text-center hover:ring-brand-500">
-              <div className="text-3xl">{n.icon}</div>
-              <div className="mt-1 font-semibold">{t(`nav.${n.key}`)}</div>
-            </Link>
-          ) : (
-            <div key={n.to} className="card text-center opacity-50">
-              <div className="text-3xl">{n.icon}</div>
-              <div className="mt-1 font-semibold">{t(`nav.${n.key}`)}</div>
-              <div className="text-xs text-gray-500">{t('common.comingSoon')}</div>
-            </div>
-          ),
-        )}
-      </div>
+      <FeatureGrid />
     </div>
   )
 }
