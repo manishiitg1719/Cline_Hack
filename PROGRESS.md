@@ -13,8 +13,8 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 | 4 | 🌦️ Weather (Open-Meteo + cache fallback) + 💧 Irrigation decision, auto alert messages | ✅ Done |
 | 5 | 🦠 Offline disease scanner (ONNX Runtime Web, DINOv2-small, 38 classes) + EN/HI treatment knowledge base + offline scan queue/sync | ✅ Done |
 | 6 | 📡 Village Disease Radar — DBSCAN clusters over `scans`, weather risk (Hutton criteria etc.), alerts, Leaflet map, demo seed | ✅ Done |
-| 7 | 🌱 Smart Crop Advisor — soil photo, Soil Health Card OCR, Top-3 crops, rotation plan | ⏳ Next |
-| 8 | 🛰️ Satellite field health (Earth Engine / estimate fallback) | ⬜ Todo |
+| 7 | 🌱 Smart Crop Advisor — SoilGrids + seasonal climate, explainable scoring, Top-3, rotation, fertilizer tips, Soil Health Card (AI vision LIVE / manual FALLBACK) | ✅ Done (soil-PHOTO model skipped: no licensed open model found → picture-based soil picker + SoilGrids instead) |
+| 8 | 🛰️ Satellite field health (Earth Engine / estimate fallback) | ⏳ Next |
 | 9 | Assistant chat, schemes/rental/waste pages, PWA offline, updated judges PDF, demo script | ⬜ Todo |
 
 ## Phase 2 + 3 additions
@@ -52,6 +52,16 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 - Frontend: `pages/Radar.jsx` (lazy), `components/RadarMap.jsx`, `OutbreakCard.jsx`, `RadarDemoPanel.jsx`, `RadarBanner.jsx` (dashboard), "shared with village" note in `DiseaseResult.jsx`.
 - Demo script: `python scripts/radar_demo.py` (running server, real weather) — prints the alerts each person receives.
 
+## Phase 7 additions
+- `providers/soil.py` — ISRIC SoilGrids v2 (pH, clay, sand, SOC, N, CEC; 0–30 cm mean ÷ d_factor) LIVE; FALLBACK = typical values per Indian soil group. Some spots return nulls (→ fallback with note).
+- `providers/climate.py` — last complete same-season averages (temp, rain, humidity) from Open-Meteo **archive** API; FALLBACK = typical plains values. `current_season()` (Kharif Jun–Oct, Rabi Nov–Feb, Zaid Mar–May).
+- `providers/llm.py` — OpenAI-compatible `chat()` with **daily call cap** (`provider_usage` table) + `extract_json()`. Used by `/api/crop/read-card`; reusable for the Phase 9 assistant.
+- `shared/crops/crops.json` — 15 crops: seasons, ECOCROP-style temp/pH/rain ranges, water need, soils, family, yield, price (MSP), cost, duration, sowing windows. **Kharif MSPs/FRP marked “verify”** (only Rabi 2026-27 MSPs were confirmed online).
+- `services/crop_advisor.py` (trapezoid fits → score + reason codes, blockers: wrong season, needs irrigation, over budget, unsuitable pH/temp; goal weighting) and `services/crop_plan.py` (Top-3, not-recommended, 3-season rotation, Soil Health Card tips with ICAR “low” thresholds, confidence high/medium/basic).
+- Endpoints: `POST /api/crop/advice` (season, soil_type, last_crop, water_source, budget, goal, card{ph,n,p,k,oc,ec}), `POST /api/crop/read-card` (multipart image; LIVE AI vision or FALLBACK → manual form).
+- Frontend: `pages/CropAdvisor.jsx` (4-step wizard, lazy), `components/SeasonSoilStep.jsx`, `SoilCardStep.jsx`, `CropResults.jsx`; `apiUpload()` in `api.js`.
+- Live check (Ludhiana, canal, after rice): Rabi → chickpea / mustard / wheat; Kharif → cotton / pigeon pea / groundnut (SoilGrids pH 8.0, archive 15.2 °C / 122 mm Rabi).
+
 ## What exists after Phase 1
 
 **Backend (`backend/app`)**
@@ -72,8 +82,8 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 3. Update this checklist at the end of each phase.
 
 ## Verified at this checkpoint
-- Backend: **55 pytest tests pass** (`python -m pytest -q`; takes ~30 s — run in background if your shell has a 30 s limit)
-- Frontend: **14 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes), `npm run build` succeeds
+- Backend: **72 pytest tests pass** (`python -m pytest -q`; takes ~30 s — run in background if your shell has a 30 s limit)
+- Frontend: **17 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes, every crop reason code translated), `npm run build` succeeds
 - Radar live demo (real Open-Meteo weather, Ludhiana): 7 demo farms → OUTBREAK, alerts to farmer (Hindi), neighbour (English) and helper (English); hourly job ran without errors
 - Offline model in real browser (headless Edge, production build): **7/7 online and 7/7 with model files blocked** (served from device cache); ~0.2–0.7 s per scan
 - Live smoke test passed (register → farm → link helper → Hindi message → Help me → notification)

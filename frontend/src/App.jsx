@@ -16,6 +16,7 @@ import { lazy, Suspense } from 'react'
 // Heavy page (ONNX runtime) → separate chunk, loaded only when opened
 const Scan = lazy(() => import('./pages/Scan.jsx'))
 const Radar = lazy(() => import('./pages/Radar.jsx'))
+const CropAdvisor = lazy(() => import('./pages/CropAdvisor.jsx'))
 
 function Loading() {
   const { t } = useTranslation()
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="irrigation" element={<Irrigation />} />
         <Route path="scan" element={<Suspense fallback={<Loading />}><Scan /></Suspense>} />
         <Route path="radar" element={<Suspense fallback={<Loading />}><Radar /></Suspense>} />
+        <Route path="crop" element={<Suspense fallback={<Loading />}><CropAdvisor /></Suspense>} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

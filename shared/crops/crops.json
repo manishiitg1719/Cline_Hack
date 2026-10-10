@@ -1,0 +1,683 @@
+{
+ "_sources": "Temperature/pH/rain ranges: FAO ECOCROP (approx.), pH upper limits widened for Indian alkaline soils (e.g. wheat/potato/mustard grow well at pH 8-8.5 in Punjab/Haryana). Yields: typical Indian averages (q/acre). Prices: MSP Rabi 2026-27 (wheat 2585, gram 5875, mustard 6200 — verified from CACP table); Kharif 2025-26 MSPs and sugarcane FRP entered from memory — VERIFY against the latest CACP/PIB notification before relying on them; potato/tomato/onion have no MSP → indicative mandi price. Costs: rough A2+FL per acre. ESTIMATES — edit here to update.",
+ "_fields": "t=[min,optLo,optHi,max] season mean °C; ph=[min,optLo,optHi,max]; rain=[min,opt] season mm if rain-fed; water low|medium|high; sow={season:[m1,d1,m2,d2]}",
+ "crops": {
+  "rice": {
+   "seasons": [
+    "kharif"
+   ],
+   "t": [
+    18,
+    22,
+    32,
+    38
+   ],
+   "ph": [
+    4.5,
+    5.5,
+    7.5,
+    8.5
+   ],
+   "rain": [
+    900,
+    1300
+   ],
+   "water": "high",
+   "soils": [
+    "clay",
+    "alluvial",
+    "black",
+    "loamy"
+   ],
+   "family": "cereal",
+   "yield": 18,
+   "price": 2369,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 27000,
+   "days": 120,
+   "sow": {
+    "kharif": [
+     6,
+     15,
+     7,
+     15
+    ]
+   }
+  },
+  "wheat": {
+   "seasons": [
+    "rabi"
+   ],
+   "t": [
+    8,
+    13,
+    22,
+    28
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    8.0,
+    9.0
+   ],
+   "rain": [
+    300,
+    450
+   ],
+   "water": "medium",
+   "soils": [
+    "loamy",
+    "alluvial",
+    "clay",
+    "black"
+   ],
+   "family": "cereal",
+   "yield": 14,
+   "price": 2585,
+   "price_basis": "MSP RMS 2026-27",
+   "cost": 17000,
+   "days": 130,
+   "sow": {
+    "rabi": [
+     11,
+     1,
+     11,
+     30
+    ]
+   }
+  },
+  "maize": {
+   "seasons": [
+    "kharif",
+    "rabi",
+    "zaid"
+   ],
+   "t": [
+    14,
+    20,
+    30,
+    36
+   ],
+   "ph": [
+    5.0,
+    5.8,
+    7.8,
+    8.8
+   ],
+   "rain": [
+    450,
+    650
+   ],
+   "water": "medium",
+   "soils": [
+    "loamy",
+    "alluvial",
+    "red",
+    "black"
+   ],
+   "family": "cereal",
+   "yield": 12,
+   "price": 2400,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 15000,
+   "days": 100,
+   "sow": {
+    "kharif": [
+     6,
+     15,
+     7,
+     15
+    ],
+    "rabi": [
+     10,
+     15,
+     11,
+     15
+    ],
+    "zaid": [
+     2,
+     15,
+     3,
+     15
+    ]
+   }
+  },
+  "bajra": {
+   "seasons": [
+    "kharif",
+    "zaid"
+   ],
+   "t": [
+    20,
+    25,
+    35,
+    40
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    8.5,
+    9.0
+   ],
+   "rain": [
+    250,
+    450
+   ],
+   "water": "low",
+   "soils": [
+    "sandy",
+    "loamy",
+    "red",
+    "alluvial"
+   ],
+   "family": "cereal",
+   "yield": 6,
+   "price": 2775,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 9000,
+   "days": 85,
+   "sow": {
+    "kharif": [
+     6,
+     25,
+     7,
+     25
+    ],
+    "zaid": [
+     3,
+     1,
+     3,
+     31
+    ]
+   }
+  },
+  "potato": {
+   "seasons": [
+    "rabi"
+   ],
+   "t": [
+    7,
+    14,
+    22,
+    27
+   ],
+   "ph": [
+    4.8,
+    5.2,
+    7.5,
+    8.5
+   ],
+   "rain": [
+    350,
+    500
+   ],
+   "water": "medium",
+   "soils": [
+    "loamy",
+    "sandy",
+    "alluvial"
+   ],
+   "family": "solanaceae",
+   "yield": 100,
+   "price": 1200,
+   "price_basis": "indicative mandi (no MSP)",
+   "cost": 60000,
+   "days": 110,
+   "sow": {
+    "rabi": [
+     10,
+     5,
+     11,
+     15
+    ]
+   }
+  },
+  "tomato": {
+   "seasons": [
+    "rabi",
+    "zaid"
+   ],
+   "t": [
+    12,
+    18,
+    28,
+    33
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    7.5,
+    8.5
+   ],
+   "rain": [
+    400,
+    600
+   ],
+   "water": "medium",
+   "soils": [
+    "loamy",
+    "red",
+    "alluvial",
+    "black"
+   ],
+   "family": "solanaceae",
+   "yield": 100,
+   "price": 1200,
+   "price_basis": "indicative mandi (no MSP)",
+   "cost": 70000,
+   "days": 120,
+   "sow": {
+    "rabi": [
+     9,
+     15,
+     10,
+     31
+    ],
+    "zaid": [
+     1,
+     15,
+     2,
+     28
+    ]
+   }
+  },
+  "onion": {
+   "seasons": [
+    "rabi",
+    "kharif"
+   ],
+   "t": [
+    10,
+    15,
+    26,
+    32
+   ],
+   "ph": [
+    5.8,
+    6.0,
+    7.8,
+    8.5
+   ],
+   "rain": [
+    350,
+    550
+   ],
+   "water": "medium",
+   "soils": [
+    "loamy",
+    "alluvial",
+    "red",
+    "black"
+   ],
+   "family": "allium",
+   "yield": 70,
+   "price": 1500,
+   "price_basis": "indicative mandi (no MSP)",
+   "cost": 50000,
+   "days": 130,
+   "sow": {
+    "rabi": [
+     11,
+     1,
+     12,
+     31
+    ],
+    "kharif": [
+     7,
+     1,
+     8,
+     15
+    ]
+   }
+  },
+  "soybean": {
+   "seasons": [
+    "kharif"
+   ],
+   "t": [
+    17,
+    22,
+    30,
+    35
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    7.8,
+    8.5
+   ],
+   "rain": [
+    500,
+    750
+   ],
+   "water": "medium",
+   "soils": [
+    "black",
+    "loamy",
+    "clay",
+    "alluvial"
+   ],
+   "family": "legume",
+   "yield": 5,
+   "price": 5328,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 15000,
+   "days": 100,
+   "sow": {
+    "kharif": [
+     6,
+     15,
+     7,
+     10
+    ]
+   }
+  },
+  "cotton": {
+   "seasons": [
+    "kharif"
+   ],
+   "t": [
+    18,
+    22,
+    32,
+    38
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    8.5,
+    9.0
+   ],
+   "rain": [
+    500,
+    800
+   ],
+   "water": "medium",
+   "soils": [
+    "black",
+    "alluvial",
+    "clay",
+    "loamy"
+   ],
+   "family": "fibre",
+   "yield": 8,
+   "price": 7710,
+   "price_basis": "MSP KMS 2025-26 (medium staple)",
+   "cost": 30000,
+   "days": 170,
+   "sow": {
+    "kharif": [
+     5,
+     15,
+     6,
+     30
+    ]
+   }
+  },
+  "sugarcane": {
+   "seasons": [
+    "zaid"
+   ],
+   "t": [
+    18,
+    24,
+    34,
+    38
+   ],
+   "ph": [
+    5.0,
+    6.5,
+    8.0,
+    8.8
+   ],
+   "rain": [
+    1200,
+    1600
+   ],
+   "water": "high",
+   "soils": [
+    "loamy",
+    "alluvial",
+    "black",
+    "clay"
+   ],
+   "family": "grass",
+   "yield": 300,
+   "price": 355,
+   "price_basis": "FRP 2025-26",
+   "cost": 60000,
+   "days": 330,
+   "sow": {
+    "zaid": [
+     2,
+     1,
+     3,
+     31
+    ]
+   }
+  },
+  "mustard": {
+   "seasons": [
+    "rabi"
+   ],
+   "t": [
+    8,
+    12,
+    22,
+    28
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    8.5,
+    9.0
+   ],
+   "rain": [
+    200,
+    350
+   ],
+   "water": "low",
+   "soils": [
+    "loamy",
+    "sandy",
+    "alluvial"
+   ],
+   "family": "brassica",
+   "yield": 6,
+   "price": 6200,
+   "price_basis": "MSP RMS 2026-27",
+   "cost": 12000,
+   "days": 125,
+   "sow": {
+    "rabi": [
+     10,
+     1,
+     10,
+     31
+    ]
+   }
+  },
+  "chickpea": {
+   "seasons": [
+    "rabi"
+   ],
+   "t": [
+    10,
+    15,
+    25,
+    30
+   ],
+   "ph": [
+    5.5,
+    6.0,
+    8.5,
+    9.0
+   ],
+   "rain": [
+    200,
+    350
+   ],
+   "water": "low",
+   "soils": [
+    "black",
+    "loamy",
+    "clay",
+    "alluvial"
+   ],
+   "family": "legume",
+   "yield": 5,
+   "price": 5875,
+   "price_basis": "MSP RMS 2026-27",
+   "cost": 12000,
+   "days": 115,
+   "sow": {
+    "rabi": [
+     10,
+     15,
+     11,
+     15
+    ]
+   }
+  },
+  "pigeonpea": {
+   "seasons": [
+    "kharif"
+   ],
+   "t": [
+    18,
+    22,
+    32,
+    38
+   ],
+   "ph": [
+    5.0,
+    6.0,
+    8.0,
+    8.5
+   ],
+   "rain": [
+    500,
+    800
+   ],
+   "water": "low",
+   "soils": [
+    "loamy",
+    "black",
+    "red",
+    "alluvial"
+   ],
+   "family": "legume",
+   "yield": 4,
+   "price": 8000,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 12000,
+   "days": 170,
+   "sow": {
+    "kharif": [
+     6,
+     15,
+     7,
+     15
+    ]
+   }
+  },
+  "moong": {
+   "seasons": [
+    "kharif",
+    "zaid"
+   ],
+   "t": [
+    20,
+    25,
+    34,
+    38
+   ],
+   "ph": [
+    5.5,
+    6.2,
+    7.8,
+    8.5
+   ],
+   "rain": [
+    300,
+    450
+   ],
+   "water": "low",
+   "soils": [
+    "loamy",
+    "sandy",
+    "red",
+    "alluvial"
+   ],
+   "family": "legume",
+   "yield": 3,
+   "price": 8768,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 9000,
+   "days": 65,
+   "sow": {
+    "kharif": [
+     7,
+     1,
+     7,
+     31
+    ],
+    "zaid": [
+     3,
+     1,
+     4,
+     15
+    ]
+   }
+  },
+  "groundnut": {
+   "seasons": [
+    "kharif",
+    "zaid"
+   ],
+   "t": [
+    20,
+    24,
+    32,
+    36
+   ],
+   "ph": [
+    5.0,
+    6.0,
+    7.8,
+    8.5
+   ],
+   "rain": [
+    450,
+    700
+   ],
+   "water": "medium",
+   "soils": [
+    "sandy",
+    "loamy",
+    "red",
+    "alluvial"
+   ],
+   "family": "legume",
+   "yield": 7,
+   "price": 7263,
+   "price_basis": "MSP KMS 2025-26",
+   "cost": 20000,
+   "days": 110,
+   "sow": {
+    "kharif": [
+     6,
+     15,
+     7,
+     15
+    ],
+    "zaid": [
+     2,
+     1,
+     3,
+     15
+    ]
+   }
+  }
+ }
+}

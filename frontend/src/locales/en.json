@@ -103,6 +103,34 @@
     "sharedNote": "Shared anonymously with the Village Disease Radar to warn nearby farmers.",
     "banner": "Disease alert near your farm", "bannerText": "{{farms}} farms, {{dist}} km away"
   },
+  "crop": {
+    "step1": "Season & soil", "step2": "Soil Health Card", "step3": "Your farm", "next": "Next", "getAdvice": "Show best crops", "again": "Change answers",
+    "seasonLabel": "Season", "season": { "kharif": "Kharif (Jun–Oct)", "rabi": "Rabi (Nov–Mar)", "zaid": "Zaid (Mar–Jun)" },
+    "soilAuto": "Not sure? Choose 'Not sure' — we estimate your soil from satellite soil maps (SoilGrids) for your location.",
+    "soilDesc": { "alluvial": "river plains, soft", "black": "sticky when wet, cracks", "red": "reddish, drains fast", "laterite": "hard, red, hilly areas", "sandy": "loose, gritty", "clay": "very sticky, holds water", "loamy": "soft, crumbly, dark" },
+    "cardHint": "Have a Soil Health Card? Take a photo or type the values — this gives the most accurate advice.", "cardPhoto": "Read card from photo",
+    "cardSkip": "No card? Just press Next.", "card": { "ph": "pH", "n": "Nitrogen (N)", "p": "Phosphorus (P)", "k": "Potassium (K)", "oc": "Organic carbon" },
+    "lastCrop": "Last crop grown", "budgetLabel": "Budget per acre", "budget": { "low": "Low (≤ ₹15k)", "medium": "Medium (≤ ₹35k)", "high": "High" },
+    "goalLabel": "Your goal", "goal": { "profit": "💰 Most profit", "low_risk": "🛡️ Low risk", "low_water": "💧 Save water", "improve_soil": "🌱 Improve soil" },
+    "confidence": { "high": "🟢 High confidence (Soil Health Card)", "medium": "🟡 Medium confidence (soil map + weather)", "basic": "🟠 Basic confidence (typical values)" },
+    "inputsUsed": "Based on: {{season}}, avg {{t}}°C, rain {{rain}} mm, pH {{ph}}, {{soil}} soil.",
+    "match": "{{pct}}% match", "yield": "Expected yield", "qPerAcre": "q/acre", "profit": "Est. profit", "acre": "acre", "sowing": "Sowing", "water": "Water", "days": "days",
+    "waterLevel": { "low": "Low", "medium": "Medium", "high": "High" },
+    "priceNote": "Price {{price}}/q ({{basis}}), cost ≈ {{cost}}/acre. Estimates only.",
+    "rotation": "3-season plan", "soilTips": "Soil improvement", "notRecommended": "Not recommended", "noneSuitable": "No crop fits these conditions. Try another season or water source.",
+    "tipNote": "General guidance — get exact doses from your Soil Health Card / KVK.",
+    "tip": { "acidic": "Soil is acidic (pH {{v}}): apply agricultural lime as advised.", "alkaline": "Soil is alkaline (pH {{v}}): add gypsum and organic manure.", "low_n": "Nitrogen is low ({{v}} kg/ha): use urea in split doses or grow a legume.", "low_p": "Phosphorus is low ({{v}} kg/ha): apply DAP / SSP at sowing.", "low_k": "Potassium is low ({{v}} kg/ha): apply MOP (potash).", "low_oc": "Organic carbon is low ({{v}}%): add compost / FYM, keep crop residue." },
+    "reason": {
+      "temp_good": "Temperature is ideal", "temp_marginal": "Temperature is not ideal", "temp_bad": "Too hot or too cold",
+      "ph_good": "Soil pH suits this crop", "ph_marginal": "Soil pH is not ideal", "ph_bad": "Soil pH unsuitable",
+      "water_irrigated": "You have irrigation", "water_drip_high": "Needs a lot of water even with drip",
+      "rain_good": "Rainfall is enough", "rain_ok": "Rainfall is a little low", "rain_low": "Rainfall too low without irrigation", "rain_too_low": "Far too little rain",
+      "needs_irrigation": "Needs irrigation", "soil_good": "Your soil type suits it", "soil_ok": "Soil type is not the best",
+      "legume_after_cereal": "Pulse after cereal restores soil nitrogen", "same_crop": "Same crop again increases pests", "same_family": "Same crop family as last time",
+      "wrong_season": "Not this season", "over_budget": "Costs more than your budget"
+    },
+    "disclaimer": "Advice uses crop suitability ranges (FAO ECOCROP), your soil and last year's weather. Yields, prices and costs are estimates — confirm with your KVK."
+  },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
   "status": {
     "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",

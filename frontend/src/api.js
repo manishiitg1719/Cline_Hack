@@ -11,6 +11,22 @@ export class ApiError extends Error {
   }
 }
 
+/** multipart upload (e.g. Soil Health Card photo). */
+export async function apiUpload(path, formData) {
+  const headers = {}
+  const token = getToken()
+  if (token) headers.Authorization = `Bearer ${token}`
+  let res
+  try {
+    res = await fetch(`/api${path}`, { method: 'POST', headers, body: formData })
+  } catch {
+    throw new ApiError('offline', 0)
+  }
+  const data = await res.json().catch(() => null)
+  if (!res.ok) throw new ApiError(data?.detail || res.statusText, res.status)
+  return data
+}
+
 export async function api(path, { method = 'GET', body, params } = {}) {
   const url = new URL(`/api${path}`, window.location.origin)
   Object.entries(params || {}).forEach(([k, v]) => v !== undefined && v !== null && url.searchParams.set(k, v))
