@@ -1,0 +1,7 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting fastapi
+  Downloading fastapi-0.143.0-py3-none-any.whl.metadata (26 kB)
+Collecting uvicorn
+  Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sqlalchemy
+  Downloading sqlalchemy-2.1.4-cp314-cp314-win_amd64.whl.metadata (9.9 kB)

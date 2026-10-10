@@ -1,0 +1,25 @@
+{
+  "_comment": "Template metadata. Text lives in en.json / hi.json. Param types: crop, item, issue, risk, date, number, text, raw.",
+  "quick": [
+    { "id": "spraying_done", "icon": "✅", "params": { "crop": "crop" } },
+    { "id": "irrigation_done", "icon": "💧", "params": { "crop": "crop" } },
+    { "id": "sowing_done", "icon": "🌱", "params": { "crop": "crop" } },
+    { "id": "need_fertilizer", "icon": "🛒", "params": { "quantity": "number", "item": "item", "crop": "crop" } },
+    { "id": "disease_found_call", "icon": "🦠", "params": { "crop": "crop" } },
+    { "id": "harvest_ready", "icon": "🌾", "params": { "crop": "crop", "date": "date" } },
+    { "id": "need_labour", "icon": "👷", "params": { "number": "number", "date": "date" } },
+    { "id": "come_to_field", "icon": "🚶", "params": {} },
+    { "id": "custom", "icon": "✍️", "params": { "text": "text" } }
+  ],
+  "alerts": [
+    { "id": "weather_heavy_rain", "icon": "🌧️", "params": { "date": "date", "probability": "number" } },
+    { "id": "weather_heatwave", "icon": "🔥", "params": { "date": "date", "temp": "number" } },
+    { "id": "weather_strong_wind", "icon": "💨", "params": { "date": "date", "speed": "number" } },
+    { "id": "irrigation_now", "icon": "💧", "params": { "crop": "crop", "moisture": "number", "rain": "number" } },
+    { "id": "irrigation_delay", "icon": "⏳", "params": { "rain": "number" } },
+    { "id": "disease_result", "icon": "🦠", "params": { "crop": "crop", "disease": "raw", "confidence": "number", "treatment": "raw" } },
+    { "id": "radar_outbreak", "icon": "🔴", "params": { "disease": "raw", "farms": "number", "radius": "number", "risk": "risk", "crop": "crop" } },
+    { "id": "crop_plan", "icon": "🌱", "params": { "crop": "crop", "match": "number", "yield": "raw", "window": "raw" } },
+    { "id": "help_request", "icon": "🙋", "params": { "name": "raw", "issue": "issue", "note": "text" } }
+  ]
+}

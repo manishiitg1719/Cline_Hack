@@ -1,0 +1,58 @@
+{
+  "app": { "name": "FarmGuard", "tagline": "Smart when online, helpful when offline, always in your language." },
+  "common": {
+    "save": "Save", "saved": "Saved ✓", "cancel": "Cancel", "loading": "Loading…", "logout": "Logout",
+    "language": "Language", "error": "Something went wrong", "offline": "You are offline", "back": "Back",
+    "optional": "optional", "comingSoon": "Coming in a later phase"
+  },
+  "auth": {
+    "login": "Login", "register": "Create account", "phone": "Mobile number", "password": "Password",
+    "name": "Your name", "iAm": "I am a", "farmer": "Farmer", "helper": "Helper (family member)",
+    "farmerHint": "I grow crops and want advice", "helperHint": "I help a farmer in my family use the app",
+    "noAccount": "New here? Create an account", "haveAccount": "Already have an account? Login",
+    "chooseLanguage": "Choose your language"
+  },
+  "nav": {
+    "dashboard": "Home", "farm": "My Farm", "status": "System Status", "messages": "Messages",
+    "family": "Family", "weather": "Weather", "irrigation": "Irrigation", "scan": "Disease Scan",
+    "radar": "Disease Radar", "crop": "Crop Advisor", "satellite": "Field Health"
+  },
+  "dashboard": {
+    "hello": "Namaste, {{name}} 👋", "actingFor": "Helping: {{name}}", "completeProfile": "Complete your farm profile to get personalised advice.",
+    "goToFarm": "Set up my farm", "linkCode": "Family link code", "linkCodeHint": "Share this code with a family member so they can help you.",
+    "modules": "Features", "selectFarmer": "Select a farmer you help from the Family page."
+  },
+  "farm": {
+    "title": "My Farm", "village": "Village", "district": "District", "state": "State", "location": "Farm location",
+    "locationHint": "Tap on the map to mark your field, or use GPS.", "useGps": "📍 Use my location",
+    "area": "Land size (acres)", "soil": "Soil type", "water": "Water source", "currentCrop": "Current crop",
+    "pastCrops": "Past crops", "viewOnly": "You have view-only access to this farm."
+  },
+  "soil": { "": "Not sure", "alluvial": "Alluvial", "black": "Black", "red": "Red", "laterite": "Laterite", "sandy": "Sandy", "clay": "Clay", "loamy": "Loamy" },
+  "water": { "": "Not set", "rain": "🌧️ Rain only", "canal": "🏞️ Canal", "borewell": "🚰 Borewell", "drip": "💧 Drip" },
+  "msg": {
+    "title": "Quick Messages", "intro": "Tap a message. It writes itself in the right language — then tap WhatsApp or SMS and press Send.",
+    "sendTo": "Send to", "chooseInWhatsApp": "Choose in WhatsApp / SMS", "messageLanguage": "Message language",
+    "preview": "Message (you can edit)", "tapSendHint": "WhatsApp/SMS opens with this message ready — just press Send.",
+    "whatsapp": "WhatsApp", "sms": "SMS", "copy": "Copy", "copied": "Copied ✓", "share": "Share", "typeHere": "Type your message…",
+    "param": { "crop": "Crop", "item": "Item", "quantity": "Quantity (kg)", "date": "Date", "number": "How many", "text": "Your message", "issue": "Problem", "note": "Note" }
+  },
+  "contacts": {
+    "title": "My Contacts", "add": "Add contact", "empty": "No contacts yet. Add family, Krishi officer or supplier.", "delete": "Delete",
+    "cat": { "family": "Family", "officer": "Krishi officer", "supplier": "Supplier", "other": "Other" }
+  },
+  "family": {
+    "shareCodeHint": "Give this code to your son, daughter or relative. They enter it in their FarmGuard app to help you.",
+    "newCode": "Generate new code", "linkFarmer": "Link to a farmer", "linkFarmerHint": "Ask the farmer for the 6-digit code shown in their app.",
+    "relationPh": "Relation (e.g. Son)", "link": "Link", "myHelpers": "My helpers", "farmersIHelp": "Farmers I help",
+    "noHelpers": "No helpers linked yet. Share your code with a family member.", "noFarmers": "You are not helping anyone yet. Enter a farmer's code above.",
+    "canEdit": "Can view & edit", "viewOnly": "View only", "allowEdit": "Allow editing", "makeViewOnly": "Make view only",
+    "helpThisFarmer": "Help this farmer", "helping": "Helping", "unlink": "Remove", "confirmUnlink": "Remove link with {{name}}?",
+    "helpMe": "Help me", "sendHelp": "Ask family for help", "helpSent": "Your family was notified ({{count}}). Also send on WhatsApp:"
+  },
+  "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
+  "status": {
+    "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",
+    "live": "LIVE", "fallback": "FALLBACK", "source": "Source", "reason": "Reason", "forced": "Force-fallback is ON (all services in fallback)."
+  }
+}

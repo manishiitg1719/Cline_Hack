@@ -1,0 +1,38 @@
+{
+  "templates": {
+    "spraying_done": { "title": "छिड़काव हो गया", "text": "✅ आज {crop} के खेत में छिड़काव हो गया।" },
+    "irrigation_done": { "title": "सिंचाई हो गई", "text": "💧 आज {crop} की सिंचाई हो गई।" },
+    "sowing_done": { "title": "बुवाई हो गई", "text": "🌱 आज {crop} की बुवाई पूरी हो गई।" },
+    "need_fertilizer": { "title": "खाद चाहिए", "text": "🛒 कृपया {quantity} किलो {item} खरीद लाएं। {crop} के लिए चाहिए।" },
+    "disease_found_call": { "title": "बीमारी दिखी, फ़ोन करें", "text": "🦠 {crop} की फसल में बीमारी दिखी है। कृपया मुझे फ़ोन करें।" },
+    "harvest_ready": { "title": "कटाई के लिए तैयार", "text": "🌾 {crop} की फसल कटाई के लिए तैयार है। {date} को कटाई करने की योजना है।" },
+    "need_labour": { "title": "मज़दूर चाहिए", "text": "👷 {date} को {number} मज़दूर चाहिए।" },
+    "come_to_field": { "title": "खेत पर आइए", "text": "🚶 कृपया खेत पर आ जाइए।" },
+    "custom": { "title": "अपना संदेश लिखें", "text": "{text}" },
+
+    "weather_heavy_rain": { "title": "भारी बारिश की चेतावनी", "text": "🌧️ {date} को भारी बारिश की संभावना ({probability}%)। सिंचाई न करें और कटी फसल को ढक दें।" },
+    "weather_heatwave": { "title": "लू की चेतावनी", "text": "🔥 लू: {date} को तापमान {temp}°C तक। शाम को सिंचाई करें और छोटे पौधों को बचाएं।" },
+    "weather_strong_wind": { "title": "तेज़ हवा की चेतावनी", "text": "💨 {date} को {speed} किमी/घंटा की तेज़ हवा की संभावना। छिड़काव न करें।" },
+    "irrigation_now": { "title": "अभी सिंचाई करें", "text": "💧 आज अपने {crop} के खेत में सिंचाई करें। मिट्टी में नमी {moisture}% है और बारिश की संभावना {rain}% है।" },
+    "irrigation_delay": { "title": "सिंचाई रोकें", "text": "⏳ सिंचाई अभी रोकें। अगले 24 घंटों में बारिश की संभावना {rain}% है।" },
+    "disease_result": { "title": "बीमारी जाँच का परिणाम", "text": "🦠 जाँच का परिणाम: {crop} में {disease} ({confidence}% भरोसा)। उपचार: {treatment}" },
+    "radar_outbreak": { "title": "पास में बीमारी फैल रही है", "text": "🔴 इस हफ़्ते आपके {radius} किमी के अंदर {farms} खेतों में {disease} पाया गया। मौसम से फैलने का ख़तरा {risk} है। आज ही अपनी {crop} की पत्तियाँ जाँचें।" },
+    "crop_plan": { "title": "फसल योजना", "text": "🌱 सुझाई गई फसल: {crop} ({match}% मेल)। अनुमानित उपज {yield}। बुवाई: {window}।" },
+    "help_request": { "title": "मदद चाहिए", "text": "🙋 {name} को मदद चाहिए: {issue}। {note}" }
+  },
+  "crops": {
+    "wheat": "गेहूँ", "rice": "धान", "maize": "मक्का", "potato": "आलू", "tomato": "टमाटर",
+    "soybean": "सोयाबीन", "cotton": "कपास", "sugarcane": "गन्ना", "mustard": "सरसों",
+    "chickpea": "चना", "pigeonpea": "अरहर (तुअर)", "moong": "मूंग", "onion": "प्याज़",
+    "groundnut": "मूंगफली", "bajra": "बाजरा", "apple": "सेब", "grape": "अंगूर"
+  },
+  "items": {
+    "urea": "यूरिया", "dap": "डीएपी", "npk": "एनपीके", "potash": "पोटाश", "seeds": "बीज",
+    "pesticide": "कीटनाशक", "fungicide": "फफूंदनाशक", "organic_manure": "जैविक खाद"
+  },
+  "issues": {
+    "app": "ऐप चलाने में", "crop": "फसल की समस्या", "disease": "फसल में बीमारी",
+    "money": "पैसे / खरीदारी", "other": "कुछ और"
+  },
+  "risk": { "low": "कम", "medium": "मध्यम", "high": "ज़्यादा" }
+}

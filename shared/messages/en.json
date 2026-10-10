@@ -1,0 +1,38 @@
+{
+  "templates": {
+    "spraying_done": { "title": "Spraying done", "text": "✅ Spraying done today on the {crop} field." },
+    "irrigation_done": { "title": "Irrigation done", "text": "💧 Irrigation of {crop} done today." },
+    "sowing_done": { "title": "Sowing done", "text": "🌱 Sowing of {crop} completed today." },
+    "need_fertilizer": { "title": "Need fertilizer", "text": "🛒 Please buy {quantity} kg of {item}. Needed for {crop}." },
+    "disease_found_call": { "title": "Disease found, call me", "text": "🦠 Disease spotted in the {crop} crop. Please call me." },
+    "harvest_ready": { "title": "Harvest ready", "text": "🌾 {crop} is ready for harvest. Planning to harvest on {date}." },
+    "need_labour": { "title": "Need labourers", "text": "👷 Need {number} labourers on {date}." },
+    "come_to_field": { "title": "Come to the field", "text": "🚶 Please come to the field." },
+    "custom": { "title": "Write your own", "text": "{text}" },
+
+    "weather_heavy_rain": { "title": "Heavy rain warning", "text": "🌧️ Heavy rain likely on {date} ({probability}% chance). Do not irrigate and cover harvested crop." },
+    "weather_heatwave": { "title": "Heatwave warning", "text": "🔥 Heatwave: up to {temp}°C on {date}. Irrigate in the evening and protect young plants." },
+    "weather_strong_wind": { "title": "Strong wind warning", "text": "💨 Strong wind of {speed} km/h expected on {date}. Avoid spraying." },
+    "irrigation_now": { "title": "Irrigate now", "text": "💧 Irrigate your {crop} field today. Soil moisture is {moisture}% and chance of rain is {rain}%." },
+    "irrigation_delay": { "title": "Delay irrigation", "text": "⏳ Delay irrigation. Chance of rain in the next 24 hours is {rain}%." },
+    "disease_result": { "title": "Disease scan result", "text": "🦠 Scan result: {disease} in {crop} ({confidence}% sure). Treatment: {treatment}" },
+    "radar_outbreak": { "title": "Disease outbreak nearby", "text": "🔴 {disease} found on {farms} farms within {radius} km of you this week. Weather risk of spread is {risk}. Check your {crop} leaves today." },
+    "crop_plan": { "title": "Crop plan", "text": "🌱 Recommended crop: {crop} ({match}% match). Expected yield {yield}. Sowing: {window}." },
+    "help_request": { "title": "Help needed", "text": "🙋 {name} needs help: {issue}. {note}" }
+  },
+  "crops": {
+    "wheat": "Wheat", "rice": "Rice (Paddy)", "maize": "Maize", "potato": "Potato", "tomato": "Tomato",
+    "soybean": "Soybean", "cotton": "Cotton", "sugarcane": "Sugarcane", "mustard": "Mustard",
+    "chickpea": "Chickpea (Chana)", "pigeonpea": "Pigeon pea (Tur)", "moong": "Moong", "onion": "Onion",
+    "groundnut": "Groundnut", "bajra": "Bajra", "apple": "Apple", "grape": "Grape"
+  },
+  "items": {
+    "urea": "Urea", "dap": "DAP", "npk": "NPK", "potash": "Potash", "seeds": "Seeds",
+    "pesticide": "Pesticide", "fungicide": "Fungicide", "organic_manure": "Organic manure"
+  },
+  "issues": {
+    "app": "using the app", "crop": "a crop problem", "disease": "disease in the crop",
+    "money": "money / purchase", "other": "something else"
+  },
+  "risk": { "low": "low", "medium": "medium", "high": "high" }
+}
