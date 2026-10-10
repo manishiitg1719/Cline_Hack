@@ -41,7 +41,7 @@ export default function NotificationBell() {
 
   return (
     <div className="relative" ref={ref}>
-      <button onClick={() => setOpen(!open)} className="relative rounded-full p-2 text-xl hover:bg-gray-100" aria-label={t('notif.title')}>
+      <button onClick={() => setOpen(!open)} className="relative rounded-full p-2 text-xl hover:bg-cream-200" aria-label={t('notif.title')}>
         🔔
         {data.unread > 0 && (
           <span className="absolute -right-0.5 -top-0.5 min-w-5 rounded-full bg-red-600 px-1 text-xs font-bold text-white">{data.unread}</span>

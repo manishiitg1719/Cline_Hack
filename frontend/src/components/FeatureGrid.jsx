@@ -8,7 +8,7 @@ export default function FeatureGrid() {
   return (
     <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
       {NAV.filter((n) => n.to !== '/' && n.ready).map((n) => (
-        <Link key={n.to} to={n.to} className="card p-3 text-center hover:ring-brand-500">
+        <Link key={n.to} to={n.to} className="card p-4 text-center transition hover:-translate-y-0.5 hover:ring-accent-300">
           <div className="text-3xl">{n.icon}</div>
           <div className="mt-1 text-sm font-semibold leading-tight">{t(`nav.${n.key}`)}</div>
         </Link>
