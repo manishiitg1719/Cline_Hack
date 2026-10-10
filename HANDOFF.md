@@ -6,6 +6,48 @@ Owner: Archit. Machine: Windows, Python 3.14, Node 24.
 Other docs: `README.md` (how to run, structure) · `PROGRESS.md` (full build log per phase, API list, remaining work)
 · `docs/DEMO_SCRIPT.md` (demo walkthrough) · `docs/FarmGuard_Judges_Overview.pdf` (judges overview).
 
+## 0. Latest session (10 Oct 2026) — read this first
+
+**Where the project lives now:** `C:\Users\my060\Cline_Hackathon\Cline_Hackathon` (not `D:\` any more).
+It only needs to run on Archit's laptop (no Android / phone build).
+
+**Python on this laptop:** plain `python` opens an MSYS2 Python with no pip. Always use **`py`**
+(Python 3.14). `start.bat` was changed to use `py`. Tests: `cd backend; py -m pytest -q`.
+
+**Done this session (NOT committed yet — run `git status`):**
+- New look like the AgriSmart reference: top nav bar + "More" menu (replaces the sidebar that could not scroll),
+  cream / dark green / amber theme (`tailwind.config.js` colors `forest`, `cream`, `sage`, `accent`; `brand` remapped),
+  new Home page (`pages/Dashboard.jsx`: hero, photo card, action hub, field summary with temp/rain/wind).
+  Also changed: `components/Layout.jsx`, `index.css`, `LanguageSwitcher.jsx`, `FeatureGrid.jsx`, `NotificationBell.jsx`.
+- Govt Schemes: every scheme now has about, benefits, who can / cannot apply, documents, steps, timing, helpline
+  (EN + HI) in `shared/schemes/schemes.json`. Voice buttons ("Who can apply" / "Listen full scheme") in `pages/Schemes.jsx`.
+- Voice helper `frontend/src/lib/speak.js` (browser speechSynthesis, splits long text). Hindi needs the Windows Hindi voice.
+- Ask FarmGuard: mic button (browser SpeechRecognition, needs internet), answers read aloud (on/off switch), listen button per answer.
+  File: `pages/Assistant.jsx`.
+- My Farm map: satellite view by default (Esri tiles), Satellite/Map toggle, yellow circle around the farm.
+  File: `components/LocationPicker.jsx`.
+- New UI text added to both `en.json` and `hi.json` (key parity test passes). 84 backend + 18 frontend tests pass, build OK.
+- `backend/.env` now exists (git-ignored): Cline AI key set (`LLM_BASE_URL=https://api.cline.bot/api/v1`,
+  `LLM_MODEL=anthropic/claude-sonnet-4-6`) and `DATA_GOV_API_KEY` set. Never commit `.env`. Not yet checked
+  that the Cline key works — open System Status and confirm the AI row says LIVE.
+- Leftover temp file `frontend/dist/_preview.tgz` can be deleted (dist is git-ignored).
+- A pitch deck was made separately (13 slides, Claude artifact "FarmGuard Pitch Deck").
+
+**Next task Archit wants: live Mandi Prices (about 45–60 min)**
+- `providers/registry.py` already registers `MarketProvider("market", "Mandi prices", "data.gov.in AGMARKNET", ...)`
+  but it only uses the static MSP table. Key is in `.env` as `DATA_GOV_API_KEY` (read via `config.data_gov_api_key`).
+- Data: `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=KEY&format=json&limit=100`
+  with `filters[state]=...`, `filters[district]=...`, `filters[commodity]=...`. Fields: state, district, market, commodity,
+  variety, arrival_date, min_price, max_price, modal_price (Rs per quintal).
+- Build: LIVE = today's prices for the farmer's crop in nearby mandis (farm state/district); FALLBACK = last saved
+  prices (a cache table like `weather_cache`) or MSP from `shared/crops/crops.json`. Show `ModeBadge`.
+  New endpoint (e.g. `GET /api/market/prices`), a "Mandi Prices" page or Home card, EN + HI text, compare with MSP.
+  Optionally let Crop Advisor use the live price for profit. Add tests with a mocked API response.
+- Do NOT ask the AI (Cline key) for prices — it would make numbers up. AI may only write a short tip on top of real data.
+- Map our crop ids to AGMARKNET commodity names (e.g. rice -> "Paddy(Dhan)(Common)", wheat -> "Wheat", potato -> "Potato").
+- Archit said NO to: fertilizer feature, longer WhatsApp messages, offline voice.
+- Archit's rule: explain the plan first and wait for his "start" before changing code.
+
 ## 1. What FarmGuard is
 Offline-capable farming web app (PWA) for Indian smallholders, English + Hindi. Every smart feature has a
 **LIVE** mode (online service) and a **FALLBACK** mode (built-in data) and shows which one with a `ModeBadge`.
@@ -92,7 +134,7 @@ QA scripts drive headless Microsoft Edge. `screenshot.mjs` uses debug port 9337,
 ## 7. Remaining work
 **Needs Archit's decision**
 1. Feedback on the new login/background look.
-2. How to run on a phone:
+2. ~~How to run on a phone~~ — not needed (laptop only). Old options kept for reference:
    a) Same Wi-Fi demo: run Vite with `--host`, open `http://<PC-IP>:5173` on the phone, add that origin to `CORS_ORIGINS`.
    b) Online: frontend on Vercel + backend on Render (HTTPS; PostgreSQL or persistent disk for SQLite).
    c) Android APK with Capacitor: wraps the built frontend; the backend must still be reachable online.
@@ -100,9 +142,9 @@ QA scripts drive headless Microsoft Edge. `screenshot.mjs` uses debug port 9337,
 **Manual before the demo**
 3. Verify Kharif MSPs + sugarcane FRP in `shared/crops/crops.json` against the latest CACP/PIB notice
    (only Rabi 2026-27 MSPs were confirmed).
-4. Optional AI key: copy `backend/.env.example` to `backend/.env`; set `LLM_ENABLED=true`, `LLM_BASE_URL`, `LLM_API_KEY`,
+4. Done (Cline key in `.env`). Old note: copy `backend/.env.example` to `backend/.env`; set `LLM_ENABLED=true`, `LLM_BASE_URL`, `LLM_API_KEY`,
    `LLM_MODEL` (vision-capable for Soil Health Card reading). Without it, the assistant + card reading use FALLBACK.
-5. `git push origin main`: the commits are local only, nothing has been pushed.
+5. `git push origin main`: the commits are local only, nothing has been pushed. This session's work is not committed yet either.
 
 **Small cleanup**
 - `.pip.log` was committed by mistake → `git rm --cached .pip.log` and add it to `.gitignore`.
