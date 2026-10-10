@@ -2,14 +2,34 @@
 
 **Smart when online, helpful when offline, always in the farmer's language.**
 
-FarmGuard is a farming web app (PWA) for Indian farmers: crop advice from a soil photo, offline leaf-disease
-detection, a **Village Disease Radar** that warns neighbours before an outbreak spreads, irrigation advice,
-satellite field health, and one-tap pre-written messages sent over WhatsApp/SMS — in **English and Hindi**.
-A **Family Helper** mode lets a relative use the app on the farmer's behalf.
+FarmGuard is an installable, offline-capable farming web app (PWA) for Indian smallholders, in **English and Hindi**:
 
-Every smart feature runs in **LIVE** mode (online API) or **FALLBACK** mode (built-in data) and always shows which.
+| | Feature |
+|---|---|
+| 🦠 | **Offline disease scan** — AI runs on the phone (26 diseases, 14 crops), treatment guide |
+| 📡 | **Village Disease Radar** — scans from many farms + weather spread risk → early warnings to nearby farmers growing that crop |
+| 🌱 | **Smart Crop Advisor** — soil map + last year's weather + Soil Health Card → Top-3 crops, profit, rotation plan |
+| 💧 | **Irrigation & weather** — Irrigate now / Delay / No need (FAO-56), 7-day forecast, alerts |
+| 🛰️ | **Satellite field health** — Sentinel-2 greenness score, trend, weak-patch warning |
+| 💬 | **Farming assistant** — answers from your own farm data + built-in FAQ (AI when a key is set) |
+| 📨 👨‍👩‍👦 | **Quick messages & Family Helper** — tap → message written in the right language → WhatsApp/SMS; relatives can help |
+| 🏛️ 🚜 ♻️ | Govt schemes, equipment rental, crop-waste exchange |
 
-> 📋 Build status and what's left: see [`PROGRESS.md`](PROGRESS.md).
+Every smart feature runs in **LIVE** mode (online service) or **FALLBACK** mode (built-in / saved data) and always shows which.
+No paid API is required.
+
+> 📋 Build log & remaining work: [`PROGRESS.md`](PROGRESS.md) · 🎤 Demo: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) · 📄 Judges PDF: [`docs/FarmGuard_Judges_Overview.pdf`](docs/FarmGuard_Judges_Overview.pdf)
+
+## Quick demo
+```powershell
+cd backend;  python -m uvicorn app.main:app --port 8000
+cd frontend; npm run dev
+cd backend;  python scripts/seed_demo.py     # farmer 9999900001 / helper 9999900002, password demo1234
+```
+
+## Credits
+Disease model: [plant-disease-dinov2-small](https://huggingface.co/rodynaemad/plant-disease-dinov2-small) by Rodayna Emad (CC BY-SA 4.0), PlantVillage data.
+Data: Open-Meteo, ISRIC SoilGrids, Copernicus Sentinel-2 via Microsoft Planetary Computer, OpenStreetMap, Esri imagery.
 
 ## Project structure
 

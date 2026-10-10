@@ -19,7 +19,9 @@ export default function Assistant() {
   useEffect(() => {
     api('/assistant/intro', { params: { language: lang } }).then(setIntro).catch(() => {})
   }, [lang])
-  useEffect(() => end.current?.scrollIntoView({ behavior: 'smooth' }), [msgs])
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: 'smooth' }) // block body: must not return a value
+  }, [msgs])
 
   const send = async (q) => {
     const message = (q ?? text).trim()

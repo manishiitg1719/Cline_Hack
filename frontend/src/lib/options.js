@@ -19,6 +19,8 @@ export const LISTING_CATEGORIES = {
 export function useMessageStrings() {
   const { i18n } = useTranslation()
   const [lang, setLang] = useState(i18n.language)
-  useEffect(() => setLang(i18n.language), [i18n.language])
+  useEffect(() => {
+    setLang(i18n.language)
+  }, [i18n.language])
   return MESSAGE_STRINGS[lang === 'hi' ? 'hi' : 'en']
 }
