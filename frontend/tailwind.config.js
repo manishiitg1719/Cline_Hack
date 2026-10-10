@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Noto Sans"', '"Noto Sans Devanagari"', 'system-ui', 'sans-serif'],
+        serif: ['Georgia', '"Noto Serif Devanagari"', '"Nirmala UI"', 'Cambria', 'serif'],
       },
     },
   },

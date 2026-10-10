@@ -2,6 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- Sunny field theme ---------- */
+:root { color-scheme: only light; }
+body { background-color: #f3f7ec; }
+
+/* Logged-in app: soft, washed-out sunny field behind everything (cards stay solid white for readability). */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(255, 221, 128, 0.35), transparent 70%),
+    linear-gradient(180deg, rgba(255, 252, 240, 0.80) 0%, rgba(243, 250, 236, 0.90) 45%, rgba(240, 249, 235, 0.94) 100%),
+    url('/img/field-sun-sm.webp') center 65% / cover no-repeat;
+}
+
+/* Login / Register hero: the full sunny photo with a warm glow and a left-side shade for text. */
+.hero-bg {
+  background:
+    linear-gradient(90deg, rgba(10, 28, 8, 0.45) 0%, rgba(10, 28, 8, 0.18) 45%, transparent 100%),
+    linear-gradient(180deg, rgba(255, 236, 170, 0.18) 0%, transparent 35%, rgba(6, 22, 4, 0.30) 100%),
+    url('/img/field-sun.webp') center 62% / cover no-repeat;
+  filter: brightness(1.18) saturate(1.25) contrast(1.02);
+  animation: fg-kenburns 32s ease-in-out infinite alternate;
+}
+.hero-sun {
+  left: 50%;
+  top: 38%;
+  width: 46rem;
+  height: 46rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 224, 120, 0.60) 0%, rgba(255, 190, 70, 0.25) 35%, transparent 65%);
+  mix-blend-mode: screen;
+  animation: fg-glow 6s ease-in-out infinite alternate;
+}
+.hero-title { text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35); }
+@media (max-width: 767px) {
+  .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(6, 22, 4, 0.35) 0%, rgba(6, 22, 4, 0.15) 40%, rgba(6, 22, 4, 0.45) 100%),
+      url('/img/field-sun-sm.webp') center / cover no-repeat;
+  }
+}
+
+@keyframes fg-kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+@keyframes fg-glow { from { opacity: 0.7; } to { opacity: 1; } }
+@keyframes fg-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.fg-fade-up { animation: fg-fade-up 0.5s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg, .hero-sun, .fg-fade-up { animation: none; }
+}
+
 @layer components {
   .card {
     @apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100;

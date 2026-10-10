@@ -34,7 +34,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen pb-20 md:pb-0 md:pl-60">
       {/* Sidebar (desktop) */}
-      <aside className="fixed inset-y-0 left-0 hidden w-60 flex-col border-r bg-white p-4 md:flex">
+      <aside className="fixed inset-y-0 left-0 hidden w-60 flex-col border-r bg-white/85 p-4 backdrop-blur md:flex">
         <div className="mb-6 text-2xl font-extrabold text-brand-700">🌾 {t('app.name')}</div>
         <nav className="flex flex-1 flex-col gap-1">
           {items.map((n) => (
@@ -80,7 +80,7 @@ export default function Layout() {
       </main>
 
       {/* Bottom nav (mobile) */}
-      <nav className="fixed inset-x-0 bottom-0 z-[1000] flex justify-around border-t bg-white py-2 md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-[1000] flex justify-around border-t bg-white/95 py-2 backdrop-blur md:hidden">
         {mobileItems.map((n) => (
           <NavLink
             key={n.to}

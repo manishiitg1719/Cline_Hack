@@ -13,7 +13,7 @@ function serviceWorker() {
       const files = Object.keys(bundle)
         .filter((f) => !f.endsWith('.map') && !f.endsWith('.wasm') && !f.startsWith('selftest'))
         .map((f) => `/${f}`)
-      const precache = ['/', '/index.html', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png', '/icons/icon-512.png', ...files]
+      const precache = ['/', '/index.html', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png', '/icons/icon-512.png', '/img/field-sun.webp', '/img/field-sun-sm.webp', ...files]
       const template = fs.readFileSync(path.resolve(__dirname, 'src/sw-template.js'), 'utf8')
       const source = template
         .replace('__VERSION__', Date.now().toString(36))

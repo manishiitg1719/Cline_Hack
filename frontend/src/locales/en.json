@@ -12,6 +12,13 @@
     "noAccount": "New here? Create an account", "haveAccount": "Already have an account? Login",
     "chooseLanguage": "Choose your language"
   },
+  "landing": {
+    "badge": "Built for Indian farms",
+    "line1": "Right crop.", "line2": "Right water.", "line3": "Healthy", "highlight": "harvest.",
+    "sub": "FarmGuard reads your field's soil, weather and satellite data to give advice grounded in real numbers, works even without internet, and speaks your language.",
+    "f1": "🦠 Offline disease scan", "f2": "💧 When to irrigate", "f3": "🛰️ Satellite field health",
+    "speaks": "Speaks", "welcome": "Welcome back 👋", "loginHint": "Log in with your mobile number", "join": "Join FarmGuard 🌱"
+  },
   "nav": {
     "dashboard": "Home", "farm": "My Farm", "status": "System Status", "messages": "Messages",
     "family": "Family", "weather": "Weather", "irrigation": "Irrigation", "scan": "Disease Scan",

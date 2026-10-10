@@ -34,7 +34,7 @@ self.addEventListener('fetch', (event) => {
   }
   event.respondWith(
     caches.match(req).then((hit) => hit || fetch(req).then((res) => {
-      if (res.ok && (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/icons/'))) {
+      if (res.ok && (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/icons/') || url.pathname.startsWith('/img/'))) {
         const copy = res.clone()
         caches.open(SHELL).then((c) => c.put(req, copy))
       }

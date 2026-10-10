@@ -42,9 +42,12 @@ export default function Register() {
   )
 
   return (
-    <AuthShell>
+    <AuthShell alt={{ to: '/login', label: t('auth.login') }}>
       <form onSubmit={submit} className="space-y-4">
-        <h2 className="text-xl font-bold">{t('auth.register')}</h2>
+        <div>
+          <h2 className="font-serif text-2xl font-bold">{t('landing.join')}</h2>
+          <p className="text-sm text-gray-600">{t('auth.register')}</p>
+        </div>
         <div>
           <span className="label">{t('auth.iAm')}</span>
           <div className="grid grid-cols-2 gap-2">
