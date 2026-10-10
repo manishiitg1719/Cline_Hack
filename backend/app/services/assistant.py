@@ -6,6 +6,9 @@ and the reason is reported (mode/source/note) so the UI shows the right badge.
 from __future__ import annotations
 
 import json
+import os
+
+import httpx
 
 from sqlalchemy.orm import Session
 
@@ -19,6 +22,25 @@ SYSTEM = (
     "say so and suggest the local KVK / Krishi officer. Never invent prices, doses or scheme amounts. "
     "For pesticides always say 'as per label'."
 )
+
+
+AGENT_URL = os.getenv("AGENT_URL", "http://127.0.0.1:8010/ask")
+
+
+def _ask_agent(text: str, lang: str, ctx: dict, note: str, history: list[dict] | None) -> dict | None:
+    """Ask the Cline SDK agent (agent/server.mjs). Returns None if it is not running or fails."""
+    try:
+        r = httpx.post(AGENT_URL, json={
+            "question": text, "language": lang, "note": note,
+            "farm": {k: v for k, v in ctx.items() if k != "has_location"},
+            "history": (history or [])[-6:],
+        }, timeout=60)
+        if r.status_code != 200:
+            return None
+        data = r.json()
+        return data if data.get("answer") else None
+    except Exception:
+        return None
 
 
 def intro(lang: str) -> dict:
@@ -40,6 +62,11 @@ def answer(db: Session, farmer: User, text: str, lang: str, history: list[dict] 
         if h.get("role") in ("user", "assistant") and isinstance(h.get("content"), str):
             messages.append({"role": h["role"], "content": h["content"][:500]})
     messages.append({"role": "user", "content": text})
+    agent = _ask_agent(text, lang, json.loads(farm_json) if farm_json else {}, fb["answer"] if fb["matched"] else "", history)
+    if agent:
+        tools = ", ".join(agent.get("tools_used") or [])
+        return {"mode": "live", "source": "Cline SDK agent" + (f" · tools: {tools}" if tools else ""),
+                "answer": agent["answer"].strip(), "link": fb["link"], "note": ""}
     try:
         reply = llm.chat(db, messages, max_tokens=350, temperature=0.3)
         return {"mode": "live", "source": "AI + your farm data", "answer": reply.strip(), "link": fb["link"], "note": ""}

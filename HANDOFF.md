@@ -32,6 +32,11 @@ It only needs to run on Archit's laptop (no Android / phone build).
   that the Cline key works — open System Status and confirm the AI row says LIVE.
 - Leftover temp file `frontend/dist/_preview.tgz` can be deleted (dist is git-ignored).
 - A pitch deck was made separately (13 slides, Claude artifact "FarmGuard Pitch Deck").
+- **Cline SDK agent (bonus points):** `agent/server.mjs` uses `@cline/agents` (Cline SDK) with `providerId: 'cline'` and the
+  Cline key from `backend/.env`. One tool, `get_farm_info`. Backend `services/assistant.py` asks it first
+  (`AGENT_URL`, default http://127.0.0.1:8010/ask); if it is down it uses the old LLM/FALLBACK path. `start.bat` installs and
+  starts it, `stop.bat` stops port 8010. Tested end to end: answer source shows "Cline SDK agent · tools: get_farm_info".
+- Model id fixed: `anthropic/claude-sonnet-4-6` does NOT exist on the Cline API -> now `LLM_MODEL=anthropic/claude-haiku-5.5`.
 
 **Next task Archit wants: live Mandi Prices (about 45–60 min)**
 - `providers/registry.py` already registers `MarketProvider("market", "Mandi prices", "data.gov.in AGMARKNET", ...)`

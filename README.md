@@ -17,7 +17,7 @@ the advice is in English, and a disease is only noticed after it has already spr
 | 🌱 | **Crop Advisor** | Uses the soil map, last year's weather and your Soil Health Card to suggest the top 3 crops, expected profit and a rotation plan. |
 | 💧 | **Irrigation & weather** | 7-day forecast and a simple answer: *Irrigate now*, *Delay* or *No need* (FAO-56 water balance). Weather alerts too. |
 | 🛰️ | **Field health** | Free Sentinel-2 satellite images give a greenness score, trend and a warning for weak patches. |
-| 💬 | **Ask FarmGuard** | Ask farming questions. Answers use your own farm data. Tap 🎤 to speak, and answers are read out loud. |
+| 💬 | **Ask FarmGuard** | Ask farming questions. It's an AI agent built with the **Cline SDK** that looks up your own farm data (crop, weather, watering advice, nearby disease alerts) before it answers. Tap 🎤 to speak, and answers are read out loud. |
 | 🏛️ | **Govt schemes** | 8 big schemes (PM-KISAN, crop insurance, KCC…) explained properly: benefits, who can and can't apply, documents, steps, helpline. Tap 🔊 to hear it. |
 | 👨‍👩‍👦 | **Family Helper** | A son or daughter links with a 6-digit code and can help run the farm from anywhere, with the farmer's permission. |
 | 📨 | **Messages** | Pick a ready message, it gets written in the other person's language, and opens in WhatsApp or SMS. |
@@ -43,7 +43,7 @@ You need **Python 3.11+** (we use 3.14) and **Node 18+**.
 
 **Easiest way:** double-click **`start.bat`** in the project folder.
 
-It installs what's missing the first time, starts the backend and the frontend in two small windows, loads demo data
+It installs what's missing the first time, starts the backend, the frontend and the Cline SDK agent in small windows, loads demo data
 and opens **http://localhost:5173**. Keep those two windows open while you use the app. **`stop.bat`** closes everything.
 
 Demo logins:
@@ -72,6 +72,8 @@ npm run dev
 cd backend
 py scripts/seed_demo.py
 ```
+
+Optional 4th terminal for the AI agent: `cd agent`, `npm install`, `node server.mjs` (port 8010).
 
 Open **http://localhost:5173**. Port 8000 is only the API (docs at http://127.0.0.1:8000/docs).
 
@@ -118,6 +120,7 @@ Use `cmd` for the build, because PowerShell treats the chunk-size warning as an 
 - **Frontend:** React 18, Vite, Tailwind CSS, Leaflet maps, react-i18next, installable PWA
 - **Backend:** FastAPI, SQLite, scikit-learn (DBSCAN for the radar)
 - **Disease AI:** DINOv2-small model running in the browser with ONNX Runtime Web
+- **AI agent:** `agent/server.mjs`, built with the **Cline SDK** (`@cline/agents`) and the Cline API. It has a `get_farm_info` tool and powers Ask FarmGuard. If it's not running, the app falls back to the normal answers
 - **Free data:** Open-Meteo, ISRIC SoilGrids, Sentinel-2 via Microsoft Planetary Computer, OpenStreetMap, Esri imagery
 
 ## Project folders
@@ -129,6 +132,7 @@ backend/          FastAPI + SQLite
   app/services/   the logic (irrigation, radar, crop advisor, assistant, alerts…)
   scripts/        demo data and test helpers
   tests/          pytest
+agent/           Cline SDK agent for Ask FarmGuard (Node, port 8010)
 frontend/         React app
   src/pages/      one file per screen
   src/components/ shared parts (top bar, maps, badges…)

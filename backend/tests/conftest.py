@@ -14,6 +14,7 @@ os.environ["SECRET_KEY"] = "test-secret-key-that-is-long-enough-for-hs256"
 os.environ["LLM_ENABLED"] = "false"
 os.environ["FORCE_FALLBACK"] = "false"
 os.environ["RADAR_INTERVAL_MINUTES"] = "0"  # no background job in tests
+os.environ["AGENT_URL"] = "http://127.0.0.1:9/ask"  # never reach a real Cline SDK agent in tests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 

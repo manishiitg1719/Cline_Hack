@@ -10,13 +10,17 @@ cd /d "%~dp0"
 
 echo.
 echo  [1/5] Stopping old FarmGuard servers (ports 8000 / 5173) if any...
-for /f "tokens=5" %%p in ('netstat -ano ^| findstr /r /c:":8000 .*LISTENING" /c:":5173 .*LISTENING"') do taskkill /F /PID %%p >nul 2>&1
+for /f "tokens=5" %%p in ('netstat -ano ^| findstr /r /c:":8000 .*LISTENING" /c:":5173 .*LISTENING" /c:":8010 .*LISTENING"') do taskkill /F /PID %%p >nul 2>&1
 
 echo  [2/5] Checking dependencies...
 py -c "import fastapi, uvicorn, sqlalchemy, jwt, bcrypt, sklearn" >nul 2>&1
 if errorlevel 1 (
   echo        Installing Python packages - first time only, may take a few minutes...
   py -m pip install -r backend\requirements.txt
+)
+if not exist agent\node_modules (
+  echo        Installing Cline SDK agent packages - first time only...
+  pushd agent && call npm install && popd
 )
 if not exist frontend\node_modules (
   echo        Installing frontend packages - first time only...
@@ -25,6 +29,9 @@ if not exist frontend\node_modules (
 
 echo  [3/5] Starting BACKEND  (window "FarmGuard Backend", port 8000)...
 start "FarmGuard Backend - KEEP OPEN" /min cmd /k "cd /d %~dp0backend && py -m uvicorn app.main:app --port 8000"
+
+echo        Starting CLINE SDK AGENT (window "FarmGuard Agent", port 8010)...
+start "FarmGuard Agent - KEEP OPEN" /min cmd /k "cd /d %~dp0agent && node server.mjs"
 
 echo  [4/5] Starting FRONTEND (window "FarmGuard Frontend", port 5173)...
 start "FarmGuard Frontend - KEEP OPEN" /min cmd /k "cd /d %~dp0frontend && npm run dev"

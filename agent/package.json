@@ -1,0 +1,15 @@
+{
+  "name": "farmguard-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ask FarmGuard agent built with the Cline SDK (@cline/agents)",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": { "start": "node server.mjs" },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "@cline/agents": "0.0.92",
+    "@cline/llms": "0.0.92",
+    "@cline/shared": "0.0.92"
+  }
+}
