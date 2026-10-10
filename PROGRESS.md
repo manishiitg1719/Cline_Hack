@@ -19,6 +19,10 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 
 **🎉 All 9 phases complete.** See "Remaining / future work" at the bottom.
 
+**UI redesign (after phase 9, commit `26e24b8`):** sunny rice-field photo hero on Login/Register (`AuthShell` in
+`pages/Login.jsx`), faint photo background inside the app (`index.css` `body::before`), glass sidebar/bottom nav.
+Details and the current to-do list: [`HANDOFF.md`](HANDOFF.md).
+
 ## Phase 9 additions
 - Assistant: `shared/assistant/faq.json` (intents + keywords), `faq_en.json`/`faq_hi.json` (17 FAQ answers, dynamic templates, suggestions). `services/assistant_fallback.py` (match → live farm answer for irrigation/weather/nearby outbreaks, or FAQ) and `services/assistant.py` (LIVE: LLM with farm-data JSON + reference note + last 6 turns; any failure → FALLBACK). Endpoints `GET /api/assistant/intro`, `POST /api/assistant/ask`.
 - Schemes: `shared/schemes/schemes.json` (8 central schemes, EN/HI, official URLs, `last_checked`). `GET /api/schemes`.

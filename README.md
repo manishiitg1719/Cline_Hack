@@ -18,7 +18,7 @@ FarmGuard is an installable, offline-capable farming web app (PWA) for Indian sm
 Every smart feature runs in **LIVE** mode (online service) or **FALLBACK** mode (built-in / saved data) and always shows which.
 No paid API is required.
 
-> 📋 Build log & remaining work: [`PROGRESS.md`](PROGRESS.md) · 🎤 Demo: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) · 📄 Judges PDF: [`docs/FarmGuard_Judges_Overview.pdf`](docs/FarmGuard_Judges_Overview.pdf)
+> 🤝 Handoff / current status: [`HANDOFF.md`](HANDOFF.md) · 📋 Build log & remaining work: [`PROGRESS.md`](PROGRESS.md) · 🎤 Demo: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) · 📄 Judges PDF: [`docs/FarmGuard_Judges_Overview.pdf`](docs/FarmGuard_Judges_Overview.pdf)
 
 ## ▶️ How to run (easiest)
 **Double-click `start.bat`** in `D:\Cline_Hackathon`. It opens **two server windows** (Backend + Frontend), loads demo
