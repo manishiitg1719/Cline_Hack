@@ -34,7 +34,7 @@ export default function Assistant() {
       const r = await api('/assistant/ask', { method: 'POST', params: farmerParam, body: { message, language: lang, history } })
       setMsgs((m) => [...m, { role: 'assistant', content: r.answer, mode: r.mode, source: r.source, link: r.link }])
     } catch (e) {
-      setMsgs((m) => [...m, { role: 'assistant', content: e.status === 0 ? t('common.offline') : e.message, mode: 'fallback' }])
+      setMsgs((m) => [...m, { role: 'assistant', content: e.message, mode: 'fallback' }])
     } finally {
       setBusy(false)
     }

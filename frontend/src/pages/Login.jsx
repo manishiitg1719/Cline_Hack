@@ -42,7 +42,7 @@ export default function Login() {
       await login(phone.trim(), password)
       navigate('/')
     } catch (err) {
-      setError(err.status === 0 ? t('common.offline') : err.message)
+      setError(err.message)
     } finally {
       setBusy(false)
     }

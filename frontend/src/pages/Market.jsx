@@ -17,7 +17,7 @@ export default function Market() {
   const load = useCallback(() => {
     setError('')
     api('/listings', { params: { kind, category: category || undefined, mine: mine || undefined } })
-      .then(setData).catch((e) => setError(e.status === 0 ? t('common.offline') : e.message))
+      .then(setData).catch((e) => setError(e.message))
   }, [kind, category, mine, t])
   useEffect(() => { load() }, [load])
 

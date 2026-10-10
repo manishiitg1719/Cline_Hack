@@ -3,7 +3,7 @@
   "common": {
     "save": "Save", "saved": "Saved ✓", "cancel": "Cancel", "loading": "Loading…", "logout": "Logout",
     "language": "Language", "error": "Something went wrong", "offline": "You are offline", "back": "Back",
-    "optional": "optional", "comingSoon": "Coming in a later phase"
+    "optional": "optional", "comingSoon": "Coming in a later phase", "retry": "Try again"
   },
   "auth": {
     "login": "Login", "register": "Create account", "phone": "Mobile number", "password": "Password",
@@ -169,6 +169,11 @@
     "privacy": "Your name, village and phone number will be shown to nearby farmers so they can contact you.",
     "unit": { "hour": "hour", "day": "day", "acre": "acre", "quintal": "quintal", "tonne": "tonne", "trolley": "trolley", "free": "free" },
     "cat": { "tractor": "Tractor", "harvester": "Harvester", "rotavator": "Rotavator", "seeder": "Seeder / Happy Seeder", "sprayer": "Sprayer", "thresher": "Thresher", "pump": "Water pump", "other": "Other", "straw": "Straw / parali", "husk": "Husk", "stalks": "Stalks", "dung": "Dung / manure", "bagasse": "Bagasse" }
+  },
+  "server": {
+    "backend": "FarmGuard server is OFF (the \"FarmGuard Backend\" window was closed). Run start.bat again — your data is safe.",
+    "app": "FarmGuard app server is OFF (the \"FarmGuard Frontend\" window was closed). Run start.bat again, then reload this page.",
+    "offline": "No internet on this device. Disease Scan and saved data still work."
   },
   "pwa": { "offline": "You are offline — showing saved data. Disease Scan still works.", "installHint": "Install FarmGuard on your phone for quick, offline access.", "install": "Install" },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },

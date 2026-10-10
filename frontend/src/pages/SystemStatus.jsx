@@ -11,7 +11,7 @@ export default function SystemStatus() {
   const load = () =>
     api('/status')
       .then(setData)
-      .catch((e) => setError(e.status === 0 ? t('common.offline') : e.message))
+      .catch((e) => setError(e.message))
 
   useEffect(() => {
     load()

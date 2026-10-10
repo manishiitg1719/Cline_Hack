@@ -14,6 +14,6 @@ export default function FarmDataGate({ state, children }) {
       </div>
     )
   if (state.error)
-    return <div className="card border-l-4 border-red-400 text-red-700">{state.errorStatus === 0 ? t('common.offline') : state.error}</div>
+    return <div className="card border-l-4 border-red-400 text-red-700">{state.error}</div>
   return children
 }

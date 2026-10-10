@@ -8,6 +8,8 @@ const ACTING_KEY = 'farmguard_acting_for'
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(Boolean(getToken()))
+  // Set when we have a saved login but the server could not be reached to confirm it.
+  const [connError, setConnError] = useState('')
   // For helpers: which linked farmer they are currently acting for
   const [actingFor, setActingForState] = useState(() => {
     const raw = localStorage.getItem(ACTING_KEY)
@@ -19,13 +21,21 @@ export function AuthProvider({ children }) {
     if (u?.language) i18n.changeLanguage(u.language)
   }, [])
 
-  useEffect(() => {
-    if (!getToken()) return
+  const loadMe = useCallback(() => {
+    if (!getToken()) return setLoading(false)
+    setLoading(true)
     api('/auth/me')
-      .then(applyUser)
-      .catch(() => setToken(null))
+      .then((u) => { setConnError(''); applyUser(u) })
+      // Only forget the login if the server REJECTED it (401). If the server is just unreachable,
+      // keep the token and show "server is off" + Retry instead of throwing the user to the login page.
+      .catch((e) => {
+        if (e.status === 401) setToken(null)
+        else setConnError(e.message)
+      })
       .finally(() => setLoading(false))
   }, [applyUser])
+
+  useEffect(() => { loadMe() }, [loadMe])
 
   const login = async (phone, password) => {
     const res = await api('/auth/login', { method: 'POST', body: { phone, password } })
@@ -63,7 +73,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser: applyUser, loading, login, register, logout, changeLanguage, actingFor, setActingFor, farmerParam }}
+      value={{ user, setUser: applyUser, loading, login, register, logout, changeLanguage, actingFor, setActingFor, farmerParam, connError, retry: loadMe }}
     >
       {children}
     </AuthContext.Provider>

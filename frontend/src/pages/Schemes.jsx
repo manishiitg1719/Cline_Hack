@@ -11,7 +11,7 @@ export default function Schemes() {
   const [open, setOpen] = useState(null)
 
   useEffect(() => {
-    api('/schemes', { params: { language: lang } }).then(setData).catch((e) => setError(e.status === 0 ? t('common.offline') : e.message))
+    api('/schemes', { params: { language: lang } }).then(setData).catch((e) => setError(e.message))
   }, [lang, t])
 
   return (

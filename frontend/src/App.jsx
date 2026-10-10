@@ -29,9 +29,20 @@ function Loading() {
 }
 
 function Protected({ children }) {
-  const { user, loading } = useAuth()
+  const { user, loading, connError, retry, logout } = useAuth()
   const { t } = useTranslation()
   if (loading) return <div className="p-8 text-center text-gray-500">{t('common.loading')}</div>
+  if (!user && connError)
+    return (
+      <div className="mx-auto mt-16 max-w-md space-y-3 p-4 text-center">
+        <div className="text-5xl">⚠️</div>
+        <p className="font-semibold text-red-700">{connError}</p>
+        <div className="flex justify-center gap-2">
+          <button className="btn-primary" onClick={retry}>🔄 {t('common.retry')}</button>
+          <button className="btn-outline" onClick={logout}>{t('common.logout')}</button>
+        </div>
+      </div>
+    )
   return user ? children : <Navigate to="/login" replace />
 }
 

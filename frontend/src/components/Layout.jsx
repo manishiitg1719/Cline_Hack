@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext.jsx'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 import NotificationBell from './NotificationBell.jsx'
 import InstallPrompt from './InstallPrompt.jsx'
+import ServerStatusBanner from './ServerStatusBanner.jsx'
 
 // All app sections (sidebar on desktop, dashboard grid; mobile shows MOBILE + "More" → dashboard grid)
 export const NAV = [
@@ -71,6 +72,7 @@ export default function Layout() {
           </button>
         </div>
       </header>
+      <ServerStatusBanner />
       <InstallPrompt />
 
       <main className="mx-auto max-w-5xl p-4">

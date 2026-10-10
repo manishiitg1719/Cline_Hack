@@ -23,7 +23,7 @@ export default function Register() {
       await register({ ...form, phone: form.phone.replace(/\s/g, ''), language: i18n.language === 'en' ? 'en' : 'hi' })
       navigate(form.role === 'farmer' ? '/farm' : '/')
     } catch (err) {
-      setError(err.status === 0 ? t('common.offline') : err.message)
+      setError(err.message)
     } finally {
       setBusy(false)
     }

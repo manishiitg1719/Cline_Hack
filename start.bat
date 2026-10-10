@@ -24,10 +24,10 @@ if not exist frontend\node_modules (
 )
 
 echo  [3/5] Starting BACKEND  (window "FarmGuard Backend", port 8000)...
-start "FarmGuard Backend" cmd /k "cd /d %~dp0backend && python -m uvicorn app.main:app --port 8000"
+start "FarmGuard Backend - KEEP OPEN" /min cmd /k "cd /d %~dp0backend && python -m uvicorn app.main:app --port 8000"
 
 echo  [4/5] Starting FRONTEND (window "FarmGuard Frontend", port 5173)...
-start "FarmGuard Frontend" cmd /k "cd /d %~dp0frontend && npm run dev"
+start "FarmGuard Frontend - KEEP OPEN" /min cmd /k "cd /d %~dp0frontend && npm run dev"
 
 echo  [5/5] Loading demo data (waits for the backend)...
 python backend\scripts\seed_demo.py
@@ -45,7 +45,11 @@ echo  ===========================================================
 echo   FarmGuard is running:  http://localhost:5173
 echo   Farmer login : 9999900001 / demo1234   (Hindi)
 echo   Helper login : 9999900002 / demo1234   (English)
-echo   Keep the two server windows OPEN. Close them to stop.
+echo.
+echo   The two MINIMISED windows on the taskbar are the servers.
+echo   DO NOT CLOSE THEM while using the app (that causes "server is OFF").
+echo   You can close THIS window. To stop everything: stop.bat
+echo   Your accounts and farm data are saved in backend\farmguard.db
 echo  ===========================================================
 echo.
 pause
