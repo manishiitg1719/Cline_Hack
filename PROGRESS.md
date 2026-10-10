@@ -14,8 +14,8 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 | 5 | 🦠 Offline disease scanner (ONNX Runtime Web, DINOv2-small, 38 classes) + EN/HI treatment knowledge base + offline scan queue/sync | ✅ Done |
 | 6 | 📡 Village Disease Radar — DBSCAN clusters over `scans`, weather risk (Hutton criteria etc.), alerts, Leaflet map, demo seed | ✅ Done |
 | 7 | 🌱 Smart Crop Advisor — SoilGrids + seasonal climate, explainable scoring, Top-3, rotation, fertilizer tips, Soil Health Card (AI vision LIVE / manual FALLBACK) | ✅ Done (soil-PHOTO model skipped: no licensed open model found → picture-based soil picker + SoilGrids instead) |
-| 8 | 🛰️ Satellite field health (Earth Engine / estimate fallback) | ⏳ Next |
-| 9 | Assistant chat, schemes/rental/waste pages, PWA offline, updated judges PDF, demo script | ⬜ Todo |
+| 8 | 🛰️ Satellite field health — Sentinel-2 via Microsoft Planetary Computer (free, no key) instead of Earth Engine; NDVI/NDMI, health score, trend, flags; weather-estimate FALLBACK | ✅ Done |
+| 9 | Assistant chat, schemes/rental/waste pages, PWA offline, updated judges PDF, demo script | ⏳ Next |
 
 ## Phase 2 + 3 additions
 - Backend: `GET /api/messages/templates`, `POST /api/messages/render`, `/api/contacts` CRUD, `GET /api/notifications`, `POST /api/notifications/{id}/read`, `POST /api/notifications/read-all`
@@ -62,6 +62,14 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 - Frontend: `pages/CropAdvisor.jsx` (4-step wizard, lazy), `components/SeasonSoilStep.jsx`, `SoilCardStep.jsx`, `CropResults.jsx`; `apiUpload()` in `api.js`.
 - Live check (Ludhiana, canal, after rice): Rabi → chickpea / mustard / wheat; Kharif → cotton / pigeon pea / groundnut (SoilGrids pH 8.0, archive 15.2 °C / 122 mm Rabi).
 
+## Phase 8 additions
+- **Data source changed**: Google Earth Engine needs an account → used **Microsoft Planetary Computer** (Sentinel-2 L2A, free, no key, plain HTTP). `SATELLITE_ENABLED=true` by default (`EARTH_ENGINE_ENABLED` removed).
+- `providers/sentinel.py` — STAC search (cloud < 40 %) + server-side zonal statistics (TiTiler `item/statistics`) inside a ≈330 m box around the farm point: SCL (skip scenes where the **field** is < 80 % clear), NDVI `(B08-B04)/(B08+B04)`, NDMI `(B8A-B11)/(B8A+B11)`, low-NDVI patch %. One NDVI point per month (≤ 7) for the trend.
+- `providers/satellite.py` — LIVE with 12 h in-memory cache per field; FALLBACK = weather-based water-condition estimate (soil moisture + 7-day rain vs ET0), clearly labelled.
+- `services/field_health.py` — score 0–100 from NDVI; status healthy/moderate/stressed/bare; flags water_stress/water_ok/dropping/growing/patchy/bare_or_harvested.
+- Endpoint `GET /api/satellite`. Frontend `pages/FieldHealth.jsx` (lazy; score ring, flags, SVG `NdviChart.jsx`, Esri satellite basemap with analysed area). Attribution shown (Copernicus Sentinel, Planetary Computer, Esri).
+- Live check (Ludhiana rice field): 7 clear monthly images Apr→Oct, NDVI 0.12 → 0.45 (Sep) → 0.27 (8 Oct, "dropping" ≈ harvest time); first call ~13 s, cached ~0.01 s.
+
 ## What exists after Phase 1
 
 **Backend (`backend/app`)**
@@ -82,8 +90,8 @@ Every feature must support **LIVE / FALLBACK** and show a `ModeBadge`.
 3. Update this checklist at the end of each phase.
 
 ## Verified at this checkpoint
-- Backend: **72 pytest tests pass** (`python -m pytest -q`; takes ~30 s — run in background if your shell has a 30 s limit)
-- Frontend: **17 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes, every crop reason code translated), `npm run build` succeeds
+- Backend: **76 pytest tests pass** (`python -m pytest -q`; takes ~30 s — run in background if your shell has a 30 s limit)
+- Frontend: **18 vitest tests pass** (incl. EN/HI key parity, KB covers all 38 model classes, every crop reason / satellite flag translated), `npm run build` succeeds
 - Radar live demo (real Open-Meteo weather, Ludhiana): 7 demo farms → OUTBREAK, alerts to farmer (Hindi), neighbour (English) and helper (English); hourly job ran without errors
 - Offline model in real browser (headless Edge, production build): **7/7 online and 7/7 with model files blocked** (served from device cache); ~0.2–0.7 s per scan
 - Live smoke test passed (register → farm → link helper → Hindi message → Help me → notification)

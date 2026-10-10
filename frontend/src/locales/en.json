@@ -131,6 +131,25 @@
     },
     "disclaimer": "Advice uses crop suitability ranges (FAO ECOCROP), your soil and last year's weather. Yields, prices and costs are estimates — confirm with your KVK."
   },
+  "sat": {
+    "intro": "Free Sentinel-2 satellite images (every ~5 days, 10 m detail) show how green and well-watered your field is — often before you can see a problem.",
+    "status": { "healthy": "Healthy", "moderate": "Moderate", "stressed": "Stressed / sparse", "bare": "Bare or harvested" },
+    "imageDate": "Clear satellite image from {{date}}", "ndvi": "Greenness (NDVI)", "ndmi": "Leaf water (NDMI)", "change": "Change since last image",
+    "flag": {
+      "bare_or_harvested": "🟤 Very little green — field is bare, just sown or harvested.",
+      "water_stress": "💧 Leaves look dry (low NDMI) — check irrigation.",
+      "water_ok": "💧 Leaf water content looks good.",
+      "dropping": "📉 Greenness dropped sharply since the last image — check for disease, pests or water stress (or it was harvested).",
+      "growing": "📈 Crop is growing well since the last image.",
+      "patchy": "⚠️ {{pct}}% of the field area looks weak — walk to the weak patches and scan leaves."
+    },
+    "trend": "Greenness over the last months", "trendHint": "Green band = dense healthy crop, yellow = sparse/stressed, grey = bare soil.",
+    "area": "Area analysed", "areaHint": "Yellow circle ≈ 330 m box around your marked farm point. Mark the field centre on My Farm for best results.",
+    "shareText": "🛰️ Field health: {{status}} ({{score}}/100), satellite image of {{date}}.",
+    "estimateTitle": "Water condition estimate", "estimateText": "No clear satellite image — estimate from soil moisture and the next 7 days (rain {{rain}} mm vs evaporation {{et}} mm).",
+    "estimateNote": "This is an estimate, not a satellite measurement.",
+    "attribution": "Contains modified Copernicus Sentinel data, processed via Microsoft Planetary Computer. Base map imagery © Esri."
+  },
   "notif": { "title": "Notifications", "empty": "No notifications yet", "readAll": "Mark all read" },
   "status": {
     "title": "System Status", "intro": "Every feature works in two modes. LIVE uses an online service; FALLBACK uses built-in data so the app never breaks.",

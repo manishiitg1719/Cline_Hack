@@ -34,9 +34,11 @@ class MarketProvider(Provider):
         return (True, "") if get_settings().data_gov_api_key else (False, "DATA_GOV_API_KEY not set")
 
 
-class EarthEngineProvider(Provider):
+class SatelliteProvider(Provider):
+    """Sentinel-2 via Microsoft Planetary Computer (free, no key)."""
+
     def configured(self):
-        return (True, "") if get_settings().earth_engine_enabled else (False, "EARTH_ENGINE_ENABLED is false")
+        return (True, "") if get_settings().satellite_enabled else (False, "SATELLITE_ENABLED is false")
 
 
 PROVIDERS: dict[str, Provider] = {
@@ -46,7 +48,7 @@ PROVIDERS: dict[str, Provider] = {
         OpenMeteoProvider("weather", "Weather forecast", "Open-Meteo", "Last saved forecast"),
         SoilGridsProvider("soil", "Soil data by location", "ISRIC SoilGrids", "Regional soil averages"),
         MarketProvider("market", "Mandi prices", "data.gov.in AGMARKNET", "MSP table / last saved prices", needs_key=True),
-        EarthEngineProvider("satellite", "Satellite field health", "Google Earth Engine", "Weather + soil estimate", needs_key=True),
+        SatelliteProvider("satellite", "Satellite field health", "Sentinel-2 (Planetary Computer)", "Weather-based estimate"),
     )
 }
 

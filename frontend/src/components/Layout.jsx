@@ -15,7 +15,7 @@ export const NAV = [
   { to: '/scan', key: 'scan', icon: '🦠', ready: true },
   { to: '/radar', key: 'radar', icon: '📡', ready: true },
   { to: '/crop', key: 'crop', icon: '🌱', ready: true },
-  { to: '/satellite', key: 'satellite', icon: '🛰️' },
+  { to: '/satellite', key: 'satellite', icon: '🛰️', ready: true },
   { to: '/status', key: 'status', icon: '🔀', ready: true },
 ]
 

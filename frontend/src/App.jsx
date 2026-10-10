@@ -17,6 +17,7 @@ import { lazy, Suspense } from 'react'
 const Scan = lazy(() => import('./pages/Scan.jsx'))
 const Radar = lazy(() => import('./pages/Radar.jsx'))
 const CropAdvisor = lazy(() => import('./pages/CropAdvisor.jsx'))
+const FieldHealth = lazy(() => import('./pages/FieldHealth.jsx'))
 
 function Loading() {
   const { t } = useTranslation()
@@ -52,6 +53,7 @@ export default function App() {
         <Route path="scan" element={<Suspense fallback={<Loading />}><Scan /></Suspense>} />
         <Route path="radar" element={<Suspense fallback={<Loading />}><Radar /></Suspense>} />
         <Route path="crop" element={<Suspense fallback={<Loading />}><CropAdvisor /></Suspense>} />
+        <Route path="satellite" element={<Suspense fallback={<Loading />}><FieldHealth /></Suspense>} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

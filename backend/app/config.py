@@ -45,7 +45,8 @@ class Settings:
         # Optional keyed services
         self.data_gov_api_key = os.getenv("DATA_GOV_API_KEY", "")
         self.openweather_api_key = os.getenv("OPENWEATHER_API_KEY", "")
-        self.earth_engine_enabled = _bool("EARTH_ENGINE_ENABLED", False)
+        # Sentinel-2 via Microsoft Planetary Computer: free, no key → on by default
+        self.satellite_enabled = _bool("SATELLITE_ENABLED", True)
 
 
 @lru_cache
