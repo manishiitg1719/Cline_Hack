@@ -26,8 +26,30 @@ def account(c: httpx.Client, phone: str, name: str, role: str, lang: str) -> tup
     return body["user"], {"Authorization": f"Bearer {body['token']}"}
 
 
+def wait_for_backend(c: httpx.Client, seconds: int = 30) -> None:
+    """Wait until the backend answers; exit with a clear message instead of a traceback."""
+    import time
+
+    for i in range(seconds):
+        try:
+            if c.get("/api/health", timeout=3).status_code == 200:
+                return
+        except httpx.HTTPError:
+            pass
+        if i == 0:
+            print(f"Waiting for the backend at {BASE} ...")
+        time.sleep(1)
+    print(f"\nERROR: the FarmGuard backend is not running at {BASE}.\n"
+          "Start it FIRST in its own terminal and keep that window open:\n"
+          "    cd D:\\Cline_Hackathon\\backend\n"
+          "    python -m uvicorn app.main:app --port 8000\n"
+          "or simply double-click start.bat in D:\\Cline_Hackathon.")
+    sys.exit(1)
+
+
 def main() -> None:
     c = httpx.Client(base_url=BASE, timeout=60)
+    wait_for_backend(c)
     farmer, fh = account(c, "9999900001", "Gurpreet Singh", "farmer", "hi")
     helper, hh = account(c, "9999900002", "Aman (son)", "helper", "en")
     neighbour, nh = account(c, "9999900003", "Harjit (neighbour)", "farmer", "hi")

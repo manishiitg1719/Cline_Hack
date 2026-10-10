@@ -8,6 +8,11 @@ def test_health(client):
     assert client.get("/api/health").json()["app"] == "FarmGuard"
 
 
+def test_root_page_instead_of_404(client):
+    r = client.get("/")
+    assert r.status_code == 200 and "FarmGuard API is running" in r.text and "5173" in r.text
+
+
 def test_register_login_me(client):
     user, headers = register(client)
     assert user["role"] == "farmer"

@@ -42,6 +42,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    strictPort: true, // fail loudly if 5173 is busy (an old dev server is still running) instead of moving to 5174
     fs: { allow: ['..'] },
     proxy: {
       '/api': 'http://127.0.0.1:8000',

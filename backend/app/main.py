@@ -59,5 +59,6 @@ app.add_middleware(
 )
 
 for r in (status.router, auth.router, farm.router, messages.router, family.router, weather.router, scans.router,
-          radar.router, radar_demo.router, crop.router, satellite.router, assistant.router, market.router):
+          radar.router, radar_demo.router, crop.router, satellite.router, assistant.router, market.router,
+          status.root_router):
     app.include_router(r)

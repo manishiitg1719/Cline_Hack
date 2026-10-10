@@ -20,12 +20,35 @@ No paid API is required.
 
 > 📋 Build log & remaining work: [`PROGRESS.md`](PROGRESS.md) · 🎤 Demo: [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) · 📄 Judges PDF: [`docs/FarmGuard_Judges_Overview.pdf`](docs/FarmGuard_Judges_Overview.pdf)
 
-## Quick demo
+## ▶️ How to run (easiest)
+**Double-click `start.bat`** in `D:\Cline_Hackathon`. It opens **two server windows** (Backend + Frontend), loads demo
+data and opens http://localhost:5173. **Keep both windows open** while using the app. `stop.bat` stops everything.
+
+Demo logins: farmer `9999900001` / `demo1234` (Hindi) · helper `9999900002` / `demo1234` (English).
+
+### Manual way — needs THREE separate terminals (the servers keep running)
 ```powershell
-cd backend;  python -m uvicorn app.main:app --port 8000
-cd frontend; npm run dev
-cd backend;  python scripts/seed_demo.py     # farmer 9999900001 / helper 9999900002, password demo1234
+# Terminal 1 — backend (leave it running)
+cd D:\Cline_Hackathon\backend
+python -m uvicorn app.main:app --port 8000
+
+# Terminal 2 — frontend (leave it running)
+cd D:\Cline_Hackathon\frontend
+npm run dev
+
+# Terminal 3 — demo data (one time; runs and exits)
+cd D:\Cline_Hackathon\backend
+python scripts/seed_demo.py
 ```
+Open **http://localhost:5173** (the app). Port 8000 is only the API.
+
+### Troubleshooting
+| You see | Cause | Fix |
+|---|---|---|
+| "Cannot reach the FarmGuard server" in the app | Backend window closed / not started | Start Terminal 1 (or `start.bat`) |
+| `Port 5173 is already in use` | An old frontend is still running | Run `stop.bat`, then start again |
+| `seed_demo.py`: "backend is not running" | Seed run before the backend | Start the backend first, then re-run |
+| `http://127.0.0.1:8000` shows "API is running" | That's the backend, not the app | Open http://localhost:5173 |
 
 ## Credits
 Disease model: [plant-disease-dinov2-small](https://huggingface.co/rodynaemad/plant-disease-dinov2-small) by Rodayna Emad (CC BY-SA 4.0), PlantVillage data.
